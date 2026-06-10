@@ -1,4 +1,4 @@
-# Roo Code Changelog
+# Dew-Coder Changelog
 
 ## [3.23.16] - 2025-07-19
 

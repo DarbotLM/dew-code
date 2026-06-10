@@ -5,14 +5,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Thanks for your report!** Please check existing issues first:  
-        👉 https://github.com/RooCodeInc/Roo-Code/issues
+        **Thanks for your report!** Please check existing issues first:
+        https://github.com/darbotlm/dew-code/issues
 
   - type: input
     id: version
     attributes:
       label: App Version
-      description: What version of Roo Code are you using? (e.g., v3.3.1)
+      description: What version of Dew-Coder are you using? (e.g., v3.3.1)
     validations:
       required: true
 
@@ -54,19 +54,19 @@ body:
       required: true
 
   - type: textarea
-    id: roo-code-tasks
+    id: dew-coder-tasks
     attributes:
-      label: Roo Code Task Links (Optional)
+      label: Dew-Coder Task Links (Optional)
       description: |
         If you have any publicly shared task links that demonstrate the issue, please paste them here.
         This helps maintainers understand the context.
-        Example: https://app.roocode.com/share/task-id
-      placeholder: Paste your Roo Code share links here, one per line
+        Example: https://github.com/darbotlm/dew-code/issues
+      placeholder: Paste your Dew-Coder task links here, one per line
 
   - type: textarea
     id: steps
     attributes:
-      label: 🔁 Steps to Reproduce
+      label: Steps to Reproduce
       description: |
         Help us see what you saw. Give clear, numbered steps:
 
@@ -81,7 +81,7 @@ body:
   - type: textarea
     id: what-happened
     attributes:
-      label: 💥 Outcome Summary
+      label: Outcome Summary
       description: |
         Recap what went wrong in one or two lines.
 
@@ -93,6 +93,6 @@ body:
   - type: textarea
     id: logs
     attributes:
-      label: 📄 Relevant Logs or Errors (Optional)
+      label: Relevant Logs or Errors (Optional)
       description: Paste API logs, terminal output, or errors here. Use triple backticks (```) for code formatting.
       render: shell

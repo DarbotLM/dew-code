@@ -1,24 +1,24 @@
 name: Detailed Feature Proposal
-description: Report a specific problem that needs solving in Roo Code
+description: Report a specific problem that needs solving in Dew-Coder
 labels: ["proposal", "enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        **Thank you for submitting a feature request for Roo Code!**
-        
-        This template helps you describe problems that need solving. Focus on the problem - the Roo team will work to design solutions unless you want to contribute the implementation yourself.
-        
+        **Thank you for submitting a feature request for Dew-Coder!**
+
+        This template helps you describe problems that need solving. Focus on the problem so maintainers can design solutions unless you want to contribute the implementation yourself.
+
         **Quality over speed:** We prefer detailed, clear problem descriptions over quick ones. Vague requests often get closed or require multiple rounds of clarification, which wastes everyone's time.
-        
+
         **Before submitting:**
-        - Search existing [Issues](https://github.com/RooCodeInc/Roo-Code/issues) and [Discussions](https://github.com/RooCodeInc/Roo-Code/discussions) to avoid duplicates
-        - For general ideas, use [GitHub Discussions](https://github.com/RooCodeInc/Roo-Code/discussions/categories/feature-requests) instead of this template.
+        - Search existing [Issues](https://github.com/darbotlm/dew-code/issues) to avoid duplicates
+        - For general ideas, open a discussion issue before submitting an implementation proposal.
 
   - type: markdown
     attributes:
       value: |
-        ## ❌ Common mistakes that lead to request rejection:
+        ## Common mistakes that lead to request rejection:
         - **Vague problem descriptions:** "UI is bad" -> Should be: "Submit button is invisible on dark theme"
         - **Missing user impact:** "This would be cool" -> Should explain who benefits and how
         - **No specific context:** Describe exactly when and how the problem occurs
@@ -30,17 +30,17 @@ body:
       label: What specific problem does this solve?
       description: |
         **Be concrete and detailed.** Explain the problem from a user's perspective.
-        
-        ✅ **Good examples (specific, clear impact):**
+
+        **Good examples (specific, clear impact):**
         - "When running large tasks, users wait 5+ minutes because tasks execute sequentially instead of in parallel, blocking productivity"
         - "AI can only read one file per request, forcing users to make multiple requests for multi-file projects, increasing wait time from 30s to 5+ minutes"
         - "Dark theme users can't see the submit button because it uses white text on light grey background"
-        
-        ❌ **Poor examples (vague, unclear impact):**
+
+        **Poor examples (vague, unclear impact):**
         - "The UI looks weird" -> What specifically looks weird? On which screen? What's the impact?
         - "System prompt is not good" -> What's wrong with it? What behaviour does it cause? What should it do instead?
         - "Performance could be better" -> Where? How slow is it currently? What's the user impact?
-        
+
         **Your problem description should answer:**
         - Who is affected? (all users, specific user types, etc.)
         - When does this happen? (specific scenarios/steps)
@@ -58,14 +58,14 @@ body:
       description: Mockups, screenshots, links, user quotes, or other relevant information that supports your proposal.
 
   - type: textarea
-    id: roo-code-tasks
+    id: dew-coder-tasks
     attributes:
-      label: Roo Code Task Links (Optional)
+      label: Dew-Coder Task Links (Optional)
       description: |
-        If you used Roo Code to explore this feature request or develop solutions, share the public task links here.
+        If you used Dew-Coder to explore this feature request or develop solutions, share the public task links here.
         This helps maintainers understand the context and any exploration you've done.
-        Example: https://app.roocode.com/share/task-id
-      placeholder: Paste your Roo Code share links here, one per line
+        Example: https://github.com/darbotlm/dew-code/issues
+      placeholder: Paste your Dew-Coder task links here, one per line
 
   - type: checkboxes
     id: checklist
@@ -81,20 +81,20 @@ body:
     attributes:
       value: |
         ---
-        
-        ## 🛠️ **Optional: Contributing & Technical Analysis**
-        
-        **🎯 Just reporting a problem?** You can click "Submit new issue" right now! The sections below are only needed if you want to contribute a solution via pull request.
-        
-        **⚠️ Only continue if you want to:**
+
+        ## Optional: Contributing and Technical Analysis
+
+        **Just reporting a problem?** You can click "Submit new issue" right now. The sections below are only needed if you want to contribute a solution via pull request.
+
+        **Only continue if you want to:**
         - Propose a specific solution design
         - Implement the feature yourself via pull request
         - Provide technical analysis to help with implementation
-        
+
         **For contributors who continue:**
         - A maintainer (especially @hannesrudolph) will review this proposal. **Do not start implementation until approved and assigned.** We're a small team with limited resources, so every code addition needs careful consideration. We're always happy to receive clear, actionable proposals though!
-        - Join [Discord](https://discord.gg/roocode) and DM **Hannes Rudolph** (`hrudolph`) for guidance on implementation
-        - Check our [Roadmap](https://github.com/orgs/RooCodeInc/projects/1/views/1?query=sort%3Aupdated-desc+is%3Aopen&filterQuery=is%3Aissue%2Copen%2Cclosed+label%3A%22feature+request%22+status%3A%22Issue+%5BUnassigned%5D%22%2C%22Issue+%5BIn+Progress%5D%22) to see open feature requests ready to be implemented or currently being worked on
+        - Coordinate in the linked issue before starting implementation
+        - Check existing project boards or issue labels to see open feature requests ready to be implemented or currently being worked on
 
   - type: checkboxes
     id: willingness-to-contribute
@@ -121,19 +121,19 @@ body:
       label: How should this be solved? (REQUIRED if contributing, optional otherwise)
       description: |
         **If you want to implement this feature, this section is REQUIRED.**
-        
+
         **Describe your solution in detail.** Explain not just what to build, but how it should work.
-        
-        ✅ **Good examples:**
+
+        **Good examples:**
         - "Add parallel task execution: Allow up to 3 tasks to run simultaneously with a queue system for additional tasks. Show progress for each active task in the UI."
         - "Enable multi-file AI processing: Modify the request handler to accept multiple files in a single request and process them together, reducing round trips."
         - "Fix button contrast: Change submit button to use primary colour on dark theme (white text on blue background) instead of current grey."
-        
-        ❌ **Poor examples:**
+
+        **Poor examples:**
         - "Make it faster" -> How? What specific changes?
         - "Improve the UI" -> Which part? What specific improvements?
         - "Fix the prompt" -> What should the new prompt do differently?
-        
+
         **Your solution should explain:**
         - What exactly will change?
         - How will users interact with it?
@@ -146,9 +146,9 @@ body:
       label: How will we know it works? (Acceptance Criteria - REQUIRED if contributing, optional otherwise)
       description: |
         **If you want to implement this feature, this section is REQUIRED.**
-        
+
         **This is crucial - don't skip it.** Define what "working" looks like with specific, testable criteria.
-        
+
         **Format suggestion:**
         ```
         Given [context/situation]
@@ -157,7 +157,7 @@ body:
         And [additional expectations]
         But [what should NOT happen]
         ```
-        
+
         **Example:**
         ```
         Given I have 5 large tasks to run
@@ -177,7 +177,7 @@ body:
       label: Technical considerations (REQUIRED if contributing, optional otherwise)
       description: |
         **If you want to implement this feature, this section is REQUIRED.**
-        
+
         Share technical insights that could help planning:
         - Implementation approach or architecture changes
         - Performance implications
@@ -192,7 +192,7 @@ body:
       label: Trade-offs and risks (REQUIRED if contributing, optional otherwise)
       description: |
         **If you want to implement this feature, this section is REQUIRED.**
-        
+
         What could go wrong or what alternatives did you consider?
         - Alternative approaches and why you chose this one
         - Potential negative impacts (performance, UX, etc.)
