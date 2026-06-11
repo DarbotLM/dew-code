@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@/utils/test-utils"
 import { vi, describe, it, expect, beforeEach } from "vitest"
 import { TaskActions } from "../TaskActions"
-import type { HistoryItem } from "@roo-code/types"
+import type { HistoryItem } from "@dew-code/types"
 import { vscode } from "@/utils/vscode"
 import { useExtensionState } from "@/context/ExtensionStateContext"
 
@@ -226,7 +226,7 @@ describe("TaskActions", () => {
 			expect(screen.queryByText("Share Publicly")).not.toBeInTheDocument()
 		})
 
-		it("sends rooCloudSignIn message when connect to cloud is selected", () => {
+		it("sends dewCloudSignIn message when connect to cloud is selected", () => {
 			render(<TaskActions item={mockItem} buttonsDisabled={false} />)
 
 			// Find button by its icon class
@@ -239,7 +239,7 @@ describe("TaskActions", () => {
 			fireEvent.click(connectOption)
 
 			expect(mockPostMessage).toHaveBeenCalledWith({
-				type: "rooCloudSignIn",
+				type: "dewCloudSignIn",
 			})
 		})
 	})
@@ -312,9 +312,9 @@ describe("TaskActions", () => {
 			const connectButton = screen.getByText("Connect")
 			fireEvent.click(connectButton)
 
-			// Verify rooCloudSignIn message was sent
+			// Verify dewCloudSignIn message was sent
 			expect(mockPostMessage).toHaveBeenCalledWith({
-				type: "rooCloudSignIn",
+				type: "dewCloudSignIn",
 			})
 
 			// Simulate user becoming authenticated after clicking connect from share button

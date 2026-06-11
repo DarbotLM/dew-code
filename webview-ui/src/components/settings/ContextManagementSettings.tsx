@@ -18,7 +18,7 @@ type ContextManagementSettingsProps = HTMLAttributes<HTMLDivElement> & {
 	listApiConfigMeta: any[]
 	maxOpenTabsContext: number
 	maxWorkspaceFiles: number
-	showRooIgnoredFiles?: boolean
+	showDewIgnoredFiles?: boolean
 	maxReadFileLine?: number
 	maxConcurrentFileReads?: number
 	profileThresholds?: Record<string, number>
@@ -27,7 +27,7 @@ type ContextManagementSettingsProps = HTMLAttributes<HTMLDivElement> & {
 		| "autoCondenseContextPercent"
 		| "maxOpenTabsContext"
 		| "maxWorkspaceFiles"
-		| "showRooIgnoredFiles"
+		| "showDewIgnoredFiles"
 		| "maxReadFileLine"
 		| "maxConcurrentFileReads"
 		| "profileThresholds"
@@ -40,7 +40,7 @@ export const ContextManagementSettings = ({
 	listApiConfigMeta,
 	maxOpenTabsContext,
 	maxWorkspaceFiles,
-	showRooIgnoredFiles,
+	showDewIgnoredFiles,
 	setCachedStateField,
 	maxReadFileLine,
 	maxConcurrentFileReads,
@@ -149,15 +149,15 @@ export const ContextManagementSettings = ({
 
 				<div>
 					<VSCodeCheckbox
-						checked={showRooIgnoredFiles}
-						onChange={(e: any) => setCachedStateField("showRooIgnoredFiles", e.target.checked)}
-						data-testid="show-rooignored-files-checkbox">
+						checked={showDewIgnoredFiles}
+						onChange={(e: any) => setCachedStateField("showDewIgnoredFiles", e.target.checked)}
+						data-testid="show-dewignored-files-checkbox">
 						<label className="block font-medium mb-1">
-							{t("settings:contextManagement.rooignore.label")}
+							{t("settings:contextManagement.dewignore.label")}
 						</label>
 					</VSCodeCheckbox>
 					<div className="text-vscode-descriptionForeground text-sm mt-1 mb-3">
-						{t("settings:contextManagement.rooignore.description")}
+						{t("settings:contextManagement.dewignore.description")}
 					</div>
 				</div>
 

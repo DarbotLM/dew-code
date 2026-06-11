@@ -1,14 +1,14 @@
 // npx vitest run src/__tests__/CloudService.test.ts
 
 import * as vscode from "vscode"
-import type { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@dew-code/types"
 
 import { CloudService } from "../CloudService"
 import { WebAuthService } from "../auth/WebAuthService"
 import { CloudSettingsService } from "../CloudSettingsService"
 import { ShareService, TaskNotFoundError } from "../ShareService"
 import { TelemetryClient } from "../TelemetryClient"
-import { TelemetryService } from "@roo-code/telemetry"
+import { TelemetryService } from "@dew-code/telemetry"
 import { CloudServiceCallbacks } from "../types"
 
 vi.mock("vscode", () => ({
@@ -25,7 +25,7 @@ vi.mock("vscode", () => ({
 	},
 }))
 
-vi.mock("@roo-code/telemetry")
+vi.mock("@dew-code/telemetry")
 
 vi.mock("../auth/WebAuthService")
 

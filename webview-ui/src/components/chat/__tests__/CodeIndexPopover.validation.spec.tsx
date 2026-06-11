@@ -31,8 +31,8 @@ vi.mock("@src/utils/docLinks", () => ({
 }))
 
 // Mock the portal hook
-vi.mock("@src/components/ui/hooks/useRooPortal", () => ({
-	useRooPortal: () => ({ portalContainer: document.body }),
+vi.mock("@src/components/ui/hooks/useDewPortal", () => ({
+	useDewPortal: () => ({ portalContainer: document.body }),
 }))
 
 // Mock Radix UI components to avoid portal issues

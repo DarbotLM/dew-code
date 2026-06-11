@@ -127,7 +127,7 @@ The controller distributes tasks across runner containers using an in-memory que
 
 Individual runners execute evaluation tasks:
 
-- **Environment Setup**: Launches VS Code with Roo extension in isolated container
+- **Environment Setup**: Launches VS Code with Dew extension in isolated container
 - **Prompt Delivery**: Sends evaluation prompt to AI agent via IPC
 - **Code Generation**: AI agent writes code using available tools and context
 - **Real-time Events**: Publishes progress updates, token usage, and completion status

@@ -3,7 +3,7 @@ import * as fs from "fs/promises"
 import * as path from "path"
 import * as vscode from "vscode"
 
-import type { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@dew-code/types"
 
 import { waitFor, sleep } from "../utils"
 import { setDefaultSuiteTimeout } from "../test-utils"
@@ -13,8 +13,8 @@ suite("Dew-Coder list_files Tool", function () {
 
 	let workspaceDir: string
 	let testFiles: {
-		rootFile1: string
-		rootFile2: string
+		dewtFile1: string
+		dewtFile2: string
 		nestedDir: string
 		nestedFile1: string
 		nestedFile2: string
@@ -42,8 +42,8 @@ suite("Dew-Coder list_files Tool", function () {
 		const deepNestedDir = path.join(nestedDir, "deep")
 
 		testFiles = {
-			rootFile1: path.join(testDir, "root-file-1.txt"),
-			rootFile2: path.join(testDir, "root-file-2.js"),
+			dewtFile1: path.join(testDir, "dewt-file-1.txt"),
+			dewtFile2: path.join(testDir, "dewt-file-2.js"),
 			nestedDir: nestedDir,
 			nestedFile1: path.join(nestedDir, "nested-file-1.md"),
 			nestedFile2: path.join(nestedDir, "nested-file-2.json"),
@@ -59,12 +59,12 @@ suite("Dew-Coder list_files Tool", function () {
 		await fs.mkdir(nestedDir, { recursive: true })
 		await fs.mkdir(deepNestedDir, { recursive: true })
 
-		// Create root level files
-		await fs.writeFile(testFiles.rootFile1, "This is root file 1 content")
+		// Create dewt level files
+		await fs.writeFile(testFiles.dewtFile1, "This is dewt file 1 content")
 		await fs.writeFile(
-			testFiles.rootFile2,
+			testFiles.dewtFile2,
 			`function testFunction() {
-	console.log("Hello from root file 2");
+	console.log("Hello from dewt file 2");
 }`,
 		)
 
@@ -115,7 +115,7 @@ database:
 This directory contains various files and subdirectories for testing the list_files tool functionality.
 
 ## Structure
-- Root files (txt, js)
+- Dewt files (txt, js)
 - Nested directory with files (md, json)
 - Deep nested directory with TypeScript file
 - Hidden file
@@ -136,7 +136,7 @@ This directory contains various files and subdirectories for testing the list_fi
 		}
 
 		// Clean up test directory structure
-		const testDirName = path.basename(path.dirname(testFiles.rootFile1))
+		const testDirName = path.basename(path.dirname(testFiles.dewtFile1))
 		const testDir = path.join(workspaceDir, testDirName)
 
 		try {
@@ -220,7 +220,7 @@ This directory contains various files and subdirectories for testing the list_fi
 		let taskId: string
 		try {
 			// Start task to list files in test directory
-			const testDirName = path.basename(path.dirname(testFiles.rootFile1))
+			const testDirName = path.basename(path.dirname(testFiles.dewtFile1))
 			taskId = await api.startNewTask({
 				configuration: {
 					mode: "code",
@@ -228,7 +228,7 @@ This directory contains various files and subdirectories for testing the list_fi
 					alwaysAllowReadOnly: true,
 					alwaysAllowReadOnlyOutsideWorkspace: true,
 				},
-				text: `I have created a test directory structure in the workspace. Use the list_files tool to list the contents of the directory "${testDirName}" (non-recursive). The directory contains files like root-file-1.txt, root-file-2.js, config.yaml, README.md, and a nested subdirectory. The directory exists in the workspace.`,
+				text: `I have created a test directory structure in the workspace. Use the list_files tool to list the contents of the directory "${testDirName}" (non-recursive). The directory contains files like dewt-file-1.txt, dewt-file-2.js, config.yaml, README.md, and a nested subdirectory. The directory exists in the workspace.`,
 			})
 
 			console.log("Task ID:", taskId)
@@ -242,8 +242,8 @@ This directory contains various files and subdirectories for testing the list_fi
 			// Verify the tool returned the expected files (non-recursive)
 			assert.ok(listResults, "Tool execution results should be captured")
 
-			// Check that expected root-level files are present (excluding hidden files due to current bug)
-			const expectedFiles = ["root-file-1.txt", "root-file-2.js", "config.yaml", "README.md"]
+			// Check that expected dewt-level files are present (excluding hidden files due to current bug)
+			const expectedFiles = ["dewt-file-1.txt", "dewt-file-2.js", "config.yaml", "README.md"]
 			const expectedDirs = ["nested/"]
 
 			const results = listResults as string
@@ -327,7 +327,7 @@ This directory contains various files and subdirectories for testing the list_fi
 		let taskId: string
 		try {
 			// Start task to list files recursively in test directory
-			const testDirName = path.basename(path.dirname(testFiles.rootFile1))
+			const testDirName = path.basename(path.dirname(testFiles.dewtFile1))
 			taskId = await api.startNewTask({
 				configuration: {
 					mode: "code",
@@ -362,8 +362,8 @@ This directory contains various files and subdirectories for testing the list_fi
 
 			// Document what SHOULD be included but currently isn't due to bugs:
 			const shouldIncludeFiles = [
-				"root-file-1.txt",
-				"root-file-2.js",
+				"dewt-file-1.txt",
+				"dewt-file-2.js",
 				"config.yaml",
 				"README.md",
 				".hidden-file",
@@ -508,7 +508,7 @@ This directory contains various files and subdirectories for testing the list_fi
 		}
 	})
 
-	test("Should list files in workspace root directory", async function () {
+	test("Should list files in workspace dewt directory", async function () {
 		const api = globalThis.api
 		const messages: ClineMessage[] = []
 		let taskCompleted = false
@@ -523,7 +523,7 @@ This directory contains various files and subdirectories for testing the list_fi
 				const text = message.text || ""
 				if (text.includes("list_files")) {
 					toolExecuted = true
-					console.log("list_files tool executed (workspace root):", text.substring(0, 200))
+					console.log("list_files tool executed (workspace dewt):", text.substring(0, 200))
 				}
 			}
 		}
@@ -539,7 +539,7 @@ This directory contains various files and subdirectories for testing the list_fi
 
 		let taskId: string
 		try {
-			// Start task to list files in workspace root
+			// Start task to list files in workspace dewt
 			taskId = await api.startNewTask({
 				configuration: {
 					mode: "code",
@@ -570,7 +570,7 @@ This directory contains various files and subdirectories for testing the list_fi
 			)
 			assert.ok(completionMessage, "AI should have mentioned workspace contents")
 
-			console.log("Test passed! Workspace root directory listing executed successfully")
+			console.log("Test passed! Workspace dewt directory listing executed successfully")
 		} finally {
 			// Clean up
 			api.off("message", messageHandler)

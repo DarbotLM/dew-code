@@ -8,13 +8,13 @@ After comprehensive analysis of the Dew-Coder codebase, we've discovered that **
 
 ###  **Existing Orchestration Infrastructure (80% Complete)**
 
-#### 1. **Custom Modes System** (.roomodes)
+#### 1. **Custom Modes System** (.dewmodes)
 - PASS **Specialized AI Personas**: 10+ pre-built modes (code, architect, test, debug, etc.)
 - PASS **Role-Based Permissions**: Tool groups and file restrictions per mode
 - PASS **When-to-Use Logic**: Each mode defines its optimal use cases
 - PASS **Dynamic Configuration**: YAML-based mode definitions
 
-#### 2. **Workflow System** (.roo/ directory)
+#### 2. **Workflow System** (.dew/ directory)
 - PASS **XML-Based Workflows**: Sophisticated multi-step processes
 - PASS **Task Delegation**: Modes can delegate subtasks to other modes
 - PASS **Structured Analysis**: Pattern analysis → synthesis → reporting
@@ -30,7 +30,7 @@ After comprehensive analysis of the Dew-Coder codebase, we've discovered that **
 - PASS **Task Persistence**: Conversation state and context preservation
 - PASS **Checkpoint System**: Save/restore task states for complex workflows
 - PASS **MCP Integration**: Extensible tool system via Model Context Protocol
-- PASS **Safety Features**: RooIgnore and RooProtected controllers
+- PASS **Safety Features**: DewIgnore and DewProtected controllers
 
 ### 🔍 **Current Workflow Example: PR Review Orchestration**
 
@@ -130,7 +130,7 @@ class ValidationOrchestrator {
 
 ### **Phase 4: Workflow Template Engine**
 
-**Implementation**: Extend the existing .roo XML system with template library
+**Implementation**: Extend the existing .dew XML system with template library
 
 ```xml
 <workflow_template name="feature_development">
@@ -175,7 +175,7 @@ src/core/orchestration/
 - **Task.ts**: Extend with parallel execution support
 - **Workflow System**: Enhance XML processing for templates
 
-**3. New Workflow Templates** (.roo/templates/)
+**3. New Workflow Templates** (.dew/templates/)
 ```
 templates/
 ├── feature-development.xml

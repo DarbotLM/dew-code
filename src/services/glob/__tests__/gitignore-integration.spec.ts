@@ -11,7 +11,7 @@ vi.mock("../../ripgrep", () => ({
 // Mock vscode
 vi.mock("vscode", () => ({
 	env: {
-		appRoot: "/mock/app/root",
+		appDewt: "/mock/app/dewt",
 	},
 }))
 
@@ -35,7 +35,7 @@ describe("list-files gitignore integration", () => {
 		vi.clearAllMocks()
 
 		// Create a temporary directory for testing
-		tempDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), "roo-gitignore-test-"))
+		tempDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), "dew-gitignore-test-"))
 		originalCwd = process.cwd()
 	})
 
@@ -111,7 +111,7 @@ describe("list-files gitignore integration", () => {
 		await fs.promises.mkdir(path.join(tempDir, "src", "temp"))
 		await fs.promises.mkdir(path.join(tempDir, "src", "utils"))
 
-		// Create root .gitignore
+		// Create dewt .gitignore
 		await fs.promises.writeFile(path.join(tempDir, ".gitignore"), "node_modules/\n")
 
 		// Create nested .gitignore in src/

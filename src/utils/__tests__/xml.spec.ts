@@ -5,53 +5,53 @@ describe("parseXml", () => {
 		// Test the main change from the commit: no automatic type conversion
 		it("should not convert string numbers to numbers", () => {
 			const xml = `
-        <root>
+        <dewt>
           <numericString>123</numericString>
           <negativeNumericString>-456</negativeNumericString>
           <floatNumericString>123.456</floatNumericString>
-        </root>
+        </dewt>
       `
 
 			const result = parseXml(xml) as any
 
 			// Ensure these remain as strings and are not converted to numbers
-			expect(typeof result.root.numericString).toBe("string")
-			expect(result.root.numericString).toBe("123")
+			expect(typeof result.dewt.numericString).toBe("string")
+			expect(result.dewt.numericString).toBe("123")
 
-			expect(typeof result.root.negativeNumericString).toBe("string")
-			expect(result.root.negativeNumericString).toBe("-456")
+			expect(typeof result.dewt.negativeNumericString).toBe("string")
+			expect(result.dewt.negativeNumericString).toBe("-456")
 
-			expect(typeof result.root.floatNumericString).toBe("string")
-			expect(result.root.floatNumericString).toBe("123.456")
+			expect(typeof result.dewt.floatNumericString).toBe("string")
+			expect(result.dewt.floatNumericString).toBe("123.456")
 		})
 
 		it("should not convert string booleans to booleans", () => {
 			const xml = `
-        <root>
+        <dewt>
           <boolTrue>true</boolTrue>
           <boolFalse>false</boolFalse>
-        </root>
+        </dewt>
       `
 
 			const result = parseXml(xml) as any
 
 			// Ensure these remain as strings and are not converted to booleans
-			expect(typeof result.root.boolTrue).toBe("string")
-			expect(result.root.boolTrue).toBe("true")
+			expect(typeof result.dewt.boolTrue).toBe("string")
+			expect(result.dewt.boolTrue).toBe("true")
 
-			expect(typeof result.root.boolFalse).toBe("string")
-			expect(result.root.boolFalse).toBe("false")
+			expect(typeof result.dewt.boolFalse).toBe("string")
+			expect(result.dewt.boolFalse).toBe("false")
 		})
 
 		it("should not convert attribute values to their respective types", () => {
 			const xml = `
-        <root>
+        <dewt>
           <node id="123" enabled="true" disabled="false" float="3.14" />
-        </root>
+        </dewt>
       `
 
 			const result = parseXml(xml) as any
-			const attributes = result.root.node
+			const attributes = result.dewt.node
 
 			// Check that attributes remain as strings
 			expect(typeof attributes["@_id"]).toBe("string")
@@ -71,47 +71,47 @@ describe("parseXml", () => {
 	describe("basic functionality", () => {
 		it("should correctly parse a simple XML string", () => {
 			const xml = `
-        <root>
+        <dewt>
           <name>Test Name</name>
           <description>Some description</description>
-        </root>
+        </dewt>
       `
 
 			const result = parseXml(xml) as any
 
-			expect(result).toHaveProperty("root")
-			expect(result.root).toHaveProperty("name", "Test Name")
-			expect(result.root).toHaveProperty("description", "Some description")
+			expect(result).toHaveProperty("dewt")
+			expect(result.dewt).toHaveProperty("name", "Test Name")
+			expect(result.dewt).toHaveProperty("description", "Some description")
 		})
 
 		it("should handle attributes correctly", () => {
 			const xml = `
-        <root>
+        <dewt>
           <item id="1" category="test">Item content</item>
-        </root>
+        </dewt>
       `
 
 			const result = parseXml(xml) as any
 
-			expect(result.root.item).toHaveProperty("@_id", "1")
-			expect(result.root.item).toHaveProperty("@_category", "test")
-			expect(result.root.item).toHaveProperty("#text", "Item content")
+			expect(result.dewt.item).toHaveProperty("@_id", "1")
+			expect(result.dewt.item).toHaveProperty("@_category", "test")
+			expect(result.dewt.item).toHaveProperty("#text", "Item content")
 		})
 
 		it("should support stopNodes parameter", () => {
 			const xml = `
-        <root>
+        <dewt>
           <data>
             <nestedXml><item>Should not parse this</item></nestedXml>
           </data>
-        </root>
+        </dewt>
       `
 
 			const result = parseXml(xml, ["nestedXml"]) as any
 
 			// With stopNodes, the parser still parses the structure but stops at the specified node
-			expect(result.root.data.nestedXml).toBeTruthy()
-			expect(result.root.data.nestedXml).toHaveProperty("item", "Should not parse this")
+			expect(result.dewt.data.nestedXml).toBeTruthy()
+			expect(result.dewt.data.nestedXml).toHaveProperty("item", "Should not parse this")
 		})
 	})
 })

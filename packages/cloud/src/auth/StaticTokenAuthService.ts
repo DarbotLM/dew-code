@@ -1,6 +1,6 @@
 import EventEmitter from "events"
 import * as vscode from "vscode"
-import type { CloudUserInfo } from "@roo-code/types"
+import type { CloudUserInfo } from "@dew-code/types"
 import type { AuthService, AuthServiceEvents, AuthState } from "./AuthService"
 
 export class StaticTokenAuthService extends EventEmitter<AuthServiceEvents> implements AuthService {

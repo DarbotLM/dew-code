@@ -1,5 +1,11 @@
 # Dew-Coder Changelog
 
+## Unreleased
+
+- Renamed remaining Dew-owned project surfaces from legacy branding to Dew branding, including documentation, workflows, tests, web app paths, rule files, and ignore/mode configuration references.
+- Upgraded root development dependencies to their latest published versions and refreshed the pnpm lockfile for the current tracked package manifest.
+- Moved pnpm overrides into `pnpm-workspace.yaml` for compatibility with the latest pnpm configuration model.
+
 ## [3.23.16] - 2025-07-19
 
 - Add global rate limiting for OpenAI-compatible embeddings (thanks @daniel-lxs!)
@@ -10,7 +16,7 @@
 
 - Fix configurable delay for diagnostics to prevent premature error reporting
 - Add command timeout allowlist
-- Add description and whenToUse fields to custom modes in .roomodes (thanks @RandalSchwartz!)
+- Add description and whenToUse fields to custom modes in .dewmodes (thanks @RandalSchwartz!)
 - Fix Claude model detection by name for API protocol selection (thanks @daniel-lxs!)
 - Move marketplace icon from overflow menu to top navigation
 - Optional setting to prevent completion with open todos
@@ -135,7 +141,7 @@
 - Chat index UI enhancements (thanks @MuriloFP!)
 - Fix model search being prefilled on dropdown (thanks @kevinvandijk!)
 - Improve chat UI - add camera icon margin and make placeholder non-selectable (thanks @MuriloFP!)
-- Delete .roo/rules-{mode} folder when custom mode is deleted
+- Delete .dew/rules-{mode} folder when custom mode is deleted
 - Enforce file restrictions for all edit tools in architect mode
 - Add User-Agent header to API providers
 - Fix auto question timer unmount (thanks @liwilliam2021!)
@@ -181,7 +187,7 @@
 
 ## [3.22.3] - 2025-06-27
 
-- Restore JSON backwards compatibility for .roomodes files (thanks @daniel-lxs!)
+- Restore JSON backwards compatibility for .dewmodes files (thanks @daniel-lxs!)
 
 ## [3.22.2] - 2025-06-27
 
@@ -202,7 +208,7 @@
 ## [3.22.0] - 2025-06-25
 
 - Add 1-click task sharing
-- Add support for loading rules from a global .roo directory (thanks @samhvw8!)
+- Add support for loading rules from a global .dew directory (thanks @samhvw8!)
 - Modes selector improvements (thanks @brunobergher!)
 - Use safeWriteJson for all JSON file writes to avoid task history corruption (thanks @KJ7LNW!)
 - Improve YAML error handling when editing modes
@@ -267,7 +273,7 @@
 
 ## [3.21.0] - 2025-06-17
 
-- Add Roo Marketplace to make it easy to discover and install great MCPs and modes!
+- Add Dew Marketplace to make it easy to discover and install great MCPs and modes!
 - Add Gemini 2.5 models (Pro, Flash and Flash Lite) (thanks @daniel-lxs!)
 - Add support for Excel (.xlsx) files in tools (thanks @chrarnoldus!)
 - Add max tokens checkbox option for OpenAI compatible provider (thanks @AlexandruSmirnov!)
@@ -278,7 +284,7 @@
 - Fix codebase indexing alignment with list-files hidden directory filtering (thanks @daniel-lxs!)
 - Fix subtask completion mismatch (thanks @feifei325!)
 - Fix Windows path normalization in MCP variable injection (thanks @daniel-lxs!)
-- Update marketplace branding to 'Roo Marketplace' (thanks @SannidhyaSah!)
+- Update marketplace branding to 'Dew Marketplace' (thanks @SannidhyaSah!)
 - Refactor to more consistent history UI (thanks @elianiva!)
 - Adjust context menu positioning to be near Copilot
 - Update evals Docker setup to work on Windows (thanks @StevenTCramer!)
@@ -370,8 +376,8 @@
 - Add OpenAI Compatible embedder for codebase indexing (thanks @SannidhyaSah!)
 - Fix multiple memory leaks in ChatView component (thanks @kiwina!)
 - Fix WorkspaceTracker resource leaks by disposing FileSystemWatcher (thanks @kiwina!)
-- Fix RooTips setTimeout cleanup to prevent state updates on unmounted components (thanks @kiwina!)
-- Fix FileSystemWatcher leak in RooIgnoreController (thanks @kiwina!)
+- Fix DewTips setTimeout cleanup to prevent state updates on unmounted components (thanks @kiwina!)
+- Fix FileSystemWatcher leak in DewIgnoreController (thanks @kiwina!)
 - Fix clipboard memory leak by clearing setTimeout in useCopyToClipboard (thanks @kiwina!)
 - Fix ClineProvider instance cleanup (thanks @xyOz-dev!)
 - Enforce codebase_search as primary tool for code understanding tasks (thanks @hannesrudolph!)
@@ -417,9 +423,9 @@
 - Skip condense and show error if context grows during condensing
 - Transform Prompts tab into Modes tab and move support prompts to Settings for better organization
 - Add DeepSeek R1 0528 model support to Chutes provider (thanks @zeozeozeo!)
-- Fix @directory not respecting .rooignore files (thanks @xyOz-dev!)
-- Add rooignore checking for insert_content and search_and_replace tools
-- Fix menu breaking when Roo is moved between primary and secondary sidebars (thanks @chrarnoldus!)
+- Fix @directory not respecting .dewignore files (thanks @xyOz-dev!)
+- Add dewignore checking for insert_content and search_and_replace tools
+- Fix menu breaking when Dew is moved between primary and secondary sidebars (thanks @chrarnoldus!)
 - Resolve memory leak in ChatView by stabilizing callback props (thanks @samhvw8!)
 - Fix write_to_file to properly create empty files when content is empty (thanks @Ruakij!)
 - Fix chat input clearing during running tasks (thanks @xyOz-dev!)
@@ -498,7 +504,7 @@
 
 ## [3.17.2] - 2025-05-15
 
-- Revert "Switch to the new Roo message parser" (appears to cause a tool parsing bug)
+- Revert "Switch to the new Dew message parser" (appears to cause a tool parsing bug)
 - Lock the versions of vsce and ovsx
 
 ## [3.17.1] - 2025-05-15
@@ -513,14 +519,14 @@
 - Add experimental feature to intelligently condense the task context instead of truncating it
 - Fix one of the causes of the gray screen issue (thanks @xyOz-dev!)
 - Focus improvements for better UI interactions (thanks Cline!)
-- Switch to the new Roo message parser for improved performance (thanks Cline!)
+- Switch to the new Dew message parser for improved performance (thanks Cline!)
 - Enable source maps for improved debugging (thanks @KJ7LNW!)
 - Update OpenRouter provider to use provider-specific model info (thanks @daniel-lxs!)
 - Fix Requesty cost/token reporting (thanks @dtrugman!)
 - Improve command execution UI
 - Add more in-app links to relevant documentation
 - Update the new task tool description and the ask mode custom instructions in the system prompt
-- Add IPC types to roo-code.d.ts
+- Add IPC types to dew-code.d.ts
 - Add build VSIX workflow to pull requests (thanks @SmartManoj!)
 - Improve apply_diff tool to intelligently deduce line numbers (thanks @samhvw8!)
 - Fix command validation for shell array indexing (thanks @KJ7LNW!)
@@ -642,7 +648,7 @@
 - Fix file mentions for filenames containing spaces
 - Improve the auto-approve toggle buttons for some high-contrast VSCode themes
 - Offload expensive count token operations to a web worker (thanks @samhvw8)
-- Improve support for mult-root workspaces (thanks @snoyiatk)
+- Improve support for mult-dewt workspaces (thanks @snoyiatk)
 - Simplify and streamline Dew-Coder's quick actions
 - Allow Dew-Coder settings to be imported from the welcome screen (thanks @julionav)
 - Remove unused types (thanks @wkordalski)
@@ -658,7 +664,7 @@
 - Clean up settings data model
 - Omit reasoning params for non-reasoning models
 - Clearer documentation for adding settings (thanks @shariqriazz!)
-- Fix word wrapping in Roo message title (thanks @zhangtony239!)
+- Fix word wrapping in Dew message title (thanks @zhangtony239!)
 - Update default model id for Unbound from claude 3.5 to 3.7 (thanks @pugazhendhi-m!)
 
 ## [3.14.2] - 2025-04-24
@@ -690,7 +696,7 @@
 - Fix MCP hub error when dragging extension to another sidebar
 - Improve display of long MCP tool arguments
 - Fix redundant ‘TASK RESUMPTION’ prompts (thanks @System233!)
-- Fix bug opening files when editor has no workspace root
+- Fix bug opening files when editor has no workspace dewt
 - Make the VS Code LM provider show the correct model information (thanks @QuinsZouls!)
 - Fixes to make the focusInput command more reliable (thanks @hongzio!)
 - Better handling of aftercursor content in context mentions (thanks @elianiva!)
@@ -813,7 +819,7 @@
 
 ## [3.11.10] - 2025-04-08
 
-- Fix bug where nested .roo/rules directories are not respected properly (thanks @taisukeoe!)
+- Fix bug where nested .dew/rules directories are not respected properly (thanks @taisukeoe!)
 - Handle long command output more efficiently in the chat row (thanks @samhvw8!)
 - Fix cache usage tracking for OpenAI-compatible providers
 - Add custom translation instructions for zh-CN (thanks @System233!)
@@ -822,7 +828,7 @@
 ## [3.11.9] - 2025-04-07
 
 - Rate-limit setting updated to be per-profile (thanks @ross and @olweraltuve!)
-- You can now place multiple rules files in the .roo/rules/ and .roo/rules-{mode}/ folders (thanks @upamune!)
+- You can now place multiple rules files in the .dew/rules/ and .dew/rules-{mode}/ folders (thanks @upamune!)
 - Prevent unnecessary autoscroll when buttons appear (thanks @shtse8!)
 - Add Gemini 2.5 Pro Preview to Vertex AI (thanks @nbihan-mediware!)
 - Tidy up following ClineProvider refactor (thanks @diarmidmackenzie!)
@@ -842,7 +848,7 @@
 - Add searchable dropdown to API config profiles on the settings screen (thanks @samhvw8!)
 - Add workspace tracking to history items in preparation for future filtering (thanks @samhvw8!)
 - Fix search highlighting UI in history search (thanks @samhvw8!)
-- Add support for .roorules and give deprecation warning for .clinerules (thanks @upamune!)
+- Add support for .dewrules and give deprecation warning for .clinerules (thanks @upamune!)
 - Fix nodejs version format in .tool-versions file (thanks @upamune!)
 
 ## [3.11.7] - 2025-04-04
@@ -904,7 +910,7 @@
 ## [3.11.0] - 2025-03-30
 
 - Replace single-block-diff with multi-block-diff fast editing strategy
-- Support project-level MCP config in .roo/mcp.json (thanks @aheizi!)
+- Support project-level MCP config in .dew/mcp.json (thanks @aheizi!)
 - Show OpenRouter and Requesty key balance on the settings screen
 - Support import/export of settings
 - Add pinning and sorting for API configuration dropdown (thanks @jwcraig!)
@@ -1004,13 +1010,13 @@
 
 ## [3.9.1] - 2025-03-18
 
-- Pass current language to system prompt correctly so Roo thinks and speaks in the selected language
+- Pass current language to system prompt correctly so Dew thinks and speaks in the selected language
 
 ## [3.9.0] - 2025-03-18
 
 - Internationalize Dew-Coder into Catalan, German, Spanish, French, Hindi, Italian, Japanese, Korean, Polish, Portuguese, Turkish, Vietnamese, Simplified Chinese, and Traditional Chinese (thanks @feifei325!)
 - Bring back support for MCP over SSE (thanks @aheizi!)
-- Add a text-to-speech option to have Roo talk to you as it works (thanks @heyseth!)
+- Add a text-to-speech option to have Dew talk to you as it works (thanks @heyseth!)
 - Choose a specific provider when using OpenRouter (thanks PhunkyBob!)
 - Support batch deletion of task history (thanks @aheizi!)
 - Internationalize Human Relay, adjust the layout, and make it work on the welcome screen (thanks @NyxJae!)
@@ -1018,12 +1024,12 @@
 - Fix display updating for Bedrock custom ARNs that are prompt routers (thanks @Smartsheet-JB-Brown!)
 - Fix to exclude search highlighting when copying items from task history (thanks @im47cn!)
 - Fix context mentions to work with multiple-workspace projects (thanks @teddyOOXX!)
-- Fix to task history saving when running multiple Roos (thanks @samhvw8!)
+- Fix to task history saving when running multiple Dews (thanks @samhvw8!)
 - Improve task deletion when underlying files are missing (thanks @GitlyHallows!)
 - Improve support for NixOS & direnv (thanks @wkordalski!)
-- Fix wheel scrolling when Roo is opened in editor tabs (thanks @GitlyHallows!)
+- Fix wheel scrolling when Dew is opened in editor tabs (thanks @GitlyHallows!)
 - Don’t automatically mention the file when using the "Add to context" code action (thanks @qdaxb!)
-- Expose task stack in `RooCodeAPI` (thanks @franekp!)
+- Expose task stack in `DewCodeAPI` (thanks @franekp!)
 - Give the models visibility into the current task's API cost
 
 ## [3.8.6] - 2025-03-13
@@ -1061,7 +1067,7 @@
 ## [3.8.4] - 2025-03-09
 
 - Roll back multi-diff progress indicator temporarily to fix a double-confirmation in saving edits
-- Add an option in the prompts tab to save tokens by disabling the ability to ask Roo to create/edit custom modes for you (thanks @hannesrudolph!)
+- Add an option in the prompts tab to save tokens by disabling the ability to ask Dew to create/edit custom modes for you (thanks @hannesrudolph!)
 
 ## [3.8.3] - 2025-03-09
 
@@ -1091,9 +1097,9 @@
 - Add opt-in telemetry to help us improve Dew-Coder faster (thanks Cline!)
 - Fix terminal overload / gray screen of death, and other terminal issues
 - Add a new experimental diff editing strategy that applies multiple diff edits at once (thanks @qdaxb!)
-- Add support for a .rooignore to prevent Dew-Coder from read/writing certain files, with a setting to also exclude them from search/lists (thanks Cline!)
+- Add support for a .dewignore to prevent Dew-Coder from read/writing certain files, with a setting to also exclude them from search/lists (thanks Cline!)
 - Update the new_task tool to return results to the parent task on completion, supporting better orchestration (thanks @shaybc!)
-- Support running Roo in multiple editor windows simultaneously (thanks @samhvw8!)
+- Support running Dew in multiple editor windows simultaneously (thanks @samhvw8!)
 - Make checkpoints asynchronous and exclude more files to speed them up
 - Redesign the settings page to make it easier to navigate
 - Add credential-based authentication for Vertex AI, enabling users to easily switch between Google Cloud accounts (thanks @eonghk!)
@@ -1215,7 +1221,7 @@
 - Add support for setting custom preferred languages on the Prompts tab, as well as adding Catalan to the list of languages (thanks @alarno!)
 - Add a button to delete MCP servers (thanks @hannesrudolph!)
 - Fix a bug where the button to copy the system prompt preview always copied the Code mode version
-- Fix a bug where the .roomodes file was not automatically created when adding custom modes from the Prompts tab
+- Fix a bug where the .dewmodes file was not automatically created when adding custom modes from the Prompts tab
 - Allow setting a wildcard (`*`) to auto-approve all command execution (use with caution!)
 
 ## [3.3.21] - 2025-02-17
@@ -1224,12 +1230,12 @@
 - Fix default preferred language for zh-cn and zh-tw (thanks @System233!)
 - Fix Mistral integration (thanks @d-oit!)
 - Feature to mention `@terminal` to pull terminal output into context (thanks Cline!)
-- Fix system prompt to make sure Roo knows about all available modes
+- Fix system prompt to make sure Dew knows about all available modes
 - Enable streaming mode for OpenAI o1
 
 ## [3.3.20] - 2025-02-14
 
-- Support project-specific custom modes in a .roomodes file
+- Support project-specific custom modes in a .dewmodes file
 - Add more Mistral models (thanks @d-oit and @bramburn!)
 - By popular request, make it so Ask mode can't write to Markdown files and is purely for chatting with
 - Add a setting to control the number of open editor tabs to tell the model about (665 is probably too many!)
@@ -1328,11 +1334,11 @@
 - Capture reasoning from more variants of DeepSeek R1 (thanks @Szpadel!)
 - Use an exponential backoff for API retries (if delay after first error is 5s, delay after second consecutive error will be 10s, then 20s, etc)
 - Add a slider in advanced settings to enable rate limiting requests to avoid overloading providers (i.e. wait at least 10 seconds between API requests)
-- Prompt tweaks to make Roo better at creating new custom modes for you
+- Prompt tweaks to make Dew better at creating new custom modes for you
 
 ## [3.3.6]
 
-- Add a "new task" tool that allows Roo to start new tasks with an initial message and mode
+- Add a "new task" tool that allows Dew to start new tasks with an initial message and mode
 - Fix a bug that was preventing the use of qwen-max and potentially other OpenAI-compatible providers (thanks @Szpadel!)
 - Add support for perplexity/sonar-reasoning (thanks @Szpadel!)
 - Visual fixes to dropdowns (thanks @psv2522!)

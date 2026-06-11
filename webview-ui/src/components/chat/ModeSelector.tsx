@@ -1,16 +1,16 @@
 import React from "react"
 import { ChevronUp, Check } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { useRooPortal } from "@/components/ui/hooks/useRooPortal"
+import { useDewPortal } from "@/components/ui/hooks/useDewPortal"
 import { Popover, PopoverContent, PopoverTrigger, StandardTooltip } from "@/components/ui"
 import { IconButton } from "./IconButton"
 import { vscode } from "@/utils/vscode"
 import { useExtensionState } from "@/context/ExtensionStateContext"
 import { useAppTranslation } from "@/i18n/TranslationContext"
-import { Mode, getAllModes } from "@roo/modes"
-import { ModeConfig, CustomModePrompts } from "@roo-code/types"
+import { Mode, getAllModes } from "@dew/modes"
+import { ModeConfig, CustomModePrompts } from "@dew-code/types"
 import { telemetryClient } from "@/utils/TelemetryClient"
-import { TelemetryEventName } from "@roo-code/types"
+import { TelemetryEventName } from "@dew-code/types"
 
 interface ModeSelectorProps {
 	value: Mode
@@ -34,7 +34,7 @@ export const ModeSelector = ({
 	customModePrompts,
 }: ModeSelectorProps) => {
 	const [open, setOpen] = React.useState(false)
-	const portalContainer = useRooPortal("roo-portal")
+	const portalContainer = useDewPortal("dew-portal")
 	const { hasOpenedModeSelector, setHasOpenedModeSelector } = useExtensionState()
 	const { t } = useAppTranslation()
 
@@ -89,7 +89,7 @@ export const ModeSelector = ({
 				if (isOpen) trackModeSelectorOpened()
 				setOpen(isOpen)
 			}}
-			data-testid="mode-selector-root">
+			data-testid="mode-selector-dewt">
 			{title ? <StandardTooltip content={title}>{trigger}</StandardTooltip> : trigger}
 
 			<PopoverContent

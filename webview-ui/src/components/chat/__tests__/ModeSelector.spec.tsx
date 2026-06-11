@@ -2,7 +2,7 @@ import React from "react"
 import { render, screen } from "@/utils/test-utils"
 import { describe, test, expect, vi } from "vitest"
 import ModeSelector from "../ModeSelector"
-import { Mode } from "@roo/modes"
+import { Mode } from "@dew/modes"
 
 // Mock the dependencies
 vi.mock("@/utils/vscode", () => ({
@@ -24,8 +24,8 @@ vi.mock("@/i18n/TranslationContext", () => ({
 	}),
 }))
 
-vi.mock("@/components/ui/hooks/useRooPortal", () => ({
-	useRooPortal: () => document.body,
+vi.mock("@/components/ui/hooks/useDewPortal", () => ({
+	useDewPortal: () => document.body,
 }))
 
 describe("ModeSelector", () => {

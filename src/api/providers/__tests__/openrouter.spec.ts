@@ -63,7 +63,7 @@ describe("OpenRouterHandler", () => {
 			defaultHeaders: {
 				"HTTP-Referer": "https://github.com/darbotlm/dew-code",
 				"X-Title": "Dew-Coder",
-				"User-Agent": `RooCode/${Package.version}`,
+				"User-Agent": `DewCode/${Package.version}`,
 			},
 		})
 	})

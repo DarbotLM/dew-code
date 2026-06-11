@@ -1,7 +1,7 @@
 import * as vscode from "vscode"
 
-import { shareResponseSchema } from "@roo-code/types"
-import { getRooCodeApiUrl } from "./Config"
+import { shareResponseSchema } from "@dew-code/types"
+import { getDewCodeApiUrl } from "./Config"
 import type { AuthService } from "./auth"
 import type { SettingsService } from "./SettingsService"
 import { getUserAgent } from "./utils"
@@ -37,7 +37,7 @@ export class ShareService {
 				throw new Error("Authentication required")
 			}
 
-			const response = await fetch(`${getRooCodeApiUrl()}/api/extension/share`, {
+			const response = await fetch(`${getDewCodeApiUrl()}/api/extension/share`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

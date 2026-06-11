@@ -13,7 +13,7 @@
 
 # Bijdragen aan Dew-Coder
 
-Dew-Coder is een door de community gedreven project en we waarderen elke bijdrage enorm. Om de samenwerking te stroomlijnen, werken we volgens een [Issue-First](#issue-first-aanpak) principe, wat betekent dat alle [Pull Requests (PR's)](#een-pull-request-indienen) eerst gekoppeld moeten worden aan een GitHub Issue. Lees deze gids zorgvuldig door.
+Dew-Coder is een door de community gedreven project en we waarderen elke bijdrage enorm. Om de samenwerking te stdewmlijnen, werken we volgens een [Issue-First](#issue-first-aanpak) principe, wat betekent dat alle [Pull Requests (PR's)](#een-pull-request-indienen) eerst gekoppeld moeten worden aan een GitHub Issue. Lees deze gids zorgvuldig door.
 
 ## Inhoudsopgave
 

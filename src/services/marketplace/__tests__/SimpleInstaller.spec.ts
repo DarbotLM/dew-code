@@ -4,7 +4,7 @@ import { SimpleInstaller } from "../SimpleInstaller"
 import * as fs from "fs/promises"
 import * as yaml from "yaml"
 import * as vscode from "vscode"
-import type { MarketplaceItem } from "@roo-code/types"
+import type { MarketplaceItem } from "@dew-code/types"
 import * as path from "path"
 
 vi.mock("fs/promises")
@@ -50,7 +50,7 @@ describe("SimpleInstaller", () => {
 			}),
 		}
 
-		it("should install mode when .roomodes file does not exist", async () => {
+		it("should install mode when .dewmodes file does not exist", async () => {
 			// Mock file not found error
 			const notFoundError = new Error("File not found") as any
 			notFoundError.code = "ENOENT"
@@ -59,7 +59,7 @@ describe("SimpleInstaller", () => {
 
 			const result = await installer.installItem(mockModeItem, { target: "project" })
 
-			expect(result.filePath).toBe(path.join("/test/workspace", ".roomodes"))
+			expect(result.filePath).toBe(path.join("/test/workspace", ".dewmodes"))
 			expect(mockFs.writeFile).toHaveBeenCalled()
 
 			// Verify the written content contains the new mode
@@ -69,7 +69,7 @@ describe("SimpleInstaller", () => {
 			expect(writtenData.customModes[0].slug).toBe("test")
 		})
 
-		it("should install mode when .roomodes contains valid YAML", async () => {
+		it("should install mode when .dewmodes contains valid YAML", async () => {
 			const existingContent = yaml.stringify({
 				customModes: [{ slug: "existing", name: "Existing Mode", roleDefinition: "Existing", groups: [] }],
 			})
@@ -89,14 +89,14 @@ describe("SimpleInstaller", () => {
 			expect(writtenData.customModes.find((m: any) => m.slug === "test")).toBeDefined()
 		})
 
-		it("should handle empty .roomodes file", async () => {
+		it("should handle empty .dewmodes file", async () => {
 			// Empty file content
 			mockFs.readFile.mockResolvedValueOnce("")
 			mockFs.writeFile.mockResolvedValueOnce(undefined as any)
 
 			const result = await installer.installItem(mockModeItem, { target: "project" })
 
-			expect(result.filePath).toBe(path.join("/test/workspace", ".roomodes"))
+			expect(result.filePath).toBe(path.join("/test/workspace", ".dewmodes"))
 			expect(mockFs.writeFile).toHaveBeenCalled()
 
 			// Verify the written content contains the new mode
@@ -106,14 +106,14 @@ describe("SimpleInstaller", () => {
 			expect(writtenData.customModes[0].slug).toBe("test")
 		})
 
-		it("should handle .roomodes file with null content", async () => {
+		it("should handle .dewmodes file with null content", async () => {
 			// File exists but yaml.parse returns null
 			mockFs.readFile.mockResolvedValueOnce("---\n")
 			mockFs.writeFile.mockResolvedValueOnce(undefined as any)
 
 			const result = await installer.installItem(mockModeItem, { target: "project" })
 
-			expect(result.filePath).toBe(path.join("/test/workspace", ".roomodes"))
+			expect(result.filePath).toBe(path.join("/test/workspace", ".dewmodes"))
 			expect(mockFs.writeFile).toHaveBeenCalled()
 
 			// Verify the written content contains the new mode
@@ -123,7 +123,7 @@ describe("SimpleInstaller", () => {
 			expect(writtenData.customModes[0].slug).toBe("test")
 		})
 
-		it("should handle .roomodes file without customModes property", async () => {
+		it("should handle .dewmodes file without customModes property", async () => {
 			// File has valid YAML but no customModes property
 			const contentWithoutCustomModes = yaml.stringify({ someOtherProperty: "value" })
 			mockFs.readFile.mockResolvedValueOnce(contentWithoutCustomModes)
@@ -131,7 +131,7 @@ describe("SimpleInstaller", () => {
 
 			const result = await installer.installItem(mockModeItem, { target: "project" })
 
-			expect(result.filePath).toBe(path.join("/test/workspace", ".roomodes"))
+			expect(result.filePath).toBe(path.join("/test/workspace", ".dewmodes"))
 			expect(mockFs.writeFile).toHaveBeenCalled()
 
 			// Verify the written content contains the new mode and preserves other properties
@@ -142,13 +142,13 @@ describe("SimpleInstaller", () => {
 			expect(writtenData.someOtherProperty).toBe("value")
 		})
 
-		it("should throw error when .roomodes contains invalid YAML", async () => {
+		it("should throw error when .dewmodes contains invalid YAML", async () => {
 			const invalidYaml = "invalid: yaml: content: {"
 
 			mockFs.readFile.mockResolvedValueOnce(invalidYaml)
 
 			await expect(installer.installItem(mockModeItem, { target: "project" })).rejects.toThrow(
-				"Cannot install mode: The .roomodes file contains invalid YAML",
+				"Cannot install mode: The .dewmodes file contains invalid YAML",
 			)
 
 			// Should NOT write to file
@@ -196,7 +196,7 @@ describe("SimpleInstaller", () => {
 
 			const result = await installer.installItem(mockMcpItem, { target: "project" })
 
-			expect(result.filePath).toBe(path.join("/test/workspace", ".roo", "mcp.json"))
+			expect(result.filePath).toBe(path.join("/test/workspace", ".dew", "mcp.json"))
 			expect(mockFs.writeFile).toHaveBeenCalled()
 
 			// Verify the written content contains the new server
@@ -211,7 +211,7 @@ describe("SimpleInstaller", () => {
 			mockFs.readFile.mockResolvedValueOnce(invalidJson)
 
 			await expect(installer.installItem(mockMcpItem, { target: "project" })).rejects.toThrow(
-				"Cannot install MCP server: The .roo/mcp.json file contains invalid JSON",
+				"Cannot install MCP server: The .dew/mcp.json file contains invalid JSON",
 			)
 
 			// Should NOT write to file
@@ -254,13 +254,13 @@ describe("SimpleInstaller", () => {
 			}),
 		}
 
-		it("should throw error when .roomodes contains invalid YAML during removal", async () => {
+		it("should throw error when .dewmodes contains invalid YAML during removal", async () => {
 			const invalidYaml = "invalid: yaml: content: {"
 
 			mockFs.readFile.mockResolvedValueOnce(invalidYaml)
 
 			await expect(installer.removeItem(mockModeItem, { target: "project" })).rejects.toThrow(
-				"Cannot remove mode: The .roomodes file contains invalid YAML",
+				"Cannot remove mode: The .dewmodes file contains invalid YAML",
 			)
 
 			// Should NOT write to file
@@ -278,7 +278,7 @@ describe("SimpleInstaller", () => {
 			expect(mockFs.writeFile).not.toHaveBeenCalled()
 		})
 
-		it("should handle empty .roomodes file during removal", async () => {
+		it("should handle empty .dewmodes file during removal", async () => {
 			// Empty file content
 			mockFs.readFile.mockResolvedValueOnce("")
 			mockFs.writeFile.mockResolvedValueOnce(undefined as any)
@@ -293,7 +293,7 @@ describe("SimpleInstaller", () => {
 			expect(writtenData.customModes).toEqual([])
 		})
 
-		it("should handle .roomodes file with null content during removal", async () => {
+		it("should handle .dewmodes file with null content during removal", async () => {
 			// File exists but yaml.parse returns null
 			mockFs.readFile.mockResolvedValueOnce("---\n")
 			mockFs.writeFile.mockResolvedValueOnce(undefined as any)
@@ -308,7 +308,7 @@ describe("SimpleInstaller", () => {
 			expect(writtenData.customModes).toEqual([])
 		})
 
-		it("should handle .roomodes file without customModes property during removal", async () => {
+		it("should handle .dewmodes file without customModes property during removal", async () => {
 			// File has valid YAML but no customModes property
 			const contentWithoutCustomModes = yaml.stringify({ someOtherProperty: "value" })
 			mockFs.readFile.mockResolvedValueOnce(contentWithoutCustomModes)

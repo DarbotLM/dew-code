@@ -7,8 +7,8 @@ import { parseMarkdown } from "../../tree-sitter/markdownParser"
 import { ICodeParser, CodeBlock } from "../interfaces"
 import { scannerExtensions } from "../shared/supported-extensions"
 import { MAX_BLOCK_CHARS, MIN_BLOCK_CHARS, MIN_CHUNK_REMAINDER_CHARS, MAX_CHARS_TOLERANCE_FACTOR } from "../constants"
-import { TelemetryService } from "@roo-code/telemetry"
-import { TelemetryEventName } from "@roo-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
+import { TelemetryEventName } from "@dew-code/types"
 import { sanitizeErrorMessage } from "../shared/validation-helpers"
 
 /**
@@ -148,7 +148,7 @@ export class CodeParser implements ICodeParser {
 
 		// We don't need to get the query string from languageQueries since it's already loaded
 		// in the language object
-		const captures = tree ? language.query.captures(tree.rootNode) : []
+		const captures = tree ? language.query.captures(tree.dewtNode) : []
 
 		// Check if captures are empty
 		if (captures.length === 0) {

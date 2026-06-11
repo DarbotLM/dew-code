@@ -18,13 +18,13 @@
 ### PASS CustomModesManager Integration
 - **Orchestration Methods**: `getAgentSuggestion()` and `getOrchestrationCapabilities()`
 - **Import Integration**: OrchestrationEngine properly imported and initialized
-- **roo→darbot Refactoring**: All references updated (.roo → .darbot, roomodes → darbotmodes)
+- **dew→darbot Refactoring**: All references updated (.dew → .darbot, dewmodes → darbotmodes)
 - **Backward Compatibility**: Maintained while adding new functionality
 
 ### PASS dew-coder Identity Migration
 - **package.json**: Successfully updated to "dew-coder"
 - **Configuration Service**: darbot-config with getDarbotPath() function
-- **Directory Structure**: .darbot/ instead of .roo/ paths
+- **Directory Structure**: .darbot/ instead of .dew/ paths
 
 ### PASS Quality Assurance
 - **Directory Structure**: Proper orchestration folder organization

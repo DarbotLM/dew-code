@@ -11,18 +11,18 @@ import { LRUCache } from "lru-cache"
 import { useDebounceEffect } from "@src/utils/useDebounceEffect"
 import { appendImages } from "@src/utils/imageUtils"
 
-import type { ClineAsk, ClineMessage } from "@roo-code/types"
+import type { ClineAsk, ClineMessage } from "@dew-code/types"
 
-import { ClineSayBrowserAction, ClineSayTool, ExtensionMessage } from "@roo/ExtensionMessage"
-import { McpServer, McpTool } from "@roo/mcp"
-import { findLast } from "@roo/array"
-import { FollowUpData, SuggestionItem } from "@roo-code/types"
-import { combineApiRequests } from "@roo/combineApiRequests"
-import { combineCommandSequences } from "@roo/combineCommandSequences"
-import { getApiMetrics } from "@roo/getApiMetrics"
-import { AudioType } from "@roo/WebviewMessage"
-import { getAllModes } from "@roo/modes"
-import { ProfileValidator } from "@roo/ProfileValidator"
+import { ClineSayBrowserAction, ClineSayTool, ExtensionMessage } from "@dew/ExtensionMessage"
+import { McpServer, McpTool } from "@dew/mcp"
+import { findLast } from "@dew/array"
+import { FollowUpData, SuggestionItem } from "@dew-code/types"
+import { combineApiRequests } from "@dew/combineApiRequests"
+import { combineCommandSequences } from "@dew/combineCommandSequences"
+import { getApiMetrics } from "@dew/getApiMetrics"
+import { AudioType } from "@dew/WebviewMessage"
+import { getAllModes } from "@dew/modes"
+import { ProfileValidator } from "@dew/ProfileValidator"
 
 import { vscode } from "@src/utils/vscode"
 import {
@@ -36,8 +36,8 @@ import { buildDocLink } from "@src/utils/docLinks"
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { useExtensionState } from "@src/context/ExtensionStateContext"
 import { useSelectedModel } from "@src/components/ui/hooks/useSelectedModel"
-import RooHero from "@src/components/welcome/RooHero"
-import RooTips from "@src/components/welcome/RooTips"
+import DewHero from "@src/components/welcome/DewHero"
+import DewTips from "@src/components/welcome/DewTips"
 import { StandardTooltip } from "@src/components/ui"
 import { useAutoApprovalState } from "@src/hooks/useAutoApprovalState"
 import { useAutoApprovalToggles } from "@src/hooks/useAutoApprovalToggles"
@@ -55,7 +55,7 @@ import AutoApproveMenu from "./AutoApproveMenu"
 import SystemPromptWarning from "./SystemPromptWarning"
 import ProfileViolationWarning from "./ProfileViolationWarning"
 import { CheckpointWarning } from "./CheckpointWarning"
-import { getLatestTodo } from "@roo/todo"
+import { getLatestTodo } from "@dew/todo"
 
 export interface ChatViewProps {
 	isHidden: boolean
@@ -1694,7 +1694,7 @@ const ChatViewComponent: React.ForwardRefRenderFunction<ChatViewRef, ChatViewPro
 							className="absolute top-2 right-3 z-10"
 						/>
 
-						<RooHero />
+						<DewHero />
 						{telemetrySetting === "unset" && <TelemetryBanner />}
 						<p className="text-vscode-editor-foreground leading-tight font-vscode-font-family text-center text-balance max-w-[380px] mx-auto my-0">
 							<Trans
@@ -1709,7 +1709,7 @@ const ChatViewComponent: React.ForwardRefRenderFunction<ChatViewRef, ChatViewPro
 							/>
 						</p>
 						<div className="mb-2.5">
-							<RooTips cycle={false} />
+							<DewTips cycle={false} />
 						</div>
 						{/* Show the task history preview if expanded and tasks exist */}
 						{taskHistory.length > 0 && isExpanded && <HistoryPreview />}
@@ -1875,7 +1875,7 @@ const ChatViewComponent: React.ForwardRefRenderFunction<ChatViewRef, ChatViewPro
 				</div>
 			)}
 
-			<div id="roo-portal" />
+			<div id="dew-portal" />
 		</div>
 	)
 }

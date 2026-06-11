@@ -1,7 +1,7 @@
 /**
  * Utility for building Dew-Coder documentation links with UTM telemetry.
  *
- * @param path - The path after the docs root (no leading slash)
+ * @param path - The path after the docs dewt (no leading slash)
  * @param campaign - The UTM campaign context (e.g. "welcome", "provider_docs", "tips", "error_tooltip")
  * @returns The full docs URL with UTM parameters
  */

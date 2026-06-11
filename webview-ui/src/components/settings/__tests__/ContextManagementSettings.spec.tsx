@@ -46,7 +46,7 @@ describe("ContextManagementSettings", () => {
 		listApiConfigMeta: [],
 		maxOpenTabsContext: 20,
 		maxWorkspaceFiles: 200,
-		showRooIgnoredFiles: false,
+		showDewIgnoredFiles: false,
 		setCachedStateField: vitest.fn(),
 		profileThresholds: {},
 	}
@@ -66,10 +66,10 @@ describe("ContextManagementSettings", () => {
 		const workspaceFilesSlider = screen.getByTestId("workspace-files-limit-slider")
 		expect(workspaceFilesSlider).toBeInTheDocument()
 
-		// Show .rooignore'd files
-		const showRooIgnoredFilesCheckbox = screen.getByTestId("show-rooignored-files-checkbox")
-		expect(showRooIgnoredFilesCheckbox).toBeInTheDocument()
-		expect(screen.getByTestId("show-rooignored-files-checkbox")).not.toBeChecked()
+		// Show .dewignore'd files
+		const showDewIgnoredFilesCheckbox = screen.getByTestId("show-dewignored-files-checkbox")
+		expect(showDewIgnoredFilesCheckbox).toBeInTheDocument()
+		expect(screen.getByTestId("show-dewignored-files-checkbox")).not.toBeChecked()
 	})
 
 	it("updates open tabs context limit", () => {
@@ -110,13 +110,13 @@ describe("ContextManagementSettings", () => {
 		expect(mockSetCachedStateField).toHaveBeenCalledWith("maxWorkspaceFiles", 201)
 	})
 
-	it("updates show rooignored files setting", () => {
+	it("updates show dewignored files setting", () => {
 		render(<ContextManagementSettings {...defaultProps} />)
 
-		const checkbox = screen.getByTestId("show-rooignored-files-checkbox")
+		const checkbox = screen.getByTestId("show-dewignored-files-checkbox")
 		fireEvent.click(checkbox)
 
-		expect(defaultProps.setCachedStateField).toHaveBeenCalledWith("showRooIgnoredFiles", true)
+		expect(defaultProps.setCachedStateField).toHaveBeenCalledWith("showDewIgnoredFiles", true)
 	})
 
 	it("renders max read file line controls", () => {
@@ -309,7 +309,7 @@ describe("ContextManagementSettings", () => {
 		it("handles undefined optional props gracefully", () => {
 			const propsWithUndefined = {
 				...defaultProps,
-				showRooIgnoredFiles: undefined,
+				showDewIgnoredFiles: undefined,
 				maxReadFileLine: undefined,
 			}
 
@@ -361,12 +361,12 @@ describe("ContextManagementSettings", () => {
 			// Check that labels are present
 			expect(screen.getByText("settings:contextManagement.openTabs.label")).toBeInTheDocument()
 			expect(screen.getByText("settings:contextManagement.workspaceFiles.label")).toBeInTheDocument()
-			expect(screen.getByText("settings:contextManagement.rooignore.label")).toBeInTheDocument()
+			expect(screen.getByText("settings:contextManagement.dewignore.label")).toBeInTheDocument()
 
 			// Check that descriptions are present
 			expect(screen.getByText("settings:contextManagement.openTabs.description")).toBeInTheDocument()
 			expect(screen.getByText("settings:contextManagement.workspaceFiles.description")).toBeInTheDocument()
-			expect(screen.getByText("settings:contextManagement.rooignore.description")).toBeInTheDocument()
+			expect(screen.getByText("settings:contextManagement.dewignore.description")).toBeInTheDocument()
 		})
 
 		it("has proper test ids for all interactive elements", () => {
@@ -378,7 +378,7 @@ describe("ContextManagementSettings", () => {
 
 			expect(screen.getByTestId("open-tabs-limit-slider")).toBeInTheDocument()
 			expect(screen.getByTestId("workspace-files-limit-slider")).toBeInTheDocument()
-			expect(screen.getByTestId("show-rooignored-files-checkbox")).toBeInTheDocument()
+			expect(screen.getByTestId("show-dewignored-files-checkbox")).toBeInTheDocument()
 			expect(screen.getByTestId("max-read-file-line-input")).toBeInTheDocument()
 			expect(screen.getByTestId("max-read-file-always-full-checkbox")).toBeInTheDocument()
 		})
@@ -393,7 +393,7 @@ describe("ContextManagementSettings", () => {
 			expect(screen.getByText("settings:contextManagement.description")).toBeInTheDocument()
 			expect(screen.getByText("settings:contextManagement.openTabs.label")).toBeInTheDocument()
 			expect(screen.getByText("settings:contextManagement.workspaceFiles.label")).toBeInTheDocument()
-			expect(screen.getByText("settings:contextManagement.rooignore.label")).toBeInTheDocument()
+			expect(screen.getByText("settings:contextManagement.dewignore.label")).toBeInTheDocument()
 		})
 	})
 })

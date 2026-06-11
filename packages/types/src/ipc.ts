@@ -2,7 +2,7 @@ import { z } from "zod"
 
 import { clineMessageSchema, tokenUsageSchema } from "./message.js"
 import { toolNamesSchema, toolUsageSchema } from "./tool.js"
-import { rooCodeSettingsSchema } from "./global-settings.js"
+import { dewCodeSettingsSchema } from "./global-settings.js"
 
 /**
  * isSubtaskSchema
@@ -13,10 +13,10 @@ export const isSubtaskSchema = z.object({
 export type IsSubtask = z.infer<typeof isSubtaskSchema>
 
 /**
- * RooCodeEvent
+ * DewCodeEvent
  */
 
-export enum RooCodeEventName {
+export enum DewCodeEventName {
 	Message = "message",
 	TaskCreated = "taskCreated",
 	TaskStarted = "taskStarted",
@@ -33,28 +33,28 @@ export enum RooCodeEventName {
 	EvalFail = "evalFail",
 }
 
-export const rooCodeEventsSchema = z.object({
-	[RooCodeEventName.Message]: z.tuple([
+export const dewCodeEventsSchema = z.object({
+	[DewCodeEventName.Message]: z.tuple([
 		z.object({
 			taskId: z.string(),
 			action: z.union([z.literal("created"), z.literal("updated")]),
 			message: clineMessageSchema,
 		}),
 	]),
-	[RooCodeEventName.TaskCreated]: z.tuple([z.string()]),
-	[RooCodeEventName.TaskStarted]: z.tuple([z.string()]),
-	[RooCodeEventName.TaskModeSwitched]: z.tuple([z.string(), z.string()]),
-	[RooCodeEventName.TaskPaused]: z.tuple([z.string()]),
-	[RooCodeEventName.TaskUnpaused]: z.tuple([z.string()]),
-	[RooCodeEventName.TaskAskResponded]: z.tuple([z.string()]),
-	[RooCodeEventName.TaskAborted]: z.tuple([z.string()]),
-	[RooCodeEventName.TaskSpawned]: z.tuple([z.string(), z.string()]),
-	[RooCodeEventName.TaskCompleted]: z.tuple([z.string(), tokenUsageSchema, toolUsageSchema, isSubtaskSchema]),
-	[RooCodeEventName.TaskTokenUsageUpdated]: z.tuple([z.string(), tokenUsageSchema]),
-	[RooCodeEventName.TaskToolFailed]: z.tuple([z.string(), toolNamesSchema, z.string()]),
+	[DewCodeEventName.TaskCreated]: z.tuple([z.string()]),
+	[DewCodeEventName.TaskStarted]: z.tuple([z.string()]),
+	[DewCodeEventName.TaskModeSwitched]: z.tuple([z.string(), z.string()]),
+	[DewCodeEventName.TaskPaused]: z.tuple([z.string()]),
+	[DewCodeEventName.TaskUnpaused]: z.tuple([z.string()]),
+	[DewCodeEventName.TaskAskResponded]: z.tuple([z.string()]),
+	[DewCodeEventName.TaskAborted]: z.tuple([z.string()]),
+	[DewCodeEventName.TaskSpawned]: z.tuple([z.string(), z.string()]),
+	[DewCodeEventName.TaskCompleted]: z.tuple([z.string(), tokenUsageSchema, toolUsageSchema, isSubtaskSchema]),
+	[DewCodeEventName.TaskTokenUsageUpdated]: z.tuple([z.string(), tokenUsageSchema]),
+	[DewCodeEventName.TaskToolFailed]: z.tuple([z.string(), toolNamesSchema, z.string()]),
 })
 
-export type RooCodeEvents = z.infer<typeof rooCodeEventsSchema>
+export type DewCodeEvents = z.infer<typeof dewCodeEventsSchema>
 
 /**
  * Ack
@@ -82,7 +82,7 @@ export const taskCommandSchema = z.discriminatedUnion("commandName", [
 	z.object({
 		commandName: z.literal(TaskCommandName.StartNewTask),
 		data: z.object({
-			configuration: rooCodeSettingsSchema,
+			configuration: dewCodeSettingsSchema,
 			text: z.string(),
 			images: z.array(z.string()).optional(),
 			newTab: z.boolean().optional(),
@@ -106,72 +106,72 @@ export type TaskCommand = z.infer<typeof taskCommandSchema>
 
 export const taskEventSchema = z.discriminatedUnion("eventName", [
 	z.object({
-		eventName: z.literal(RooCodeEventName.Message),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.Message],
+		eventName: z.literal(DewCodeEventName.Message),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.Message],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskCreated),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskCreated],
+		eventName: z.literal(DewCodeEventName.TaskCreated),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskCreated],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskStarted),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskStarted],
+		eventName: z.literal(DewCodeEventName.TaskStarted),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskStarted],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskModeSwitched),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskModeSwitched],
+		eventName: z.literal(DewCodeEventName.TaskModeSwitched),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskModeSwitched],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskPaused),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskPaused],
+		eventName: z.literal(DewCodeEventName.TaskPaused),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskPaused],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskUnpaused),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskUnpaused],
+		eventName: z.literal(DewCodeEventName.TaskUnpaused),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskUnpaused],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskAskResponded),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskAskResponded],
+		eventName: z.literal(DewCodeEventName.TaskAskResponded),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskAskResponded],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskAborted),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskAborted],
+		eventName: z.literal(DewCodeEventName.TaskAborted),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskAborted],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskSpawned),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskSpawned],
+		eventName: z.literal(DewCodeEventName.TaskSpawned),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskSpawned],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskCompleted),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskCompleted],
+		eventName: z.literal(DewCodeEventName.TaskCompleted),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskCompleted],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskTokenUsageUpdated),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskTokenUsageUpdated],
+		eventName: z.literal(DewCodeEventName.TaskTokenUsageUpdated),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskTokenUsageUpdated],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.TaskToolFailed),
-		payload: rooCodeEventsSchema.shape[RooCodeEventName.TaskToolFailed],
+		eventName: z.literal(DewCodeEventName.TaskToolFailed),
+		payload: dewCodeEventsSchema.shape[DewCodeEventName.TaskToolFailed],
 		taskId: z.number().optional(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.EvalPass),
+		eventName: z.literal(DewCodeEventName.EvalPass),
 		payload: z.undefined(),
 		taskId: z.number(),
 	}),
 	z.object({
-		eventName: z.literal(RooCodeEventName.EvalFail),
+		eventName: z.literal(DewCodeEventName.EvalFail),
 		payload: z.undefined(),
 		taskId: z.number(),
 	}),

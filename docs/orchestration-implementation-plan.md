@@ -9,7 +9,7 @@ Based on comprehensive analysis of the Dew-Coder codebase, this document propose
 The codebase analysis revealed that Dew-Coder is much more sophisticated than initially apparent:
 
 ### **Existing Orchestration Capabilities**
-- PASS **Multi-agent workflows**: `.roo/rules-pr-reviewer/1_orchestrator_workflow.xml` shows sophisticated task delegation
+- PASS **Multi-agent workflows**: `.dew/rules-pr-reviewer/1_orchestrator_workflow.xml` shows sophisticated task delegation
 - PASS **Agent specialization**: 10+ specialized modes with role-based permissions
 - PASS **Tool orchestration**: 20+ integrated tools (file ops, terminal, browser, MCP)
 - PASS **Event-driven architecture**: `Task.ts` uses EventEmitter for real-time coordination
@@ -30,7 +30,7 @@ The codebase analysis revealed that Dew-Coder is much more sophisticated than in
 
 ```typescript
 import { EventEmitter } from 'events'
-import { ModeConfig } from '@roo-code/types'
+import { ModeConfig } from '@dew-code/types'
 import { CustomModesManager } from '../config/CustomModesManager'
 import { Task } from '../task/Task'
 
@@ -146,7 +146,7 @@ export class CustomModesManager {
 
 ```typescript
 import { Task } from '../task/Task'
-import { ModeConfig } from '@roo-code/types'
+import { ModeConfig } from '@dew-code/types'
 
 export interface SubTask {
   id: string
@@ -342,10 +342,10 @@ export class WorkflowTemplateEngine {
   private templates: Map<string, WorkflowTemplate> = new Map()
 
   /**
-   * Load workflow templates from .roo/templates/
+   * Load workflow templates from .dew/templates/
    */
   async loadTemplates(): Promise<void> {
-    const templateDir = path.join(getWorkspacePath(), '.roo', 'templates')
+    const templateDir = path.join(getWorkspacePath(), '.dew', 'templates')
 
     if (await fileExistsAtPath(templateDir)) {
       const templateFiles = await fs.readdir(templateDir)
@@ -399,9 +399,9 @@ export class WorkflowTemplateEngine {
 ```
 
 #### **4.2 Workflow Templates**
-**Directory**: `.roo/templates/`
+**Directory**: `.dew/templates/`
 
-**Feature Development Template** (`.roo/templates/feature-development.xml`):
+**Feature Development Template** (`.dew/templates/feature-development.xml`):
 ```xml
 <workflow_template name="feature_development">
   <description>Complete feature development with architecture, implementation, testing, and documentation</description>
@@ -537,7 +537,7 @@ export class ModelRouter {
 ## 🔄 **Integration with Existing Dew-Coder Architecture**
 
 ### **Enhanced Mode Configuration**
-The orchestration system builds on the existing `.roomodes` system:
+The orchestration system builds on the existing `.dewmodes` system:
 
 ```yaml
 customModes:

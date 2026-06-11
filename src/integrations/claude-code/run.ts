@@ -3,7 +3,7 @@ import type Anthropic from "@anthropic-ai/sdk"
 import { execa } from "execa"
 import { ClaudeCodeMessage } from "./types"
 import readline from "readline"
-import { CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS } from "@roo-code/types"
+import { CLAUDE_CODE_DEFAULT_MAX_OUTPUT_TOKENS } from "@dew-code/types"
 import * as os from "os"
 
 const cwd = vscode.workspace.workspaceFolders?.map((folder) => folder.uri.fsPath).at(0)

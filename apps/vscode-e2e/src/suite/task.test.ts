@@ -1,6 +1,6 @@
 import * as assert from "assert"
 
-import type { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@dew-code/types"
 
 import { waitUntilCompleted } from "./utils"
 import { setDefaultSuiteTimeout } from "./test-utils"
@@ -28,9 +28,9 @@ suite("Dew-Coder Task", function () {
 
 		assert.ok(
 			!!messages.find(
-				({ say, text }) => (say === "completion_result" || say === "text") && text?.includes("My name is Roo"),
+				({ say, text }) => (say === "completion_result" || say === "text") && text?.includes("My name is Dew"),
 			),
-			`Completion should include "My name is Roo"`,
+			`Completion should include "My name is Dew"`,
 		)
 	})
 })

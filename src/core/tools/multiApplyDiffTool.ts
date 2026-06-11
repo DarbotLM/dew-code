@@ -1,8 +1,8 @@
 import path from "path"
 import fs from "fs/promises"
 
-import { TelemetryService } from "@roo-code/telemetry"
-import { DEFAULT_WRITE_DELAY_MS } from "@roo-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
+import { DEFAULT_WRITE_DELAY_MS } from "@dew-code/types"
 
 import { ClineSayTool } from "../../shared/ExtensionMessage"
 import { getReadablePath } from "../../utils/path"
@@ -232,18 +232,18 @@ Original error: ${errorMessage}`
 			const { path: relPath, diff: diffItems } = operation
 
 			// Verify file access is allowed
-			const accessAllowed = cline.rooIgnoreController?.validateAccess(relPath)
+			const accessAllowed = cline.dewIgnoreController?.validateAccess(relPath)
 			if (!accessAllowed) {
-				await cline.say("rooignore_error", relPath)
+				await cline.say("dewignore_error", relPath)
 				updateOperationResult(relPath, {
 					status: "blocked",
-					error: formatResponse.rooIgnoreError(relPath),
+					error: formatResponse.dewIgnoreError(relPath),
 				})
 				continue
 			}
 
 			// Check if file is write-protected
-			const isWriteProtected = cline.rooProtectedController?.isWriteProtected(relPath) || false
+			const isWriteProtected = cline.dewProtectedController?.isWriteProtected(relPath) || false
 
 			// Verify file exists
 			const absolutePath = path.resolve(cline.cwd, relPath)
@@ -269,7 +269,7 @@ Original error: ${errorMessage}`
 		if (operationsToApprove.length > 1) {
 			// Check if any files are write-protected
 			const hasProtectedFiles = operationsToApprove.some(
-				(opResult) => cline.rooProtectedController?.isWriteProtected(opResult.path) || false,
+				(opResult) => cline.dewProtectedController?.isWriteProtected(opResult.path) || false,
 			)
 
 			// Prepare batch diff data
@@ -514,7 +514,7 @@ ${errorDetails ? `\nTechnical details:\n${errorDetails}\n` : ""}
 				cline.diffViewProvider.scrollToFirstDiff()
 
 				// For batch operations, we've already gotten approval
-				const isWriteProtected = cline.rooProtectedController?.isWriteProtected(relPath) || false
+				const isWriteProtected = cline.dewProtectedController?.isWriteProtected(relPath) || false
 				const sharedMessageProps: ClineSayTool = {
 					tool: "appliedDiff",
 					path: getReadablePath(cline.cwd, relPath),
@@ -543,7 +543,7 @@ ${errorDetails ? `\nTechnical details:\n${errorDetails}\n` : ""}
 					}
 
 					// Check if file is write-protected
-					const isWriteProtected = cline.rooProtectedController?.isWriteProtected(relPath) || false
+					const isWriteProtected = cline.dewProtectedController?.isWriteProtected(relPath) || false
 					didApprove = await askApproval("tool", operationMessage, toolProgressStatus, isWriteProtected)
 				}
 
@@ -561,7 +561,7 @@ ${errorDetails ? `\nTechnical details:\n${errorDetails}\n` : ""}
 				await cline.diffViewProvider.saveChanges(diagnosticsEnabled, writeDelayMs)
 
 				// Track file edit operation
-				await cline.fileContextTracker.trackFileContext(relPath, "roo_edited" as RecordSource)
+				await cline.fileContextTracker.trackFileContext(relPath, "dew_edited" as RecordSource)
 
 				// Used to determine if we should wait for busy terminal to update before sending api request
 				cline.didEditFile = true

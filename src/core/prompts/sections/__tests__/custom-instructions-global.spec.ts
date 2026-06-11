@@ -2,14 +2,14 @@ import * as path from "path"
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 
 // Use vi.hoisted to ensure mocks are available during hoisting
-const { mockHomedir, mockStat, mockReadFile, mockReaddir, mockGetRooDirectoriesForCwd, mockGetGlobalRooDirectory } =
+const { mockHomedir, mockStat, mockReadFile, mockReaddir, mockGetDewDirectoriesForCwd, mockGetGlobalDewDirectory } =
 	vi.hoisted(() => ({
 		mockHomedir: vi.fn(),
 		mockStat: vi.fn(),
 		mockReadFile: vi.fn(),
 		mockReaddir: vi.fn(),
-		mockGetRooDirectoriesForCwd: vi.fn(),
-		mockGetGlobalRooDirectory: vi.fn(),
+		mockGetDewDirectoriesForCwd: vi.fn(),
+		mockGetGlobalDewDirectory: vi.fn(),
 	}))
 
 // Mock os module
@@ -29,25 +29,25 @@ vi.mock("fs/promises", () => ({
 	},
 }))
 
-// Mock the roo-config service
-vi.mock("../../../../services/roo-config", () => ({
-	getRooDirectoriesForCwd: mockGetRooDirectoriesForCwd,
-	getGlobalRooDirectory: mockGetGlobalRooDirectory,
+// Mock the dew-config service
+vi.mock("../../../../services/dew-config", () => ({
+	getDewDirectoriesForCwd: mockGetDewDirectoriesForCwd,
+	getGlobalDewDirectory: mockGetGlobalDewDirectory,
 }))
 
 import { loadRuleFiles, addCustomInstructions } from "../custom-instructions"
 
-describe("custom-instructions global .roo support", () => {
+describe("custom-instructions global .dew support", () => {
 	const mockCwd = "/mock/project"
 	const mockHomeDir = "/mock/home"
-	const globalRooDir = path.join(mockHomeDir, ".roo")
-	const projectRooDir = path.join(mockCwd, ".roo")
+	const globalDewDir = path.join(mockHomeDir, ".dew")
+	const projectDewDir = path.join(mockCwd, ".dew")
 
 	beforeEach(() => {
 		vi.clearAllMocks()
 		mockHomedir.mockReturnValue(mockHomeDir)
-		mockGetRooDirectoriesForCwd.mockReturnValue([globalRooDir, projectRooDir])
-		mockGetGlobalRooDirectory.mockReturnValue(globalRooDir)
+		mockGetDewDirectoriesForCwd.mockReturnValue([globalDewDir, projectDewDir])
+		mockGetGlobalDewDirectory.mockReturnValue(globalDewDir)
 	})
 
 	afterEach(() => {
@@ -133,7 +133,7 @@ describe("custom-instructions global .roo support", () => {
 			expect(globalIndex).toBeLessThan(projectIndex)
 		})
 
-		it("should fall back to legacy .roorules file when no .roo/rules directories exist", async () => {
+		it("should fall back to legacy .dewrules file when no .dew/rules directories exist", async () => {
 			// Mock directory existence - neither exist
 			mockStat
 				.mockRejectedValueOnce(new Error("ENOENT")) // global rules dir doesn't exist
@@ -144,7 +144,7 @@ describe("custom-instructions global .roo support", () => {
 
 			const result = await loadRuleFiles(mockCwd)
 
-			expect(result).toContain("# Rules from .roorules:")
+			expect(result).toContain("# Rules from .dewrules:")
 			expect(result).toContain("legacy rule content")
 		})
 
@@ -158,7 +158,7 @@ describe("custom-instructions global .roo support", () => {
 			// The safeReadFile function catches ENOENT errors and returns empty string
 			// So we don't need to mock rejections, just empty responses
 			mockReadFile
-				.mockResolvedValueOnce("") // .roorules returns empty (simulating ENOENT caught by safeReadFile)
+				.mockResolvedValueOnce("") // .dewrules returns empty (simulating ENOENT caught by safeReadFile)
 				.mockResolvedValueOnce("") // .clinerules returns empty (simulating ENOENT caught by safeReadFile)
 
 			const result = await loadRuleFiles(mockCwd)
@@ -193,7 +193,7 @@ describe("custom-instructions global .roo support", () => {
 			mockReadFile
 				.mockResolvedValueOnce("global mode rule content")
 				.mockResolvedValueOnce("project mode rule content")
-				.mockResolvedValueOnce("") // .roorules legacy file (empty)
+				.mockResolvedValueOnce("") // .dewrules legacy file (empty)
 				.mockResolvedValueOnce("") // .clinerules legacy file (empty)
 
 			const result = await addCustomInstructions("", "", mockCwd, mode)
@@ -217,13 +217,13 @@ describe("custom-instructions global .roo support", () => {
 
 			// Mock legacy mode file reading
 			mockReadFile
-				.mockResolvedValueOnce("legacy mode rule content") // .roorules-code
-				.mockResolvedValueOnce("") // generic .roorules (empty)
+				.mockResolvedValueOnce("legacy mode rule content") // .dewrules-code
+				.mockResolvedValueOnce("") // generic .dewrules (empty)
 				.mockResolvedValueOnce("") // generic .clinerules (empty)
 
 			const result = await addCustomInstructions("", "", mockCwd, mode)
 
-			expect(result).toContain("# Rules from .roorules-code:")
+			expect(result).toContain("# Rules from .dewrules-code:")
 			expect(result).toContain("legacy mode rule content")
 		})
 	})

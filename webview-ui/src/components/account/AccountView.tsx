@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react"
 import { VSCodeButton } from "@vscode/webview-ui-toolkit/react"
 
-import type { CloudUserInfo } from "@roo-code/types"
-import { TelemetryEventName } from "@roo-code/types"
+import type { CloudUserInfo } from "@dew-code/types"
+import { TelemetryEventName } from "@dew-code/types"
 
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { vscode } from "@src/utils/vscode"
@@ -19,7 +19,7 @@ export const AccountView = ({ userInfo, isAuthenticated, cloudApiUrl, onDone }: 
 	const { t } = useAppTranslation()
 	const wasAuthenticatedRef = useRef(false)
 
-	const rooLogoUri = (window as any).IMAGES_BASE_URI + "/roo-logo.svg"
+	const dewLogoUri = (window as any).IMAGES_BASE_URI + "/dew-logo.svg"
 
 	// Track authentication state changes to detect successful logout
 	useEffect(() => {
@@ -35,13 +35,13 @@ export const AccountView = ({ userInfo, isAuthenticated, cloudApiUrl, onDone }: 
 	const handleConnectClick = () => {
 		// Send telemetry for account connect action
 		telemetryClient.capture(TelemetryEventName.ACCOUNT_CONNECT_CLICKED)
-		vscode.postMessage({ type: "rooCloudSignIn" })
+		vscode.postMessage({ type: "dewCloudSignIn" })
 	}
 
 	const handleLogoutClick = () => {
 		// Send telemetry for account logout action
 		telemetryClient.capture(TelemetryEventName.ACCOUNT_LOGOUT_CLICKED)
-		vscode.postMessage({ type: "rooCloudSignOut" })
+		vscode.postMessage({ type: "dewCloudSignOut" })
 	}
 
 	const handleVisitCloudWebsite = () => {
@@ -112,14 +112,14 @@ export const AccountView = ({ userInfo, isAuthenticated, cloudApiUrl, onDone }: 
 							<div
 								className="w-12 h-12 bg-vscode-foreground"
 								style={{
-									WebkitMaskImage: `url('${rooLogoUri}')`,
+									WebkitMaskImage: `url('${dewLogoUri}')`,
 									WebkitMaskRepeat: "no-repeat",
 									WebkitMaskSize: "contain",
-									maskImage: `url('${rooLogoUri}')`,
+									maskImage: `url('${dewLogoUri}')`,
 									maskRepeat: "no-repeat",
 									maskSize: "contain",
 								}}>
-								<img src={rooLogoUri} alt="Roo logo" className="w-12 h-12 opacity-0" />
+								<img src={dewLogoUri} alt="Dew logo" className="w-12 h-12 opacity-0" />
 							</div>
 						</div>
 					</div>

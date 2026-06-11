@@ -3,3 +3,9 @@ packages:
     - "webview-ui" # Should be apps/vscode-webview
     - "apps/*"
     - "packages/*"
+
+overrides:
+    tar-fs: ">=2.1.3"
+    esbuild: ">=0.25.0"
+    undici: ">=5.29.0"
+    brace-expansion: ">=2.0.2"

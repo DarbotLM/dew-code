@@ -11,7 +11,7 @@ import { ClineSayTool } from "../../shared/ExtensionMessage"
 import { getReadablePath } from "../../utils/path"
 import { fileExistsAtPath } from "../../utils/fs"
 import { RecordSource } from "../context-tracking/FileContextTrackerTypes"
-import { DEFAULT_WRITE_DELAY_MS } from "@roo-code/types"
+import { DEFAULT_WRITE_DELAY_MS } from "@dew-code/types"
 
 /**
  * Tool for performing search and replace operations on files
@@ -116,16 +116,16 @@ export async function searchAndReplaceTool(
 			endLine: endLine,
 		}
 
-		const accessAllowed = cline.rooIgnoreController?.validateAccess(validRelPath)
+		const accessAllowed = cline.dewIgnoreController?.validateAccess(validRelPath)
 
 		if (!accessAllowed) {
-			await cline.say("rooignore_error", validRelPath)
-			pushToolResult(formatResponse.toolError(formatResponse.rooIgnoreError(validRelPath)))
+			await cline.say("dewignore_error", validRelPath)
+			pushToolResult(formatResponse.toolError(formatResponse.dewIgnoreError(validRelPath)))
 			return
 		}
 
 		// Check if file is write-protected
-		const isWriteProtected = cline.rooProtectedController?.isWriteProtected(validRelPath) || false
+		const isWriteProtected = cline.dewProtectedController?.isWriteProtected(validRelPath) || false
 
 		const absolutePath = path.resolve(cline.cwd, validRelPath)
 		const fileExists = await fileExistsAtPath(absolutePath)
@@ -236,7 +236,7 @@ export async function searchAndReplaceTool(
 
 		// Track file edit operation
 		if (relPath) {
-			await cline.fileContextTracker.trackFileContext(relPath, "roo_edited" as RecordSource)
+			await cline.fileContextTracker.trackFileContext(relPath, "dew_edited" as RecordSource)
 		}
 
 		cline.didEditFile = true

@@ -102,7 +102,7 @@ describe("WebAuthService", () => {
 
 		// Setup config mocks - use production URL by default to maintain existing test behavior
 		vi.mocked(Config.getClerkBaseUrl).mockReturnValue("https://clerk.dewcode.com")
-		vi.mocked(Config.getRooCodeApiUrl).mockReturnValue("https://api.test.com")
+		vi.mocked(Config.getDewCodeApiUrl).mockReturnValue("https://api.test.com")
 
 		// Setup utils mock
 		vi.mocked(utils.getUserAgent).mockReturnValue("dew-code 1.0.0")

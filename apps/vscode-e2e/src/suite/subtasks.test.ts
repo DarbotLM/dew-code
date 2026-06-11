@@ -1,6 +1,6 @@
 import * as assert from "assert"
 
-import type { ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@dew-code/types"
 
 import { sleep, waitFor, waitUntilCompleted } from "./utils"
 
@@ -17,7 +17,7 @@ suite.skip("Dew-Coder Subtasks", () => {
 			}
 		})
 
-		const childPrompt = "You are a calculator. Respond only with numbers. What is the square root of 9?"
+		const childPrompt = "You are a calculator. Respond only with numbers. What is the square dewt of 9?"
 
 		// Start a parent task that will create a subtask.
 		const parentTaskId = await api.startNewTask({

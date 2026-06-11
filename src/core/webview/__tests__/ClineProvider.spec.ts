@@ -4,8 +4,8 @@ import Anthropic from "@anthropic-ai/sdk"
 import * as vscode from "vscode"
 import axios from "axios"
 
-import { type ProviderSettingsEntry, type ClineMessage, ORGANIZATION_ALLOW_ALL } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import { type ProviderSettingsEntry, type ClineMessage, ORGANIZATION_ALLOW_ALL } from "@dew-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
 
 import { ExtensionMessage, ExtensionState } from "../../../shared/ExtensionMessage"
 import { defaultModeSlug } from "../../../shared/modes"
@@ -212,7 +212,7 @@ vi.mock("../../task/Task", () => ({
 				getTaskNumber: vi.fn().mockReturnValue(0),
 				setTaskNumber: vi.fn(),
 				setParentTask: vi.fn(),
-				setRootTask: vi.fn(),
+				setDewtTask: vi.fn(),
 				taskId: taskId || "test-task-id",
 			}),
 		),
@@ -312,7 +312,7 @@ vi.mock("../diff/strategies/multi-search-replace", () => ({
 	})),
 }))
 
-vi.mock("@roo-code/cloud", () => ({
+vi.mock("@dew-code/cloud", () => ({
 	CloudService: {
 		hasInstance: vi.fn().mockReturnValue(true),
 		get instance() {
@@ -321,7 +321,7 @@ vi.mock("@roo-code/cloud", () => ({
 			}
 		},
 	},
-	getRooCodeApiUrl: vi.fn().mockReturnValue("https://app.dewcode.com"),
+	getDewCodeApiUrl: vi.fn().mockReturnValue("https://app.dewcode.com"),
 }))
 
 afterAll(() => {
@@ -447,7 +447,7 @@ describe("ClineProvider", () => {
 
 		expect(mockWebviewView.webview.options).toEqual({
 			enableScripts: true,
-			localResourceRoots: [mockContext.extensionUri],
+			localResourceDewts: [mockContext.extensionUri],
 		})
 
 		expect(mockWebviewView.webview.html).toContain("<!DOCTYPE html>")
@@ -466,7 +466,7 @@ describe("ClineProvider", () => {
 
 		expect(mockWebviewView.webview.options).toEqual({
 			enableScripts: true,
-			localResourceRoots: [mockContext.extensionUri],
+			localResourceDewts: [mockContext.extensionUri],
 		})
 
 		expect(mockWebviewView.webview.html).toContain("<!DOCTYPE html>")
@@ -529,7 +529,7 @@ describe("ClineProvider", () => {
 			maxWorkspaceFiles: 200,
 			browserToolEnabled: true,
 			telemetrySetting: "unset",
-			showRooIgnoredFiles: true,
+			showDewIgnoredFiles: true,
 			renderContext: "sidebar",
 			maxReadFileLine: 500,
 			cloudUserInfo: null,
@@ -626,7 +626,7 @@ describe("ClineProvider", () => {
 			// Set up parent-child relationship by setting the parentTask property
 			// The mock allows us to set properties directly
 			;(childTask as any).parentTask = parentTask
-			;(childTask as any).rootTask = parentTask
+			;(childTask as any).dewtTask = parentTask
 
 			// Mock the provider methods
 			const clearTaskSpy = vi.spyOn(provider, "clearTask").mockResolvedValue(undefined)
@@ -973,24 +973,24 @@ describe("ClineProvider", () => {
 		expect(state.browserToolEnabled).toBe(true) // Default value should be true
 	})
 
-	test("handles showRooIgnoredFiles setting", async () => {
+	test("handles showDewIgnoredFiles setting", async () => {
 		await provider.resolveWebviewView(mockWebviewView)
 		const messageHandler = (mockWebviewView.webview.onDidReceiveMessage as any).mock.calls[0][0]
 
 		// Default value should be true
-		expect((await provider.getState()).showRooIgnoredFiles).toBe(true)
+		expect((await provider.getState()).showDewIgnoredFiles).toBe(true)
 
-		// Test showRooIgnoredFiles with true
-		await messageHandler({ type: "showRooIgnoredFiles", bool: true })
-		expect(mockContext.globalState.update).toHaveBeenCalledWith("showRooIgnoredFiles", true)
+		// Test showDewIgnoredFiles with true
+		await messageHandler({ type: "showDewIgnoredFiles", bool: true })
+		expect(mockContext.globalState.update).toHaveBeenCalledWith("showDewIgnoredFiles", true)
 		expect(mockPostMessage).toHaveBeenCalled()
-		expect((await provider.getState()).showRooIgnoredFiles).toBe(true)
+		expect((await provider.getState()).showDewIgnoredFiles).toBe(true)
 
-		// Test showRooIgnoredFiles with false
-		await messageHandler({ type: "showRooIgnoredFiles", bool: false })
-		expect(mockContext.globalState.update).toHaveBeenCalledWith("showRooIgnoredFiles", false)
+		// Test showDewIgnoredFiles with false
+		await messageHandler({ type: "showDewIgnoredFiles", bool: false })
+		expect(mockContext.globalState.update).toHaveBeenCalledWith("showDewIgnoredFiles", false)
 		expect(mockPostMessage).toHaveBeenCalled()
-		expect((await provider.getState()).showRooIgnoredFiles).toBe(false)
+		expect((await provider.getState()).showDewIgnoredFiles).toBe(false)
 	})
 
 	test("handles request delay settings messages", async () => {
@@ -2029,13 +2029,13 @@ describe("Project MCP Settings", () => {
 		})
 
 		// Check that fs.mkdir was called with the correct path
-		expect(mockedFs.mkdir).toHaveBeenCalledWith("/test/workspace/.roo", { recursive: true })
+		expect(mockedFs.mkdir).toHaveBeenCalledWith("/test/workspace/.dew", { recursive: true })
 
 		// Verify file was created with default content
-		expect(safeWriteJson).toHaveBeenCalledWith("/test/workspace/.roo/mcp.json", { mcpServers: {} })
+		expect(safeWriteJson).toHaveBeenCalledWith("/test/workspace/.dew/mcp.json", { mcpServers: {} })
 
 		// Check that openFile was called
-		expect(openFileSpy).toHaveBeenCalledWith("/test/workspace/.roo/mcp.json")
+		expect(openFileSpy).toHaveBeenCalledWith("/test/workspace/.dew/mcp.json")
 	})
 
 	test("handles openProjectMcpSettings when workspace is not open", async () => {
@@ -2070,7 +2070,7 @@ describe("Project MCP Settings", () => {
 
 		// Verify error message was shown
 		expect(vscode.window.showErrorMessage).toHaveBeenCalledWith(
-			expect.stringContaining("Failed to create or open .roo/mcp.json"),
+			expect.stringContaining("Failed to create or open .dew/mcp.json"),
 		)
 	})
 })
@@ -2208,7 +2208,7 @@ describe("getTelemetryProperties", () => {
 
 		test("includes cloud authentication property when user is authenticated", async () => {
 			// Import the CloudService mock and update it
-			const { CloudService } = await import("@roo-code/cloud")
+			const { CloudService } = await import("@dew-code/cloud")
 			const mockCloudService = {
 				isAuthenticated: vi.fn().mockReturnValue(true),
 			}
@@ -2226,7 +2226,7 @@ describe("getTelemetryProperties", () => {
 
 		test("includes cloud authentication property when user is not authenticated", async () => {
 			// Import the CloudService mock and update it
-			const { CloudService } = await import("@roo-code/cloud")
+			const { CloudService } = await import("@dew-code/cloud")
 			const mockCloudService = {
 				isAuthenticated: vi.fn().mockReturnValue(false),
 			}
@@ -2244,7 +2244,7 @@ describe("getTelemetryProperties", () => {
 
 		test("handles CloudService errors gracefully", async () => {
 			// Import the CloudService mock and update it to throw an error
-			const { CloudService } = await import("@roo-code/cloud")
+			const { CloudService } = await import("@dew-code/cloud")
 			Object.defineProperty(CloudService, "instance", {
 				get: vi.fn().mockImplementation(() => {
 					throw new Error("CloudService not available")
@@ -2265,7 +2265,7 @@ describe("getTelemetryProperties", () => {
 
 		test("handles CloudService method errors gracefully", async () => {
 			// Import the CloudService mock and update it
-			const { CloudService } = await import("@roo-code/cloud")
+			const { CloudService } = await import("@dew-code/cloud")
 			const mockCloudService = {
 				isAuthenticated: vi.fn().mockImplementation(() => {
 					throw new Error("Authentication check error")

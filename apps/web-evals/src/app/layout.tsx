@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 	title: "Dew-Coder Evals",
 }
 
-export default function RootLayout({
+export default function DewtLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode

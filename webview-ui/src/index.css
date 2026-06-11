@@ -135,7 +135,7 @@
 }
 
 @layer base {
-	:root {
+	:dewt {
 		--background: var(--vscode-editor-background);
 		--foreground: var(--vscode-editor-foreground);
 		--card: var(--vscode-editor-background);
@@ -163,7 +163,7 @@
 		--radius: 0.5rem;
 	}
 
-	/* Higher specififty than VSCode's theme and root. */
+	/* Higher specififty than VSCode's theme and dewt. */
 	/* Used for baseline theme overrides, but avoid using for styling. */
 
 	body {

@@ -199,7 +199,7 @@ describe("ChatView - Auto Approval Tests", () => {
 			alwaysAllowReadOnly: true,
 			alwaysAllowReadOnlyOutsideWorkspace: true,
 			autoApprovalEnabled: true,
-			filePaths: ["/workspace/root", "/another/workspace"],
+			filePaths: ["/workspace/dewt", "/another/workspace"],
 			clineMessages: [
 				{
 					type: "say",
@@ -237,7 +237,7 @@ describe("ChatView - Auto Approval Tests", () => {
 			alwaysAllowReadOnly: true,
 			alwaysAllowReadOnlyOutsideWorkspace: false, // No permission for outside workspace
 			autoApprovalEnabled: true,
-			filePaths: ["/workspace/root", "/another/workspace"], // Same workspace paths as before
+			filePaths: ["/workspace/dewt", "/another/workspace"], // Same workspace paths as before
 			clineMessages: [
 				{
 					type: "say",
@@ -385,7 +385,7 @@ describe("ChatView - Auto Approval Tests", () => {
 			alwaysAllowWriteOutsideWorkspace: true,
 			autoApprovalEnabled: true,
 			writeDelayMs: 0, // Set to 0 for testing
-			filePaths: ["/workspace/root", "/another/workspace"], // Define workspace paths for testing
+			filePaths: ["/workspace/dewt", "/another/workspace"], // Define workspace paths for testing
 			clineMessages: [
 				{
 					type: "say",
@@ -441,7 +441,7 @@ describe("ChatView - Auto Approval Tests", () => {
 			alwaysAllowWriteOutsideWorkspace: false, // No permission for outside workspace
 			autoApprovalEnabled: true,
 			writeDelayMs: 0,
-			filePaths: ["/workspace/root", "/another/workspace"], // Define workspace paths for testing
+			filePaths: ["/workspace/dewt", "/another/workspace"], // Define workspace paths for testing
 			clineMessages: [
 				{
 					type: "say",

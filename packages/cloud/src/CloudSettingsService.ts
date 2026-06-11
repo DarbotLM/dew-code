@@ -5,9 +5,9 @@ import {
 	OrganizationAllowList,
 	OrganizationSettings,
 	organizationSettingsSchema,
-} from "@roo-code/types"
+} from "@dew-code/types"
 
-import { getRooCodeApiUrl } from "./Config"
+import { getDewCodeApiUrl } from "./Config"
 import type { AuthService } from "./auth"
 import { RefreshTimer } from "./RefreshTimer"
 import type { SettingsService } from "./SettingsService"
@@ -71,7 +71,7 @@ export class CloudSettingsService implements SettingsService {
 		}
 
 		try {
-			const response = await fetch(`${getRooCodeApiUrl()}/api/organization-settings`, {
+			const response = await fetch(`${getDewCodeApiUrl()}/api/organization-settings`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},

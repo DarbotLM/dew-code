@@ -1,9 +1,9 @@
 import axios from "axios"
 import * as yaml from "yaml"
 import { z } from "zod"
-import { getRooCodeApiUrl } from "@roo-code/cloud"
-import type { MarketplaceItem, MarketplaceItemType } from "@roo-code/types"
-import { modeMarketplaceItemSchema, mcpMarketplaceItemSchema } from "@roo-code/types"
+import { getDewCodeApiUrl } from "@dew-code/cloud"
+import type { MarketplaceItem, MarketplaceItemType } from "@dew-code/types"
+import { modeMarketplaceItemSchema, mcpMarketplaceItemSchema } from "@dew-code/types"
 
 // Response schemas for YAML API responses
 const modeMarketplaceResponse = z.object({
@@ -20,7 +20,7 @@ export class RemoteConfigLoader {
 	private cacheDuration = 5 * 60 * 1000 // 5 minutes
 
 	constructor() {
-		this.apiBaseUrl = getRooCodeApiUrl()
+		this.apiBaseUrl = getDewCodeApiUrl()
 	}
 
 	async loadAllItems(): Promise<MarketplaceItem[]> {

@@ -12,8 +12,8 @@ import { CodeIndexConfigManager } from "./config-manager"
 import { CacheManager } from "./cache-manager"
 import { Ignore } from "ignore"
 import { t } from "../../i18n"
-import { TelemetryService } from "@roo-code/telemetry"
-import { TelemetryEventName } from "@roo-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
+import { TelemetryEventName } from "@dew-code/types"
 
 /**
  * Factory class responsible for creating and configuring code indexing service dependencies.

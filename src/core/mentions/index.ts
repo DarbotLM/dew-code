@@ -17,7 +17,7 @@ import { UrlContentFetcher } from "../../services/browser/UrlContentFetcher"
 
 import { FileContextTracker } from "../context-tracking/FileContextTracker"
 
-import { RooIgnoreController } from "../ignore/RooIgnoreController"
+import { DewIgnoreController } from "../ignore/DewIgnoreController"
 
 import { t } from "../../i18n"
 
@@ -78,8 +78,8 @@ export async function parseMentions(
 	cwd: string,
 	urlContentFetcher: UrlContentFetcher,
 	fileContextTracker?: FileContextTracker,
-	rooIgnoreController?: RooIgnoreController,
-	showRooIgnoredFiles: boolean = true,
+	dewIgnoreController?: DewIgnoreController,
+	showDewIgnoredFiles: boolean = true,
 ): Promise<string> {
 	const mentions: Set<string> = new Set()
 	let parsedText = text.replace(mentionRegexGlobal, (match, mention) => {
@@ -147,7 +147,7 @@ export async function parseMentions(
 		} else if (mention.startsWith("/")) {
 			const mentionPath = mention.slice(1)
 			try {
-				const content = await getFileOrFolderContent(mentionPath, cwd, rooIgnoreController, showRooIgnoredFiles)
+				const content = await getFileOrFolderContent(mentionPath, cwd, dewIgnoreController, showDewIgnoredFiles)
 				if (mention.endsWith("/")) {
 					parsedText += `\n\n<folder_content path="${mentionPath}">\n${content}\n</folder_content>`
 				} else {
@@ -208,8 +208,8 @@ export async function parseMentions(
 async function getFileOrFolderContent(
 	mentionPath: string,
 	cwd: string,
-	rooIgnoreController?: any,
-	showRooIgnoredFiles: boolean = true,
+	dewIgnoreController?: any,
+	showDewIgnoredFiles: boolean = true,
 ): Promise<string> {
 	const unescapedPath = unescapeSpaces(mentionPath)
 	const absPath = path.resolve(cwd, unescapedPath)
@@ -218,8 +218,8 @@ async function getFileOrFolderContent(
 		const stats = await fs.stat(absPath)
 
 		if (stats.isFile()) {
-			if (rooIgnoreController && !rooIgnoreController.validateAccess(absPath)) {
-				return `(File ${mentionPath} is ignored by .rooignore)`
+			if (dewIgnoreController && !dewIgnoreController.validateAccess(absPath)) {
+				return `(File ${mentionPath} is ignored by .dewignore)`
 			}
 			try {
 				const content = await extractTextFromFile(absPath)
@@ -240,11 +240,11 @@ async function getFileOrFolderContent(
 				const entryPath = path.join(absPath, entry.name)
 
 				let isIgnored = false
-				if (rooIgnoreController) {
-					isIgnored = !rooIgnoreController.validateAccess(entryPath)
+				if (dewIgnoreController) {
+					isIgnored = !dewIgnoreController.validateAccess(entryPath)
 				}
 
-				if (isIgnored && !showRooIgnoredFiles) {
+				if (isIgnored && !showDewIgnoredFiles) {
 					continue
 				}
 

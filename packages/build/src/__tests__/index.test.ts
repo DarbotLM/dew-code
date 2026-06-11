@@ -108,18 +108,18 @@ describe("generatePackageJson", () => {
 				},
 			},
 			overrideJson: {
-				name: "roo-code-nightly",
+				name: "dew-code-nightly",
 				displayName: "Dew-Coder Nightly",
 				publisher: "darbotlm",
 				version: "0.0.1",
 				icon: "assets/icons/icon-nightly.png",
 				scripts: {},
 			},
-			substitution: ["dew-coder", "roo-code-nightly"],
+			substitution: ["dew-coder", "dew-code-nightly"],
 		})
 
 		expect(generatedPackageJson).toStrictEqual({
-			name: "roo-code-nightly",
+			name: "dew-code-nightly",
 			displayName: "Dew-Coder Nightly",
 			description: "%extension.description%",
 			publisher: "darbotlm",
@@ -129,29 +129,29 @@ describe("generatePackageJson", () => {
 				viewsContainers: {
 					activitybar: [
 						{
-							id: "roo-code-nightly-ActivityBar",
+							id: "dew-code-nightly-ActivityBar",
 							title: "%views.activitybar.title%",
 							icon: "assets/icons/icon.svg",
 						},
 					],
 				},
 				views: {
-					"roo-code-nightly-ActivityBar": [
+					"dew-code-nightly-ActivityBar": [
 						{
 							type: "webview",
-							id: "roo-code-nightly.SidebarProvider",
+							id: "dew-code-nightly.SidebarProvider",
 							name: "",
 						},
 					],
 				},
 				commands: [
 					{
-						command: "roo-code-nightly.plusButtonClicked",
+						command: "dew-code-nightly.plusButtonClicked",
 						title: "%command.newTask.title%",
 						icon: "$(add)",
 					},
 					{
-						command: "roo-code-nightly.openInNewTab",
+						command: "dew-code-nightly.openInNewTab",
 						title: "%command.openInNewTab.title%",
 						category: "%configuration.title%",
 					},
@@ -159,48 +159,48 @@ describe("generatePackageJson", () => {
 				menus: {
 					"editor/context": [
 						{
-							submenu: "roo-code-nightly.contextMenu",
+							submenu: "dew-code-nightly.contextMenu",
 							group: "navigation",
 						},
 					],
-					"roo-code-nightly.contextMenu": [
+					"dew-code-nightly.contextMenu": [
 						{
-							command: "roo-code-nightly.addToContext",
+							command: "dew-code-nightly.addToContext",
 							group: "1_actions@1",
 						},
 					],
 					"editor/title": [
 						{
-							command: "roo-code-nightly.plusButtonClicked",
+							command: "dew-code-nightly.plusButtonClicked",
 							group: "navigation@1",
-							when: "activeWebviewPanelId == roo-code-nightly.TabPanelProvider",
+							when: "activeWebviewPanelId == dew-code-nightly.TabPanelProvider",
 						},
 						{
-							command: "roo-code-nightly.settingsButtonClicked",
+							command: "dew-code-nightly.settingsButtonClicked",
 							group: "navigation@6",
-							when: "activeWebviewPanelId == roo-code-nightly.TabPanelProvider",
+							when: "activeWebviewPanelId == dew-code-nightly.TabPanelProvider",
 						},
 						{
-							command: "roo-code-nightly.accountButtonClicked",
+							command: "dew-code-nightly.accountButtonClicked",
 							group: "navigation@6",
-							when: "activeWebviewPanelId == roo-code-nightly.TabPanelProvider",
+							when: "activeWebviewPanelId == dew-code-nightly.TabPanelProvider",
 						},
 					],
 				},
 				submenus: [
 					{
-						id: "roo-code-nightly.contextMenu",
+						id: "dew-code-nightly.contextMenu",
 						label: "%views.contextMenu.label%",
 					},
 					{
-						id: "roo-code-nightly.terminalMenu",
+						id: "dew-code-nightly.terminalMenu",
 						label: "%views.terminalMenu.label%",
 					},
 				],
 				configuration: {
 					title: "%configuration.title%",
 					properties: {
-						"roo-code-nightly.allowedCommands": {
+						"dew-code-nightly.allowedCommands": {
 							type: "array",
 							items: {
 								type: "string",
@@ -208,7 +208,7 @@ describe("generatePackageJson", () => {
 							default: ["npm test", "npm install", "tsc", "git log", "git diff", "git show"],
 							description: "%commands.allowedCommands.description%",
 						},
-						"roo-code-nightly.customStoragePath": {
+						"dew-code-nightly.customStoragePath": {
 							type: "string",
 							default: "",
 							description: "%settings.customStoragePath.description%",

@@ -3,12 +3,12 @@ import Mocha from "mocha"
 import { glob } from "glob"
 import * as vscode from "vscode"
 
-import type { RooCodeAPI } from "@roo-code/types"
+import type { DewCodeAPI } from "@dew-code/types"
 
 import { waitFor } from "./utils"
 
 export async function run() {
-	const extension = vscode.extensions.getExtension<RooCodeAPI>("darbotlm.dew-coder")
+	const extension = vscode.extensions.getExtension<DewCodeAPI>("darbotlm.dew-coder")
 
 	if (!extension) {
 		throw new Error("Extension not found")

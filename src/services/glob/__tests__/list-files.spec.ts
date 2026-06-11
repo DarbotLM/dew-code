@@ -27,7 +27,7 @@ vi.mock("../../ripgrep", () => ({
 // Mock vscode
 vi.mock("vscode", () => ({
 	env: {
-		appRoot: "/mock/app/root",
+		appDewt: "/mock/app/dewt",
 	},
 }))
 
@@ -143,7 +143,7 @@ describe("list-files symlink support", () => {
 		// Mock fs.promises.readdir to simulate a directory structure
 		const mockReaddir = vi.mocked(fs.promises.readdir)
 
-		// Root directory with first-level directories
+		// Dewt directory with first-level directories
 		mockReaddir.mockResolvedValueOnce([
 			{ name: "a_dir", isDirectory: () => true, isSymbolicLink: () => false, isFile: () => false } as any,
 			{ name: "b_dir", isDirectory: () => true, isSymbolicLink: () => false, isFile: () => false } as any,

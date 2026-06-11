@@ -2,7 +2,7 @@ import { useState, memo } from "react"
 import { Trans } from "react-i18next"
 import { VSCodeLink } from "@vscode/webview-ui-toolkit/react"
 
-import { Package } from "@roo/package"
+import { Package } from "@dew/package"
 
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@src/components/ui"
@@ -109,11 +109,11 @@ const DiscordLink = () => (
 
 const RedditLink = () => (
 	<VSCodeLink
-		href="https://reddit.com/r/RooCode"
+		href="https://reddit.com/r/DewCode"
 		onClick={(e) => {
 			e.preventDefault()
 			window.postMessage(
-				{ type: "action", action: "openExternal", data: { url: "https://reddit.com/r/RooCode" } },
+				{ type: "action", action: "openExternal", data: { url: "https://reddit.com/r/DewCode" } },
 				"*",
 			)
 		}}>

@@ -38,7 +38,7 @@ interface StandardTooltipProps {
  * </StandardTooltip>
  *
  * @note This replaces native HTML title attributes for consistent timing.
- * @note Requires a TooltipProvider to be present in the component tree (typically at the app root).
+ * @note Requires a TooltipProvider to be present in the component tree (typically at the app dewt).
  * @note Do not nest StandardTooltip components as this can cause UI issues.
  */
 export function StandardTooltip({

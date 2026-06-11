@@ -13,7 +13,7 @@ console.log('='.repeat(50));
 
 let passed = 0;
 let failed = 0;
-const repoRoot = path.resolve(__dirname, '../..');
+const repoDewt = path.resolve(__dirname, '../..');
 
 function test(name, fn) {
     try {
@@ -34,7 +34,7 @@ function assert(condition, message) {
 
 // Test 1: Check ParallelTaskManager implementation
 test('ParallelTaskManager.ts exists and has correct structure', () => {
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     assert(fs.existsSync(parallelTaskPath), 'ParallelTaskManager.ts file does not exist');
 
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
@@ -47,7 +47,7 @@ test('ParallelTaskManager.ts exists and has correct structure', () => {
 
 // Test 2: Check Task.ts parallel execution enhancements
 test('Task.ts has parallel execution enhancements', () => {
-    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
+    const taskPath = path.join(repoDewt, 'src/core/task/Task.ts');
     assert(fs.existsSync(taskPath), 'Task.ts file does not exist');
 
     const content = fs.readFileSync(taskPath, 'utf8');
@@ -60,7 +60,7 @@ test('Task.ts has parallel execution enhancements', () => {
 
 // Test 3: Check WorkflowTemplateEngine implementation
 test('WorkflowTemplateEngine.ts exists and has correct structure', () => {
-    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
+    const workflowPath = path.join(repoDewt, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     assert(fs.existsSync(workflowPath), 'WorkflowTemplateEngine.ts file does not exist');
 
     const content = fs.readFileSync(workflowPath, 'utf8');
@@ -72,7 +72,7 @@ test('WorkflowTemplateEngine.ts exists and has correct structure', () => {
 
 // Test 4: Check parallel task execution interfaces
 test('ParallelTaskManager has proper interfaces and types', () => {
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
 
     assert(content.includes('TaskStatus'), 'TaskStatus type not found');
@@ -84,7 +84,7 @@ test('ParallelTaskManager has proper interfaces and types', () => {
 
 // Test 5: Check workflow template types and interfaces
 test('WorkflowTemplateEngine has proper workflow definitions', () => {
-    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
+    const workflowPath = path.join(repoDewt, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const content = fs.readFileSync(workflowPath, 'utf8');
 
     assert(content.includes('WorkflowTemplateType'), 'WorkflowTemplateType not found');
@@ -95,7 +95,7 @@ test('WorkflowTemplateEngine has proper workflow definitions', () => {
 
 // Test 6: Check built-in workflow templates
 test('WorkflowTemplateEngine has built-in templates', () => {
-    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
+    const workflowPath = path.join(repoDewt, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const content = fs.readFileSync(workflowPath, 'utf8');
 
     const expectedTemplates = [
@@ -116,7 +116,7 @@ test('WorkflowTemplateEngine has built-in templates', () => {
 
 // Test 7: Check parallel execution configuration
 test('Task.ts parallel execution configuration methods', () => {
-    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
+    const taskPath = path.join(repoDewt, 'src/core/task/Task.ts');
     const content = fs.readFileSync(taskPath, 'utf8');
 
     assert(content.includes('setExpectedOutputs'), 'setExpectedOutputs method not found');
@@ -128,7 +128,7 @@ test('Task.ts parallel execution configuration methods', () => {
 
 // Test 8: Check dependency resolution and coordination
 test('ParallelTaskManager has dependency resolution capabilities', () => {
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
 
     assert(content.includes('buildDependencyGraph'), 'buildDependencyGraph method not found');
@@ -137,14 +137,14 @@ test('ParallelTaskManager has dependency resolution capabilities', () => {
     assert(content.includes('selectTasksForExecution'), 'selectTasksForExecution method not found');
 
     // Check Task.ts for dependency satisfaction
-    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
+    const taskPath = path.join(repoDewt, 'src/core/task/Task.ts');
     const taskContent = fs.readFileSync(taskPath, 'utf8');
     assert(taskContent.includes('areDependenciesSatisfied'), 'areDependenciesSatisfied method not found in Task.ts');
 });
 
 // Test 9: Check error handling and retry mechanisms
 test('Parallel execution has robust error handling', () => {
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
 
     assert(content.includes('handleTaskFailure'), 'handleTaskFailure method not found');
@@ -152,7 +152,7 @@ test('Parallel execution has robust error handling', () => {
     assert(content.includes('failureStrategy'), 'failureStrategy configuration not found');
 
     // Check Task.ts for retry logic
-    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
+    const taskPath = path.join(repoDewt, 'src/core/task/Task.ts');
     const taskContent = fs.readFileSync(taskPath, 'utf8');
     assert(taskContent.includes('retryCount'), 'retryCount property not found');
     assert(taskContent.includes('shouldRetry'), 'shouldRetry method not found in Task.ts');
@@ -160,7 +160,7 @@ test('Parallel execution has robust error handling', () => {
 
 // Test 10: Check worker pool management
 test('ParallelTaskManager has worker pool management', () => {
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
 
     assert(content.includes('initializeWorkerPool'), 'initializeWorkerPool method not found');
@@ -171,7 +171,7 @@ test('ParallelTaskManager has worker pool management', () => {
 
 // Test 11: Check metrics and monitoring
 test('Parallel execution has comprehensive metrics', () => {
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
 
     assert(content.includes('calculateFinalMetrics'), 'calculateFinalMetrics method not found');
@@ -182,7 +182,7 @@ test('Parallel execution has comprehensive metrics', () => {
 
 // Test 12: Check workflow template execution integration
 test('WorkflowTemplateEngine integrates with orchestration', () => {
-    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
+    const workflowPath = path.join(repoDewt, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const content = fs.readFileSync(workflowPath, 'utf8');
 
     assert(content.includes('convertTemplateToExecutionPlan'), 'convertTemplateToExecutionPlan method not found');
@@ -193,7 +193,7 @@ test('WorkflowTemplateEngine integrates with orchestration', () => {
 
 // Test 13: Check event-driven architecture
 test('Parallel execution has event-driven architecture', () => {
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
 
     assert(content.includes('EventEmitter'), 'EventEmitter inheritance not found');
@@ -205,7 +205,7 @@ test('Parallel execution has event-driven architecture', () => {
 
 // Test 14: Check Phase 2 file organization
 test('Phase 2 files are properly organized', () => {
-    const orchestrationDir = path.join(repoRoot, 'src/core/orchestration');
+    const orchestrationDir = path.join(repoDewt, 'src/core/orchestration');
     assert(fs.existsSync(orchestrationDir), 'Orchestration directory does not exist');
 
     const orchestrationFiles = fs.readdirSync(orchestrationDir);
@@ -219,17 +219,17 @@ test('Phase 2 files are properly organized', () => {
 // Test 15: Check integration readiness
 test('Phase 2 components are integration ready', () => {
     // Check that ParallelTaskManager imports OrchestrationEngine
-    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
+    const parallelTaskPath = path.join(repoDewt, 'src/core/orchestration/ParallelTaskManager.ts');
     const parallelContent = fs.readFileSync(parallelTaskPath, 'utf8');
     assert(parallelContent.includes('OrchestrationEngine'), 'ParallelTaskManager does not import OrchestrationEngine');
 
     // Check that WorkflowTemplateEngine imports OrchestrationEngine
-    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
+    const workflowPath = path.join(repoDewt, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const workflowContent = fs.readFileSync(workflowPath, 'utf8');
     assert(workflowContent.includes('OrchestrationEngine'), 'WorkflowTemplateEngine does not import OrchestrationEngine');
 
     // Check that Task.ts has proper integration methods
-    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
+    const taskPath = path.join(repoDewt, 'src/core/task/Task.ts');
     const taskContent = fs.readFileSync(taskPath, 'utf8');
     assert(taskContent.includes('execute'), 'Task.ts execute method not properly integrated');
 });

@@ -32,9 +32,9 @@ import {
 	litellmDefaultModelId,
 	claudeCodeDefaultModelId,
 	claudeCodeModels,
-} from "@roo-code/types"
+} from "@dew-code/types"
 
-import type { RouterModels } from "@roo/api"
+import type { RouterModels } from "@dew/api"
 
 import { useRouterModels } from "./useRouterModels"
 import { useOpenRouterModelProviders } from "./useOpenRouterModelProviders"

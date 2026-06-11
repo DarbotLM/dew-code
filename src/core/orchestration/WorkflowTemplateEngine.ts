@@ -246,7 +246,7 @@ export class WorkflowTemplateEngine {
 			complexity: 'simple',
 			parallel: true,
 			successCriteria: [
-				'Bug reproduced and root cause identified',
+				'Bug reproduced and dewt cause identified',
 				'Fix implemented and tested',
 				'Regression tests added',
 				'No new issues introduced'
@@ -255,14 +255,14 @@ export class WorkflowTemplateEngine {
 				{
 					id: 'investigate_bug',
 					name: 'Investigate Bug',
-					description: 'Reproduce bug and identify root cause',
+					description: 'Reproduce bug and identify dewt cause',
 					agentType: 'coder',
 					action: 'debug_and_analyze',
 					dependencies: [],
 					parallel: false,
 					estimatedTime: 15,
 					optional: false,
-					outputs: ['bug_analysis', 'root_cause']
+					outputs: ['bug_analysis', 'dewt_cause']
 				},
 				{
 					id: 'design_fix',

@@ -3,14 +3,14 @@
 The Dew-Coder extension exposes an API that can be used by other extensions.
 To use this API in your extension:
 
-1. Install `@roo-code/types` with npm, pnpm, or yarn.
-2. Import the `RooCodeAPI` type.
+1. Install `@dew-code/types` with npm, pnpm, or yarn.
+2. Import the `DewCodeAPI` type.
 3. Load the extension API.
 
 ```typescript
-import { RooCodeAPI } from "@roo-code/types"
+import { DewCodeAPI } from "@dew-code/types"
 
-const extension = vscode.extensions.getExtension<RooCodeAPI>("darbotlm.dew-coder")
+const extension = vscode.extensions.getExtension<DewCodeAPI>("darbotlm.dew-coder")
 
 if (!extension?.isActive) {
 	throw new Error("Extension is not activated")
@@ -44,4 +44,4 @@ await api.pressSecondaryButton()
 "extensionDependencies": ["darbotlm.dew-coder"]
 ```
 
-For detailed information on the available methods and their usage, refer to the `roo-code.d.ts` file.
+For detailed information on the available methods and their usage, refer to the `dew-code.d.ts` file.

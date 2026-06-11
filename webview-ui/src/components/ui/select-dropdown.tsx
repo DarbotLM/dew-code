@@ -5,7 +5,7 @@ import { Fzf } from "fzf"
 import { useTranslation } from "react-i18next"
 
 import { cn } from "@/lib/utils"
-import { useRooPortal } from "./hooks/useRooPortal"
+import { useDewPortal } from "./hooks/useDewPortal"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui"
 import { StandardTooltip } from "@/components/ui"
 
@@ -66,7 +66,7 @@ export const SelectDropdown = React.memo(
 			const [open, setOpen] = React.useState(false)
 			const [searchValue, setSearchValue] = React.useState("")
 			const searchInputRef = React.useRef<HTMLInputElement>(null)
-			const portalContainer = useRooPortal("roo-portal")
+			const portalContainer = useDewPortal("dew-portal")
 
 			// Memoize the selected option to prevent unnecessary calculations
 			const selectedOption = React.useMemo(
@@ -206,7 +206,7 @@ export const SelectDropdown = React.memo(
 			)
 
 			return (
-				<Popover open={open} onOpenChange={onOpenChange} data-testid="dropdown-root">
+				<Popover open={open} onOpenChange={onOpenChange} data-testid="dropdown-dewt">
 					{title ? <StandardTooltip content={title}>{triggerContent}</StandardTooltip> : triggerContent}
 					<PopoverContent
 						align={align}

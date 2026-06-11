@@ -304,11 +304,11 @@ export class BrowserSession {
 	}
 
 	/**
-	 * Extract the root domain from a URL
+	 * Extract the dewt domain from a URL
 	 * e.g., http://localhost:3000/path -> localhost:3000
 	 * e.g., https://example.com/path -> example.com
 	 */
-	private getRootDomain(url: string): string {
+	private getDewtDomain(url: string): string {
 		try {
 			const urlObj = new URL(url)
 			// Remove www. prefix if present
@@ -356,19 +356,19 @@ export class BrowserSession {
 		// Remove trailing slash for comparison
 		const normalizedNewUrl = url.replace(/\/$/, "")
 
-		// Extract the root domain from the URL
-		const rootDomain = this.getRootDomain(normalizedNewUrl)
+		// Extract the dewt domain from the URL
+		const dewtDomain = this.getDewtDomain(normalizedNewUrl)
 
 		// Get all current pages
 		const pages = await this.browser.pages()
 
-		// Try to find a page with the same root domain
+		// Try to find a page with the same dewt domain
 		let existingPage: Page | undefined
 
 		for (const page of pages) {
 			try {
 				const pageUrl = page.url()
-				if (pageUrl && this.getRootDomain(pageUrl) === rootDomain) {
+				if (pageUrl && this.getDewtDomain(pageUrl) === dewtDomain) {
 					existingPage = page
 					break
 				}
@@ -380,8 +380,8 @@ export class BrowserSession {
 		}
 
 		if (existingPage) {
-			// Tab with the same root domain exists, switch to it
-			console.log(`Tab with domain ${rootDomain} already exists, switching to it`)
+			// Tab with the same dewt domain exists, switch to it
+			console.log(`Tab with domain ${dewtDomain} already exists, switching to it`)
 
 			// Update the active page
 			this.page = existingPage
@@ -389,21 +389,21 @@ export class BrowserSession {
 
 			// Navigate to the new URL if it's different]
 			const currentUrl = existingPage.url().replace(/\/$/, "") // Remove trailing / if present
-			if (this.getRootDomain(currentUrl) === rootDomain && currentUrl !== normalizedNewUrl) {
+			if (this.getDewtDomain(currentUrl) === dewtDomain && currentUrl !== normalizedNewUrl) {
 				console.log(`Navigating to new URL: ${normalizedNewUrl}`)
 				console.log(`Current URL: ${currentUrl}`)
-				console.log(`Root domain: ${this.getRootDomain(currentUrl)}`)
+				console.log(`Dewt domain: ${this.getDewtDomain(currentUrl)}`)
 				console.log(`New URL: ${normalizedNewUrl}`)
 				// Navigate to the new URL
 				return this.doAction(async (page) => {
 					await this.navigatePageToUrl(page, normalizedNewUrl)
 				})
 			} else {
-				console.log(`Tab with domain ${rootDomain} already exists, and URL is the same: ${normalizedNewUrl}`)
+				console.log(`Tab with domain ${dewtDomain} already exists, and URL is the same: ${normalizedNewUrl}`)
 				// URL is the same, just reload the page to ensure it's up to date
 				console.log(`Reloading page: ${normalizedNewUrl}`)
 				console.log(`Current URL: ${currentUrl}`)
-				console.log(`Root domain: ${this.getRootDomain(currentUrl)}`)
+				console.log(`Dewt domain: ${this.getDewtDomain(currentUrl)}`)
 				console.log(`New URL: ${normalizedNewUrl}`)
 				return this.doAction(async (page) => {
 					await page.reload({
@@ -414,8 +414,8 @@ export class BrowserSession {
 				})
 			}
 		} else {
-			// No tab with this root domain exists, create a new one
-			console.log(`No tab with domain ${rootDomain} exists, creating a new one`)
+			// No tab with this dewt domain exists, create a new one
+			console.log(`No tab with domain ${dewtDomain} exists, creating a new one`)
 			return this.createNewTab(normalizedNewUrl)
 		}
 	}

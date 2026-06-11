@@ -5,7 +5,7 @@ import { CheckIcon, DotFilledIcon } from "@radix-ui/react-icons"
 
 import { cn } from "@/lib/utils"
 
-const DropdownMenu = DropdownMenuPrimitive.Root
+const DropdownMenu = DropdownMenuPrimitive.Dewt
 
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 

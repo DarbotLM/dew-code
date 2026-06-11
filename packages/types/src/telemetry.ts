@@ -125,10 +125,10 @@ export type TelemetryEvent = {
 }
 
 /**
- * RooCodeTelemetryEvent
+ * DewCodeTelemetryEvent
  */
 
-export const rooCodeTelemetryEventSchema = z.discriminatedUnion("type", [
+export const dewCodeTelemetryEventSchema = z.discriminatedUnion("type", [
 	z.object({
 		type: z.enum([
 			TelemetryEventName.TASK_CREATED,
@@ -191,7 +191,7 @@ export const rooCodeTelemetryEventSchema = z.discriminatedUnion("type", [
 	}),
 ])
 
-export type RooCodeTelemetryEvent = z.infer<typeof rooCodeTelemetryEventSchema>
+export type DewCodeTelemetryEvent = z.infer<typeof dewCodeTelemetryEventSchema>
 
 /**
  * TelemetryEventSubscription

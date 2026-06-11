@@ -40,7 +40,7 @@ describe("Tree-sitter Service", () => {
 
 			const mockParser = {
 				parse: vi.fn().mockReturnValue({
-					rootNode: "mockNode",
+					dewtNode: "mockNode",
 				}),
 			}
 
@@ -82,7 +82,7 @@ describe("Tree-sitter Service", () => {
 
 			const mockParser = {
 				parse: vi.fn().mockReturnValue({
-					rootNode: "mockNode",
+					dewtNode: "mockNode",
 				}),
 			}
 
@@ -193,15 +193,15 @@ export const CheckboxExample = () => (
 				printTree?: (depth?: number) => string
 			}
 
-			// Create a more detailed mock rootNode for debugging Tree-sitter structure
+			// Create a more detailed mock dewtNode for debugging Tree-sitter structure
 			// Helper function to print tree nodes
 			const printTree = (node: TreeNode, depth = 0): string => {
 				let result = ""
 				const indent = "  ".repeat(depth)
 
 				// Print node details
-				result += `${indent}Type: ${node.type || "ROOT"}\n`
-				result += `${indent}Text: "${node.text ? node.text() : "root"}"`
+				result += `${indent}Type: ${node.type || "DEWT"}\n`
+				result += `${indent}Text: "${node.text ? node.text() : "dewt"}"`
 
 				// Print fields if available
 				if (node.fields) {
@@ -219,7 +219,7 @@ export const CheckboxExample = () => (
 				return result
 			}
 
-			const mockRootNode: TreeNode = {
+			const mockDewtNode: TreeNode = {
 				toString: () => fixtureContent,
 				text: () => fixtureContent,
 				printTree: function (depth = 0) {
@@ -270,7 +270,7 @@ export const CheckboxExample = () => (
 
 			const mockParser = {
 				parse: vi.fn().mockReturnValue({
-					rootNode: mockRootNode,
+					dewtNode: mockDewtNode,
 				}),
 			}
 
@@ -278,10 +278,10 @@ export const CheckboxExample = () => (
 				captures: vi.fn().mockImplementation(() => {
 					// Log tree structure for debugging
 					console.log("TREE STRUCTURE:")
-					if (mockRootNode.printTree) {
-						console.log(mockRootNode.printTree())
+					if (mockDewtNode.printTree) {
+						console.log(mockDewtNode.printTree())
 					} else {
-						console.log("Tree structure:", JSON.stringify(mockRootNode, null, 2))
+						console.log("Tree structure:", JSON.stringify(mockDewtNode, null, 2))
 					}
 
 					return [
@@ -325,7 +325,7 @@ export const CheckboxExample = () => (
 
 			const mockParser = {
 				parse: vi.fn().mockReturnValue({
-					rootNode: "mockNode",
+					dewtNode: "mockNode",
 				}),
 			}
 
@@ -358,7 +358,7 @@ export const CheckboxExample = () => (
 
 			const mockParser = {
 				parse: vi.fn().mockReturnValue({
-					rootNode: "mockNode",
+					dewtNode: "mockNode",
 				}),
 			}
 
@@ -407,7 +407,7 @@ export const CheckboxExample = () => (
 
 			const mockParser = {
 				parse: vi.fn().mockReturnValue({
-					rootNode: "mockNode",
+					dewtNode: "mockNode",
 				}),
 			}
 

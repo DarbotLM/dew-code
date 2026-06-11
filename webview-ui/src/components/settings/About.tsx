@@ -5,8 +5,8 @@ import { Info, Download, Upload, TriangleAlert } from "lucide-react"
 
 import { VSCodeCheckbox, VSCodeLink } from "@vscode/webview-ui-toolkit/react"
 
-import { Package } from "@roo/package"
-import { TelemetrySetting } from "@roo/TelemetrySetting"
+import { Package } from "@dew/package"
+import { TelemetrySetting } from "@dew/TelemetrySetting"
 
 import { vscode } from "@/utils/vscode"
 import { cn } from "@/lib/utils"
@@ -62,7 +62,7 @@ export const About = ({ telemetrySetting, setTelemetrySetting, className, ...pro
 						i18nKey="settings:footer.feedback"
 						components={{
 							githubLink: <VSCodeLink href="https://github.com/darbotlm/dew-code" />,
-							redditLink: <VSCodeLink href="https://reddit.com/r/RooCode" />,
+							redditLink: <VSCodeLink href="https://reddit.com/r/DewCode" />,
 							discordLink: <VSCodeLink href="https://github.com/darbotlm/dew-code/issues" />,
 						}}
 					/>

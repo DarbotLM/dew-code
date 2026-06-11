@@ -3,10 +3,10 @@ import path from "path"
 import * as os from "os"
 import { Dirent } from "fs"
 
-import { isLanguage } from "@roo-code/types"
+import { isLanguage } from "@dew-code/types"
 
 import { LANGUAGES } from "../../../shared/language"
-import { getRooDirectoriesForCwd, getGlobalRooDirectory } from "../../../services/roo-config"
+import { getDewDirectoriesForCwd, getGlobalDewDirectory } from "../../../services/dew-config"
 
 /**
  * Safely read a file and return its trimmed content
@@ -163,11 +163,11 @@ function formatDirectoryContent(dirPath: string, files: Array<{ filename: string
  */
 export async function loadRuleFiles(cwd: string): Promise<string> {
 	const rules: string[] = []
-	const rooDirectories = getRooDirectoriesForCwd(cwd)
+	const dewDirectories = getDewDirectoriesForCwd(cwd)
 
-	// Check for .roo/rules/ directories in order (global first, then project-local)
-	for (const rooDir of rooDirectories) {
-		const rulesDir = path.join(rooDir, "rules")
+	// Check for .dew/rules/ directories in order (global first, then project-local)
+	for (const dewDir of dewDirectories) {
+		const rulesDir = path.join(dewDir, "rules")
 		if (await directoryExists(rulesDir)) {
 			const files = await readTextFilesFromDirectory(rulesDir)
 			if (files.length > 0) {
@@ -177,13 +177,13 @@ export async function loadRuleFiles(cwd: string): Promise<string> {
 		}
 	}
 
-	// If we found rules in .roo/rules/ directories, return them
+	// If we found rules in .dew/rules/ directories, return them
 	if (rules.length > 0) {
 		return "\n" + rules.join("\n\n")
 	}
 
-	// Fall back to existing behavior for legacy .roorules/.clinerules files
-	const ruleFiles = [".roorules", ".clinerules"]
+	// Fall back to existing behavior for legacy .dewrules/.clinerules files
+	const ruleFiles = [".dewrules", ".clinerules"]
 
 	for (const file of ruleFiles) {
 		const content = await safeReadFile(path.join(cwd, file))
@@ -200,7 +200,7 @@ export async function addCustomInstructions(
 	globalCustomInstructions: string,
 	cwd: string,
 	mode: string,
-	options: { language?: string; rooIgnoreInstructions?: string } = {},
+	options: { language?: string; dewIgnoreInstructions?: string } = {},
 ): Promise<string> {
 	const sections = []
 
@@ -210,11 +210,11 @@ export async function addCustomInstructions(
 
 	if (mode) {
 		const modeRules: string[] = []
-		const rooDirectories = getRooDirectoriesForCwd(cwd)
+		const dewDirectories = getDewDirectoriesForCwd(cwd)
 
-		// Check for .roo/rules-${mode}/ directories in order (global first, then project-local)
-		for (const rooDir of rooDirectories) {
-			const modeRulesDir = path.join(rooDir, `rules-${mode}`)
+		// Check for .dew/rules-${mode}/ directories in order (global first, then project-local)
+		for (const dewDir of dewDirectories) {
+			const modeRulesDir = path.join(dewDir, `rules-${mode}`)
 			if (await directoryExists(modeRulesDir)) {
 				const files = await readTextFilesFromDirectory(modeRulesDir)
 				if (files.length > 0) {
@@ -224,16 +224,16 @@ export async function addCustomInstructions(
 			}
 		}
 
-		// If we found mode-specific rules in .roo/rules-${mode}/ directories, use them
+		// If we found mode-specific rules in .dew/rules-${mode}/ directories, use them
 		if (modeRules.length > 0) {
 			modeRuleContent = "\n" + modeRules.join("\n\n")
 			usedRuleFile = `rules-${mode} directories`
 		} else {
 			// Fall back to existing behavior for legacy files
-			const rooModeRuleFile = `.roorules-${mode}`
-			modeRuleContent = await safeReadFile(path.join(cwd, rooModeRuleFile))
+			const dewModeRuleFile = `.dewrules-${mode}`
+			modeRuleContent = await safeReadFile(path.join(cwd, dewModeRuleFile))
 			if (modeRuleContent) {
-				usedRuleFile = rooModeRuleFile
+				usedRuleFile = dewModeRuleFile
 			} else {
 				const clineModeRuleFile = `.clinerules-${mode}`
 				modeRuleContent = await safeReadFile(path.join(cwd, clineModeRuleFile))
@@ -267,15 +267,15 @@ export async function addCustomInstructions(
 
 	// Add mode-specific rules first if they exist
 	if (modeRuleContent && modeRuleContent.trim()) {
-		if (usedRuleFile.includes(path.join(".roo", `rules-${mode}`))) {
+		if (usedRuleFile.includes(path.join(".dew", `rules-${mode}`))) {
 			rules.push(modeRuleContent.trim())
 		} else {
 			rules.push(`# Rules from ${usedRuleFile}:\n${modeRuleContent}`)
 		}
 	}
 
-	if (options.rooIgnoreInstructions) {
-		rules.push(options.rooIgnoreInstructions)
+	if (options.dewIgnoreInstructions) {
+		rules.push(options.dewIgnoreInstructions)
 	}
 
 	// Add generic rules

@@ -7,7 +7,7 @@ vitest.mock("path", () => ({
 	relative: vitest.fn((cwd, fullPath) => {
 		let relativePath = ""
 		// Handle the specific case already present
-		if (cwd === "/project/root" && fullPath === "/project/root/src/utils/file.ts") {
+		if (cwd === "/project/dewt" && fullPath === "/project/dewt/src/utils/file.ts") {
 			relativePath = "src/utils/file.ts"
 		}
 		// Handle the test cases with /path/to as cwd
@@ -344,7 +344,7 @@ describe("diagnosticsToProblemsString", () => {
 
 	it("should correctly handle cwd parameter for relative file paths", async () => {
 		// Mock file URI in a subdirectory
-		const fileUri = vscode.Uri.file("/project/root/src/utils/file.ts")
+		const fileUri = vscode.Uri.file("/project/dewt/src/utils/file.ts")
 
 		// Create a diagnostic for the file
 		const diagnostic = new vscode.Diagnostic(
@@ -367,11 +367,11 @@ describe("diagnosticsToProblemsString", () => {
 		}
 		vscode.workspace.openTextDocument = vitest.fn().mockResolvedValue(mockDocument)
 
-		// Call the function with cwd set to the project root
+		// Call the function with cwd set to the project dewt
 		const result = await diagnosticsToProblemsString(
 			[[fileUri, [diagnostic]]],
 			[vscode.DiagnosticSeverity.Error],
-			"/project/root",
+			"/project/dewt",
 		)
 
 		// Verify exact output format

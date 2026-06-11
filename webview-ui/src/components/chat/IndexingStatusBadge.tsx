@@ -5,7 +5,7 @@ import { vscode } from "@src/utils/vscode"
 import { useAppTranslation } from "@/i18n/TranslationContext"
 import { useTooltip } from "@/hooks/useTooltip"
 import { CodeIndexPopover } from "./CodeIndexPopover"
-import type { IndexingStatus, IndexingStatusUpdateMessage } from "@roo/ExtensionMessage"
+import type { IndexingStatus, IndexingStatusUpdateMessage } from "@dew/ExtensionMessage"
 
 interface IndexingStatusBadgeProps {
 	className?: string

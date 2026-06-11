@@ -135,8 +135,8 @@ export class CustomModesManager {
 			return undefined
 		}
 
-		const workspaceRoot = getWorkspacePath()
-		const darbotmodesPath = path.join(workspaceRoot, DARBOTMODES_FILENAME)
+		const workspaceDewt = getWorkspacePath()
+		const darbotmodesPath = path.join(workspaceDewt, DARBOTMODES_FILENAME)
 		const exists = await fileExistsAtPath(darbotmodesPath)
 		return exists ? darbotmodesPath : undefined
 	}
@@ -354,8 +354,8 @@ export class CustomModesManager {
 		// Watch .darbotmodes file - watch the path even if it doesn't exist yet
 		const workspaceFolders = vscode.workspace.workspaceFolders
 		if (workspaceFolders && workspaceFolders.length > 0) {
-			const workspaceRoot = getWorkspacePath()
-			const darbotmodesPath = path.join(workspaceRoot, DARBOTMODES_FILENAME)
+			const workspaceDewt = getWorkspacePath()
+			const darbotmodesPath = path.join(workspaceDewt, DARBOTMODES_FILENAME)
 			const darbotmodesWatcher = vscode.workspace.createFileSystemWatcher(darbotmodesPath)
 
 			const handleDarbotmodesChange = async () => {
@@ -460,13 +460,13 @@ export class CustomModesManager {
 					throw new Error(t("common:customModes.errors.noWorkspaceForProject"))
 				}
 
-				const workspaceRoot = getWorkspacePath()
-				targetPath = path.join(workspaceRoot, DARBOTMODES_FILENAME)
+				const workspaceDewt = getWorkspacePath()
+				targetPath = path.join(workspaceDewt, DARBOTMODES_FILENAME)
 				const exists = await fileExistsAtPath(targetPath)
 
 				logger.info(`${exists ? "Updating" : "Creating"} project mode in ${DARBOTMODES_FILENAME}`, {
 					slug,
-					workspace: workspaceRoot,
+					workspace: workspaceDewt,
 				})
 			} else {
 				targetPath = await this.getCustomModesFilePath()

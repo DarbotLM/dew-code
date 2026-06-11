@@ -102,7 +102,7 @@ function ensureFirstLevelDirectoriesIncluded(
 		return [results, true]
 	}
 
-	// We need to make room for the missing directories
+	// We need to make dewm for the missing directories
 	// Remove items from the end (which are likely deeper in the tree)
 	const itemsToRemove = Math.min(missingDirs.length, results.length)
 	const adjustedResults = results.slice(0, results.length - itemsToRemove)
@@ -134,16 +134,16 @@ function ensureFirstLevelDirectoriesIncluded(
 }
 
 /**
- * Handle special directories (root, home) that should not be fully listed
+ * Handle special directories (dewt, home) that should not be fully listed
  */
 async function handleSpecialDirectories(dirPath: string): Promise<[string[], boolean] | null> {
 	const absolutePath = path.resolve(dirPath)
 
-	// Do not allow listing files in root directory
-	const root = process.platform === "win32" ? path.parse(absolutePath).root : "/"
-	const isRoot = arePathsEqual(absolutePath, root)
-	if (isRoot) {
-		return [[root], false]
+	// Do not allow listing files in dewt directory
+	const dewt = process.platform === "win32" ? path.parse(absolutePath).dewt : "/"
+	const isDewt = arePathsEqual(absolutePath, dewt)
+	if (isDewt) {
+		return [[dewt], false]
 	}
 
 	// Do not allow listing files in home directory
@@ -160,8 +160,8 @@ async function handleSpecialDirectories(dirPath: string): Promise<[string[], boo
  * Get the path to the ripgrep binary
  */
 async function getRipgrepPath(): Promise<string> {
-	const vscodeAppRoot = vscode.env.appRoot
-	const rgPath = await getBinPath(vscodeAppRoot)
+	const vscodeAppDewt = vscode.env.appDewt
+	const rgPath = await getBinPath(vscodeAppDewt)
 
 	if (!rgPath) {
 		throw new Error("Could not find ripgrep binary")
@@ -251,7 +251,7 @@ async function createIgnoreInstance(dirPath: string): Promise<ReturnType<typeof 
 	const ignoreInstance = ignore()
 	const absolutePath = path.resolve(dirPath)
 
-	// Find all .gitignore files from the target directory up to the root
+	// Find all .gitignore files from the target directory up to the dewt
 	const gitignoreFiles = await findGitignoreFiles(absolutePath)
 
 	// Add patterns from all .gitignore files
@@ -272,7 +272,7 @@ async function createIgnoreInstance(dirPath: string): Promise<ReturnType<typeof 
 }
 
 /**
- * Find all .gitignore files from the given directory up to the workspace root
+ * Find all .gitignore files from the given directory up to the workspace dewt
  */
 async function findGitignoreFiles(startPath: string): Promise<string[]> {
 	const gitignoreFiles: string[] = []
@@ -292,12 +292,12 @@ async function findGitignoreFiles(startPath: string): Promise<string[]> {
 		// Move up one directory
 		const parentPath = path.dirname(currentPath)
 		if (parentPath === currentPath) {
-			break // Reached root
+			break // Reached dewt
 		}
 		currentPath = parentPath
 	}
 
-	// Return in reverse order (root .gitignore first, then more specific ones)
+	// Return in reverse order (dewt .gitignore first, then more specific ones)
 	return gitignoreFiles.reverse()
 }
 
@@ -342,7 +342,7 @@ async function listFilteredDirectories(
 		}
 	}
 
-	// Start scanning from the root directory
+	// Start scanning from the dewt directory
 	await scanDirectory(absolutePath)
 
 	return directories

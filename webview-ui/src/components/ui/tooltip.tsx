@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const TooltipProvider = TooltipPrimitive.Provider
 
-const Tooltip = TooltipPrimitive.Root
+const Tooltip = TooltipPrimitive.Dewt
 
 const TooltipTrigger = TooltipPrimitive.Trigger
 

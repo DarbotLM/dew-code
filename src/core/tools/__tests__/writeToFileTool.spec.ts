@@ -34,7 +34,7 @@ vi.mock("../../../utils/fs", () => ({
 vi.mock("../../prompts/responses", () => ({
 	formatResponse: {
 		toolError: vi.fn((msg) => `Error: ${msg}`),
-		rooIgnoreError: vi.fn((path) => `Access denied: ${path}`),
+		dewIgnoreError: vi.fn((path) => `Access denied: ${path}`),
 		lineCountTruncationError: vi.fn(
 			(count, isNew, diffEnabled) => `Line count error: ${count}, new: ${isNew}, diff: ${diffEnabled}`,
 		),
@@ -81,8 +81,8 @@ vi.mock("vscode", () => ({
 	},
 }))
 
-vi.mock("../../ignore/RooIgnoreController", () => ({
-	RooIgnoreController: class {
+vi.mock("../../ignore/DewIgnoreController", () => ({
+	DewIgnoreController: class {
 		initialize() {
 			return Promise.resolve()
 		}
@@ -140,7 +140,7 @@ describe("writeToFileTool", () => {
 				}),
 			}),
 		}
-		mockCline.rooIgnoreController = {
+		mockCline.dewIgnoreController = {
 			validateAccess: vi.fn().mockReturnValue(true),
 		}
 		mockCline.diffViewProvider = {
@@ -212,7 +212,7 @@ describe("writeToFileTool", () => {
 		const accessAllowed = options.accessAllowed ?? true
 
 		mockedFileExistsAtPath.mockResolvedValue(fileExists)
-		mockCline.rooIgnoreController.validateAccess.mockReturnValue(accessAllowed)
+		mockCline.dewIgnoreController.validateAccess.mockReturnValue(accessAllowed)
 
 		// Create a tool use object
 		const toolUse: ToolUse = {
@@ -242,10 +242,10 @@ describe("writeToFileTool", () => {
 	}
 
 	describe("access control", () => {
-		it("validates and allows access when rooIgnoreController permits", async () => {
+		it("validates and allows access when dewIgnoreController permits", async () => {
 			await executeWriteFileTool({}, { accessAllowed: true })
 
-			expect(mockCline.rooIgnoreController.validateAccess).toHaveBeenCalledWith(testFilePath)
+			expect(mockCline.dewIgnoreController.validateAccess).toHaveBeenCalledWith(testFilePath)
 			expect(mockCline.diffViewProvider.open).toHaveBeenCalledWith(testFilePath)
 		})
 	})
@@ -325,7 +325,7 @@ describe("writeToFileTool", () => {
 			expect(mockCline.diffViewProvider.update).toHaveBeenCalledWith(testContent, true)
 			expect(mockAskApproval).toHaveBeenCalled()
 			expect(mockCline.diffViewProvider.saveChanges).toHaveBeenCalled()
-			expect(mockCline.fileContextTracker.trackFileContext).toHaveBeenCalledWith(testFilePath, "roo_edited")
+			expect(mockCline.fileContextTracker.trackFileContext).toHaveBeenCalledWith(testFilePath, "dew_edited")
 			expect(mockCline.didEditFile).toBe(true)
 		})
 

@@ -1,10 +1,10 @@
 import { useCallback, useState, useEffect, useRef } from "react"
 import { VSCodeTextField } from "@vscode/webview-ui-toolkit/react"
 
-import { type ProviderSettings, type OrganizationAllowList, litellmDefaultModelId } from "@roo-code/types"
+import { type ProviderSettings, type OrganizationAllowList, litellmDefaultModelId } from "@dew-code/types"
 
-import { RouterName } from "@roo/api"
-import { ExtensionMessage } from "@roo/ExtensionMessage"
+import { RouterName } from "@dew/api"
+import { ExtensionMessage } from "@dew/ExtensionMessage"
 
 import { vscode } from "@src/utils/vscode"
 import { useExtensionState } from "@src/context/ExtensionStateContext"

@@ -12,9 +12,9 @@ import {
 	type GlobalState,
 	type ClineMessage,
 	TelemetryEventName,
-} from "@roo-code/types"
-import { CloudService } from "@roo-code/cloud"
-import { TelemetryService } from "@roo-code/telemetry"
+} from "@dew-code/types"
+import { CloudService } from "@dew-code/cloud"
+import { TelemetryService } from "@dew-code/telemetry"
 import { type ApiMessage } from "../task-persistence/apiMessages"
 
 import { ClineProvider } from "./ClineProvider"
@@ -780,11 +780,11 @@ export const webviewMessageHandler = async (
 			}
 
 			const workspaceFolder = vscode.workspace.workspaceFolders[0]
-			const rooDir = path.join(workspaceFolder.uri.fsPath, ".roo")
-			const mcpPath = path.join(rooDir, "mcp.json")
+			const dewDir = path.join(workspaceFolder.uri.fsPath, ".dew")
+			const mcpPath = path.join(dewDir, "mcp.json")
 
 			try {
-				await fs.mkdir(rooDir, { recursive: true })
+				await fs.mkdir(dewDir, { recursive: true })
 				const exists = await fileExistsAtPath(mcpPath)
 
 				if (!exists) {
@@ -1237,8 +1237,8 @@ export const webviewMessageHandler = async (
 			await updateGlobalState("language", message.text as Language)
 			await provider.postStateToWebview()
 			break
-		case "showRooIgnoredFiles":
-			await updateGlobalState("showRooIgnoredFiles", message.bool ?? true)
+		case "showDewIgnoredFiles":
+			await updateGlobalState("showDewIgnoredFiles", message.bool ?? true)
 			await provider.postStateToWebview()
 			break
 		case "hasOpenedModeSelector":
@@ -1652,14 +1652,14 @@ export const webviewMessageHandler = async (
 				if (scope === "project") {
 					const workspacePath = getWorkspacePath()
 					if (workspacePath) {
-						rulesFolderPath = path.join(workspacePath, ".roo", `rules-${message.slug}`)
+						rulesFolderPath = path.join(workspacePath, ".dew", `rules-${message.slug}`)
 					} else {
-						rulesFolderPath = path.join(".roo", `rules-${message.slug}`)
+						rulesFolderPath = path.join(".dew", `rules-${message.slug}`)
 					}
 				} else {
 					// Global scope - use OS home directory
 					const homeDir = os.homedir()
-					rulesFolderPath = path.join(homeDir, ".roo", `rules-${message.slug}`)
+					rulesFolderPath = path.join(homeDir, ".dew", `rules-${message.slug}`)
 				}
 
 				// Check if the rules folder exists
@@ -1923,7 +1923,7 @@ export const webviewMessageHandler = async (
 			provider.postMessageToWebview({ type: "action", action: "accountButtonClicked" })
 			break
 		}
-		case "rooCloudSignIn": {
+		case "dewCloudSignIn": {
 			try {
 				TelemetryService.instance.captureEvent(TelemetryEventName.AUTHENTICATION_INITIATED)
 				await CloudService.instance.login()
@@ -1934,7 +1934,7 @@ export const webviewMessageHandler = async (
 
 			break
 		}
-		case "rooCloudSignOut": {
+		case "dewCloudSignOut": {
 			try {
 				await CloudService.instance.logout()
 				await provider.postStateToWebview()

@@ -6,8 +6,8 @@ import * as path from "path"
 import * as vscode from "vscode"
 import { Anthropic } from "@anthropic-ai/sdk"
 
-import type { GlobalState, ProviderSettings, ModelInfo } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import type { GlobalState, ProviderSettings, ModelInfo } from "@dew-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
 
 import { Task } from "../Task"
 import { ClineProvider } from "../../webview/ClineProvider"
@@ -146,7 +146,7 @@ vi.mock("../../environment/getEnvironmentDetails", () => ({
 	getEnvironmentDetails: vi.fn().mockResolvedValue(""),
 }))
 
-vi.mock("../../ignore/RooIgnoreController")
+vi.mock("../../ignore/DewIgnoreController")
 
 // Mock storagePathManager to prevent dynamic import issues.
 vi.mock("../../../utils/storage", () => ({
@@ -1033,7 +1033,7 @@ describe("Cline", () => {
 					apiConfiguration: mockApiConfig,
 					task: "child task",
 					parentTask: parent,
-					rootTask: parent,
+					dewtTask: parent,
 					startTask: false,
 				})
 
@@ -1108,7 +1108,7 @@ describe("Cline", () => {
 					apiConfiguration: mockApiConfig,
 					task: "child task",
 					parentTask: parent,
-					rootTask: parent,
+					dewtTask: parent,
 					startTask: false,
 				})
 
@@ -1163,7 +1163,7 @@ describe("Cline", () => {
 					apiConfiguration: mockApiConfig,
 					task: "child task 1",
 					parentTask: parent,
-					rootTask: parent,
+					dewtTask: parent,
 					startTask: false,
 				})
 
@@ -1186,7 +1186,7 @@ describe("Cline", () => {
 					apiConfiguration: mockApiConfig,
 					task: "child task 2",
 					parentTask: parent,
-					rootTask: parent,
+					dewtTask: parent,
 					startTask: false,
 				})
 
@@ -1244,7 +1244,7 @@ describe("Cline", () => {
 					apiConfiguration: mockApiConfig,
 					task: "child task",
 					parentTask: parent,
-					rootTask: parent,
+					dewtTask: parent,
 					startTask: false,
 				})
 

@@ -66,7 +66,7 @@ export const organizationDefaultSettingsSchema = globalSettingsSchema
 		maxOpenTabsContext: true,
 		maxReadFileLine: true,
 		maxWorkspaceFiles: true,
-		showRooIgnoredFiles: true,
+		showDewIgnoredFiles: true,
 		terminalCommandDelay: true,
 		terminalCompressProgressBar: true,
 		terminalOutputLineLimit: true,

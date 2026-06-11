@@ -6,8 +6,8 @@ import type {
 	OrganizationAllowList,
 	ClineMessage,
 	ShareVisibility,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+} from "@dew-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
 
 import { CloudServiceCallbacks } from "./types"
 import type { AuthService } from "./auth"
@@ -46,7 +46,7 @@ export class CloudService {
 		}
 
 		try {
-			const cloudToken = process.env.ROO_CODE_CLOUD_TOKEN
+			const cloudToken = process.env.DEW_CODE_CLOUD_TOKEN
 			if (cloudToken && cloudToken.length > 0) {
 				this.authService = new StaticTokenAuthService(this.context, cloudToken, this.log)
 			} else {
@@ -62,7 +62,7 @@ export class CloudService {
 			this.authService.on("user-info", this.authListener)
 
 			// Check for static settings environment variable
-			const staticOrgSettings = process.env.ROO_CODE_CLOUD_ORG_SETTINGS
+			const staticOrgSettings = process.env.DEW_CODE_CLOUD_ORG_SETTINGS
 			if (staticOrgSettings && staticOrgSettings.length > 0) {
 				this.settingsService = new StaticSettingsService(staticOrgSettings, this.log)
 			} else {

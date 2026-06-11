@@ -66,7 +66,7 @@ You are tasked with understanding and potentially implementing an AI agent orche
 Dew-Coder (formerly Dew-Coder) provides an excellent foundation for AI orchestration with:
 
 **Existing Infrastructure (80% Complete):**
-1. Custom Modes System: Specialized AI personas (.roomodes)
+1. Custom Modes System: Specialized AI personas (.dewmodes)
 2. Tool Architecture: 20+ specialized tools for file ops, commands, browser automation
 3. Task Management: Hierarchical task orchestration via clineStack
 4. Multi-LLM Support: Provider switching and configuration per mode
@@ -119,15 +119,15 @@ These documents will give any AI agent (including future sessions with me) compl
 **Repository Location**: D:\0GH_PROD\Dew-Coder
 
 **Key Files to Examine**:
-- `.roomodes` - Current mode definitions
+- `.dewmodes` - Current mode definitions
 - `src/core/task/Task.ts` - Main task coordination
 - `src/core/config/CustomModesManager.ts` - Mode management
-- `.roo/` - Existing workflow XML files
+- `.dew/` - Existing workflow XML files
 - `src/core/` - Core architecture modules
 
 **Current Capabilities Discovered**:
 - PASS XML-based workflow system with delegation
-- PASS Multi-agent task coordination (see `.roo/rules-pr-reviewer/1_orchestrator_workflow.xml`)
+- PASS Multi-agent task coordination (see `.dew/rules-pr-reviewer/1_orchestrator_workflow.xml`)
 - PASS Event-driven task architecture
 - PASS Tool orchestration framework
 - PASS Task persistence and checkpointing

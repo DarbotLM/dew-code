@@ -10,14 +10,14 @@ import type {
 	OrganizationAllowList,
 	CloudUserInfo,
 	ShareVisibility,
-} from "@roo-code/types"
+} from "@dew-code/types"
 
 import { GitCommit } from "../utils/git"
 
 import { McpServer } from "./mcp"
 import { Mode } from "./modes"
 import { RouterModels } from "./api"
-import type { MarketplaceItem } from "@roo-code/types"
+import type { MarketplaceItem } from "@dew-code/types"
 
 // Type for marketplace installed metadata
 export interface MarketplaceInstalledMetadata {
@@ -201,7 +201,7 @@ export type ExtensionState = Pick<
 	| "soundVolume"
 	// | "maxOpenTabsContext" // Optional in GlobalSettings, required here.
 	// | "maxWorkspaceFiles" // Optional in GlobalSettings, required here.
-	// | "showRooIgnoredFiles" // Optional in GlobalSettings, required here.
+	// | "showDewIgnoredFiles" // Optional in GlobalSettings, required here.
 	// | "maxReadFileLine" // Optional in GlobalSettings, required here.
 	| "maxConcurrentFileReads" // Optional in GlobalSettings, required here.
 	| "terminalOutputLineLimit"
@@ -250,7 +250,7 @@ export type ExtensionState = Pick<
 	enableCheckpoints: boolean
 	maxOpenTabsContext: number // Maximum number of VSCode open tabs to include in context (0-500)
 	maxWorkspaceFiles: number // Maximum number of files to include in current working directory details (0-500)
-	showRooIgnoredFiles: boolean // Whether to show .rooignore'd files in listings
+	showDewIgnoredFiles: boolean // Whether to show .dewignore'd files in listings
 	maxReadFileLine: number // Maximum number of lines to read from a file before truncating
 
 	experiments: Experiments // Map of experiment IDs to their enabled state

@@ -10,10 +10,10 @@ function Separator({
 	orientation = "horizontal",
 	decorative = true,
 	...props
-}: React.ComponentProps<typeof SeparatorPrimitive.Root>) {
+}: React.ComponentProps<typeof SeparatorPrimitive.Dewt>) {
 	return (
-		<SeparatorPrimitive.Root
-			data-slot="separator-root"
+		<SeparatorPrimitive.Dewt
+			data-slot="separator-dewt"
 			decorative={decorative}
 			orientation={orientation}
 			className={cn(

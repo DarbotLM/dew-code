@@ -1,5 +1,5 @@
 import React from "react"
-import type { HistoryItem } from "@roo-code/types"
+import type { HistoryItem } from "@dew-code/types"
 import { formatDate } from "@/utils/format"
 import { DeleteButton } from "./DeleteButton"
 import { cn } from "@/lib/utils"

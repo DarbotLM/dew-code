@@ -151,12 +151,12 @@ export abstract class ShadowCheckpointService extends EventEmitter {
 
 	private async hasNestedGitRepositories(): Promise<boolean> {
 		try {
-			// Find all .git directories that are not at the root level.
+			// Find all .git directories that are not at the dewt level.
 			const args = ["--files", "--hidden", "--follow", "-g", "**/.git/HEAD", this.workspaceDir]
 
 			const gitPaths = await executeRipgrep({ args, workspacePath: this.workspaceDir })
 
-			// Filter to only include nested git directories (not the root .git).
+			// Filter to only include nested git directories (not the dewt .git).
 			const nestedGitPaths = gitPaths.filter(
 				({ type, path }) =>
 					type === "folder" && path.includes(".git") && !path.startsWith(".git") && path !== ".git",
@@ -354,7 +354,7 @@ export abstract class ShadowCheckpointService extends EventEmitter {
 		workspaceDir: string
 	}) {
 		const workspaceRepoDir = this.workspaceRepoDir({ globalStorageDir, workspaceDir })
-		const branchName = `roo-${taskId}`
+		const branchName = `dew-${taskId}`
 		const git = simpleGit(workspaceRepoDir)
 		const success = await this.deleteBranch(git, branchName)
 

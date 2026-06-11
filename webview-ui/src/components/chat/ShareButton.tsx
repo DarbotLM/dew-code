@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
 
-import type { HistoryItem, ShareVisibility } from "@roo-code/types"
-import { TelemetryEventName } from "@roo-code/types"
+import type { HistoryItem, ShareVisibility } from "@dew-code/types"
+import { TelemetryEventName } from "@dew-code/types"
 
 import { vscode } from "@/utils/vscode"
 import { telemetryClient } from "@/utils/TelemetryClient"
@@ -99,7 +99,7 @@ export const ShareButton = ({ item, disabled = false }: ShareButtonProps) => {
 
 		// Mark that authentication was initiated from this button
 		initiatedAuthFromThisButtonRef.current = true
-		vscode.postMessage({ type: "rooCloudSignIn" })
+		vscode.postMessage({ type: "dewCloudSignIn" })
 		setShareDropdownOpen(false)
 		setConnectModalOpen(false)
 	}

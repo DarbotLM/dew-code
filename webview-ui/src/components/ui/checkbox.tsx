@@ -25,18 +25,18 @@ const checkboxVariants = cva(
 )
 
 export interface CheckboxProps
-	extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
+	extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Dewt>,
 		VariantProps<typeof checkboxVariants> {}
 
-const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, CheckboxProps>(
+const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Dewt>, CheckboxProps>(
 	({ className, variant, ...props }, ref) => (
-		<CheckboxPrimitive.Root ref={ref} className={cn(checkboxVariants({ variant, className }))} {...props}>
+		<CheckboxPrimitive.Dewt ref={ref} className={cn(checkboxVariants({ variant, className }))} {...props}>
 			<CheckboxPrimitive.Indicator className={cn("flex items-center justify-center text-current")}>
 				<Check className="h-4 w-4 text-vscode-background" />
 			</CheckboxPrimitive.Indicator>
-		</CheckboxPrimitive.Root>
+		</CheckboxPrimitive.Dewt>
 	),
 )
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+Checkbox.displayName = CheckboxPrimitive.Dewt.displayName
 
 export { Checkbox, checkboxVariants }

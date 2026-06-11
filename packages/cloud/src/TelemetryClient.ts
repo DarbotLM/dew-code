@@ -1,12 +1,12 @@
 import {
 	TelemetryEventName,
 	type TelemetryEvent,
-	rooCodeTelemetryEventSchema,
+	dewCodeTelemetryEventSchema,
 	type ClineMessage,
-} from "@roo-code/types"
-import { BaseTelemetryClient } from "@roo-code/telemetry"
+} from "@dew-code/types"
+import { BaseTelemetryClient } from "@dew-code/telemetry"
 
-import { getRooCodeApiUrl } from "./Config"
+import { getDewCodeApiUrl } from "./Config"
 import type { AuthService } from "./auth"
 import type { SettingsService } from "./SettingsService"
 
@@ -37,7 +37,7 @@ export class TelemetryClient extends BaseTelemetryClient {
 			return
 		}
 
-		const response = await fetch(`${getRooCodeApiUrl()}/api/${path}`, {
+		const response = await fetch(`${getDewCodeApiUrl()}/api/${path}`, {
 			...options,
 			headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
 		})
@@ -67,7 +67,7 @@ export class TelemetryClient extends BaseTelemetryClient {
 			console.info(`[TelemetryClient#capture] ${JSON.stringify(payload)}`)
 		}
 
-		const result = rooCodeTelemetryEventSchema.safeParse(payload)
+		const result = dewCodeTelemetryEventSchema.safeParse(payload)
 
 		if (!result.success) {
 			console.error(
@@ -123,7 +123,7 @@ export class TelemetryClient extends BaseTelemetryClient {
 			}
 
 			// Custom fetch for multipart - don't set Content-Type header (let browser set it)
-			const response = await fetch(`${getRooCodeApiUrl()}/api/events/backfill`, {
+			const response = await fetch(`${getDewCodeApiUrl()}/api/events/backfill`, {
 				method: "POST",
 				headers: {
 					Authorization: `Bearer ${token}`,

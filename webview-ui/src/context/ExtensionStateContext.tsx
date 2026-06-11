@@ -8,17 +8,17 @@ import {
 	type ExperimentId,
 	type OrganizationAllowList,
 	ORGANIZATION_ALLOW_ALL,
-} from "@roo-code/types"
+} from "@dew-code/types"
 
-import { ExtensionMessage, ExtensionState, MarketplaceInstalledMetadata } from "@roo/ExtensionMessage"
-import { findLastIndex } from "@roo/array"
-import { McpServer } from "@roo/mcp"
-import { checkExistKey } from "@roo/checkExistApiConfig"
-import { Mode, defaultModeSlug, defaultPrompts } from "@roo/modes"
-import { CustomSupportPrompts } from "@roo/support-prompt"
-import { experimentDefault } from "@roo/experiments"
-import { TelemetrySetting } from "@roo/TelemetrySetting"
-import { RouterModels } from "@roo/api"
+import { ExtensionMessage, ExtensionState, MarketplaceInstalledMetadata } from "@dew/ExtensionMessage"
+import { findLastIndex } from "@dew/array"
+import { McpServer } from "@dew/mcp"
+import { checkExistKey } from "@dew/checkExistApiConfig"
+import { Mode, defaultModeSlug, defaultPrompts } from "@dew/modes"
+import { CustomSupportPrompts } from "@dew/support-prompt"
+import { experimentDefault } from "@dew/experiments"
+import { TelemetrySetting } from "@dew/TelemetrySetting"
+import { RouterModels } from "@dew/api"
 
 import { vscode } from "@src/utils/vscode"
 import { convertTextMateToHljs } from "@src/utils/textMateToHljs"
@@ -64,7 +64,7 @@ export interface ExtensionStateContextType extends ExtensionState {
 	setAlwaysAllowModeSwitch: (value: boolean) => void
 	setAlwaysAllowSubtasks: (value: boolean) => void
 	setBrowserToolEnabled: (value: boolean) => void
-	setShowRooIgnoredFiles: (value: boolean) => void
+	setShowDewIgnoredFiles: (value: boolean) => void
 	setShowAnnouncement: (value: boolean) => void
 	setAllowedCommands: (value: string[]) => void
 	setDeniedCommands: (value: string[]) => void
@@ -201,7 +201,7 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 		cwd: "",
 		browserToolEnabled: true,
 		telemetrySetting: "unset",
-		showRooIgnoredFiles: true, // Default to showing .rooignore'd files with lock symbol (current behavior).
+		showDewIgnoredFiles: true, // Default to showing .dewignore'd files with lock symbol (current behavior).
 		renderContext: "sidebar",
 		maxReadFileLine: -1, // Default max read file line limit
 		pinnedApiConfigs: {}, // Empty object for pinned API configs
@@ -438,7 +438,7 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 		setMaxWorkspaceFiles: (value) => setState((prevState) => ({ ...prevState, maxWorkspaceFiles: value })),
 		setBrowserToolEnabled: (value) => setState((prevState) => ({ ...prevState, browserToolEnabled: value })),
 		setTelemetrySetting: (value) => setState((prevState) => ({ ...prevState, telemetrySetting: value })),
-		setShowRooIgnoredFiles: (value) => setState((prevState) => ({ ...prevState, showRooIgnoredFiles: value })),
+		setShowDewIgnoredFiles: (value) => setState((prevState) => ({ ...prevState, showDewIgnoredFiles: value })),
 		setRemoteBrowserEnabled: (value) => setState((prevState) => ({ ...prevState, remoteBrowserEnabled: value })),
 		setAwsUsePromptCache: (value) => setState((prevState) => ({ ...prevState, awsUsePromptCache: value })),
 		setMaxReadFileLine: (value) => setState((prevState) => ({ ...prevState, maxReadFileLine: value })),

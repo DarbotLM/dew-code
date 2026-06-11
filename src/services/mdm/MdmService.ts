@@ -4,7 +4,7 @@ import * as os from "os"
 import * as vscode from "vscode"
 import { z } from "zod"
 
-import { CloudService, getClerkBaseUrl, PRODUCTION_CLERK_BASE_URL } from "@roo-code/cloud"
+import { CloudService, getClerkBaseUrl, PRODUCTION_CLERK_BASE_URL } from "@dew-code/cloud"
 import { Package } from "../../shared/package"
 import { t } from "../../i18n"
 
@@ -149,19 +149,19 @@ export class MdmService {
 
 		switch (platform) {
 			case "win32": {
-				// Windows: %ProgramData%\RooCode\mdm.json or mdm.dev.json
+				// Windows: %ProgramData%\DewCode\mdm.json or mdm.dev.json
 				const programData = process.env.PROGRAMDATA || "C:\\ProgramData"
-				return path.join(programData, "RooCode", configFileName)
+				return path.join(programData, "DewCode", configFileName)
 			}
 
 			case "darwin":
-				// macOS: /Library/Application Support/RooCode/mdm.json or mdm.dev.json
-				return `/Library/Application Support/RooCode/${configFileName}`
+				// macOS: /Library/Application Support/DewCode/mdm.json or mdm.dev.json
+				return `/Library/Application Support/DewCode/${configFileName}`
 
 			case "linux":
 			default:
-				// Linux: /etc/roo-code/mdm.json or mdm.dev.json
-				return `/etc/roo-code/${configFileName}`
+				// Linux: /etc/dew-code/mdm.json or mdm.dev.json
+				return `/etc/dew-code/${configFileName}`
 		}
 	}
 

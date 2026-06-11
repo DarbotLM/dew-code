@@ -394,8 +394,8 @@ describe("git utils", () => {
 })
 
 describe("getGitRepositoryInfo", () => {
-	const workspaceRoot = "/test/workspace"
-	const gitDir = path.join(workspaceRoot, ".git")
+	const workspaceDewt = "/test/workspace"
+	const gitDir = path.join(workspaceDewt, ".git")
 	const configPath = path.join(gitDir, "config")
 	const headPath = path.join(gitDir, "HEAD")
 
@@ -407,7 +407,7 @@ describe("getGitRepositoryInfo", () => {
 		// Mock fs.access to throw error (directory doesn't exist)
 		vitest.mocked(fs.promises.access).mockRejectedValueOnce(new Error("ENOENT"))
 
-		const result = await getGitRepositoryInfo(workspaceRoot)
+		const result = await getGitRepositoryInfo(workspaceDewt)
 
 		expect(result).toEqual({})
 		expect(fs.promises.access).toHaveBeenCalledWith(gitDir)
@@ -452,7 +452,7 @@ describe("getGitRepositoryInfo", () => {
 			return Promise.reject(new Error(`Unexpected path: ${path}`))
 		})
 
-		const result = await getGitRepositoryInfo(workspaceRoot)
+		const result = await getGitRepositoryInfo(workspaceDewt)
 
 		expect(result).toEqual({
 			repositoryUrl: "https://github.com/darbotlm/dew-code.git",
@@ -497,7 +497,7 @@ describe("getGitRepositoryInfo", () => {
 			return Promise.reject(new Error(`Unexpected path: ${path}`))
 		})
 
-		const result = await getGitRepositoryInfo(workspaceRoot)
+		const result = await getGitRepositoryInfo(workspaceDewt)
 
 		expect(result).toEqual({
 			defaultBranch: "main",
@@ -524,7 +524,7 @@ describe("getGitRepositoryInfo", () => {
 			return Promise.reject(new Error(`Unexpected path: ${path}`))
 		})
 
-		const result = await getGitRepositoryInfo(workspaceRoot)
+		const result = await getGitRepositoryInfo(workspaceDewt)
 
 		expect(result).toEqual({
 			defaultBranch: "main",
@@ -554,7 +554,7 @@ describe("getGitRepositoryInfo", () => {
 			return Promise.reject(new Error(`Unexpected path: ${path}`))
 		})
 
-		const result = await getGitRepositoryInfo(workspaceRoot)
+		const result = await getGitRepositoryInfo(workspaceDewt)
 
 		expect(result).toEqual({
 			repositoryUrl: "https://github.com/darbotlm/dew-code.git",
@@ -598,7 +598,7 @@ describe("getGitRepositoryInfo", () => {
 			return Promise.reject(new Error(`Unexpected path: ${path}`))
 		})
 
-		const result = await getGitRepositoryInfo(workspaceRoot)
+		const result = await getGitRepositoryInfo(workspaceDewt)
 
 		// Verify that the SSH URL was converted to HTTPS
 		expect(result).toEqual({
@@ -728,7 +728,7 @@ describe("extractRepositoryName", () => {
 })
 
 describe("getWorkspaceGitInfo", () => {
-	const workspaceRoot = "/test/workspace"
+	const workspaceDewt = "/test/workspace"
 
 	beforeEach(() => {
 		vitest.clearAllMocks()
@@ -748,7 +748,7 @@ describe("getWorkspaceGitInfo", () => {
 		vitest.clearAllMocks()
 
 		// Mock workspace with one folder
-		mockWorkspaceFolders.mockReturnValue([{ uri: { fsPath: workspaceRoot }, name: "workspace", index: 0 }])
+		mockWorkspaceFolders.mockReturnValue([{ uri: { fsPath: workspaceDewt }, name: "workspace", index: 0 }])
 
 		// Create a spy to track the implementation
 		const gitSpy = vitest.spyOn(fs.promises, "access")

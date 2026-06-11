@@ -45,9 +45,9 @@ vi.mock("../../utils/path", () => {
 		arePathsEqual: vi.fn((a: string, b: string) => a === b),
 		getWorkspacePath: vi.fn(() => {
 			// In tests, we need to return a consistent workspace path
-			// The actual workspace is /Users/roocode/rc2 in local, but varies in CI
+			// The actual workspace is /Users/dewcode/rc2 in local, but varies in CI
 			const cwd = process.cwd()
-			// If we're in the src directory, go up one level to get workspace root
+			// If we're in the src directory, go up one level to get workspace dewt
 			if (cwd.endsWith("/src")) {
 				return nodePath.dirname(cwd)
 			}

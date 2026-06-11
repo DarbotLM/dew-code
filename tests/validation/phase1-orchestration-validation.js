@@ -13,7 +13,7 @@ console.log('='.repeat(50));
 
 let passed = 0;
 let failed = 0;
-const repoRoot = path.resolve(__dirname, '../..');
+const repoDewt = path.resolve(__dirname, '../..');
 
 function test(name, fn) {
     try {
@@ -34,7 +34,7 @@ function assert(condition, message) {
 
 // Test 1: Check OrchestrationEngine file exists and structure
 test('OrchestrationEngine.ts exists and has correct structure', () => {
-    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
+    const orchestrationPath = path.join(repoDewt, 'src/core/orchestration/OrchestrationEngine.ts');
     assert(fs.existsSync(orchestrationPath), 'OrchestrationEngine.ts file does not exist');
 
     const content = fs.readFileSync(orchestrationPath, 'utf8');
@@ -47,7 +47,7 @@ test('OrchestrationEngine.ts exists and has correct structure', () => {
 
 // Test 2: Check CustomModesManager refactoring
 test('CustomModesManager has orchestration enhancements', () => {
-    const customModesPath = path.join(repoRoot, 'src/core/config/CustomModesManager.ts');
+    const customModesPath = path.join(repoDewt, 'src/core/config/CustomModesManager.ts');
     assert(fs.existsSync(customModesPath), 'CustomModesManager.ts file does not exist');
 
     const content = fs.readFileSync(customModesPath, 'utf8');
@@ -58,7 +58,7 @@ test('CustomModesManager has orchestration enhancements', () => {
 
 // Test 3: Check dew-coder refactoring in package.json
 test('package.json updated to dew-coder', () => {
-    const packagePath = path.join(repoRoot, 'package.json');
+    const packagePath = path.join(repoDewt, 'package.json');
     assert(fs.existsSync(packagePath), 'package.json file does not exist');
 
     const content = fs.readFileSync(packagePath, 'utf8');
@@ -66,17 +66,17 @@ test('package.json updated to dew-coder', () => {
     assert(packageJson.name === 'dew-coder', `Package name is ${packageJson.name}, expected dew-coder`);
 });
 
-// Test 4: Check "roo" to "darbot" refactoring in CustomModesManager
-test('CustomModesManager roo→darbot refactoring completed', () => {
-    const customModesPath = path.join(repoRoot, 'src/core/config/CustomModesManager.ts');
+// Test 4: Check "dew" to "darbot" refactoring in CustomModesManager
+test('CustomModesManager dew→darbot refactoring completed', () => {
+    const customModesPath = path.join(repoDewt, 'src/core/config/CustomModesManager.ts');
     const content = fs.readFileSync(customModesPath, 'utf8');
 
-    // Check that old roo references are replaced
-    const rooMatches = content.match(/\.roo\//g) || [];
-    assert(rooMatches.length === 0, `Found ${rooMatches.length} ".roo/" references that should be ".darbot/"`);
+    // Check that old dew references are replaced
+    const dewMatches = content.match(/\.dew\//g) || [];
+    assert(dewMatches.length === 0, `Found ${dewMatches.length} ".dew/" references that should be ".darbot/"`);
 
-    const roomodesMatches = content.match(/roomodes/g) || [];
-    assert(roomodesMatches.length === 0, `Found ${roomodesMatches.length} "roomodes" references that should be "darbotmodes"`);
+    const dewmodesMatches = content.match(/dewmodes/g) || [];
+    assert(dewmodesMatches.length === 0, `Found ${dewmodesMatches.length} "dewmodes" references that should be "darbotmodes"`);
 
     // Check that new darbot references exist
     assert(content.includes('.darbot/'), '.darbot/ references not found');
@@ -85,7 +85,7 @@ test('CustomModesManager roo→darbot refactoring completed', () => {
 
 // Test 5: Check darbot-config service exists
 test('darbot-config service created', () => {
-    const darbotConfigPath = path.join(repoRoot, 'src/services/darbot-config/index.ts');
+    const darbotConfigPath = path.join(repoDewt, 'src/services/darbot-config/index.ts');
     assert(fs.existsSync(darbotConfigPath), 'darbot-config service does not exist');
 
     const content = fs.readFileSync(darbotConfigPath, 'utf8');
@@ -95,7 +95,7 @@ test('darbot-config service created', () => {
 
 // Test 6: Validate OrchestrationEngine agent definitions
 test('OrchestrationEngine has correct agent definitions', () => {
-    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
+    const orchestrationPath = path.join(repoDewt, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
 
     // Check for expected agent types
@@ -112,7 +112,7 @@ test('OrchestrationEngine has correct agent definitions', () => {
 
 // Test 7: Validate task analysis functionality
 test('OrchestrationEngine task analysis structure', () => {
-    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
+    const orchestrationPath = path.join(repoDewt, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
 
     // Check for complexity analysis
@@ -129,7 +129,7 @@ test('OrchestrationEngine task analysis structure', () => {
 
 // Test 8: Check integration readiness
 test('Integration points properly defined', () => {
-    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
+    const orchestrationPath = path.join(repoDewt, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
 
     // Check for execution plan structure
@@ -142,7 +142,7 @@ test('Integration points properly defined', () => {
 
 // Test 9: Validate error handling and safety
 test('Error handling and safety measures', () => {
-    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
+    const orchestrationPath = path.join(repoDewt, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
 
     // Check for error handling
@@ -157,7 +157,7 @@ test('Error handling and safety measures', () => {
 
 // Test 10: Check directory structure for orchestration
 test('Orchestration directory structure', () => {
-    const orchestrationDir = path.join(repoRoot, 'src/core/orchestration');
+    const orchestrationDir = path.join(repoDewt, 'src/core/orchestration');
     assert(fs.existsSync(orchestrationDir), 'Orchestration directory does not exist');
 
     const orchestrationFiles = fs.readdirSync(orchestrationDir);

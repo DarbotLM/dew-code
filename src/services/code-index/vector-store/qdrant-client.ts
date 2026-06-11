@@ -423,9 +423,9 @@ export class QdrantVectorStore implements IVectorStore {
 		}
 
 		try {
-			const workspaceRoot = getWorkspacePath()
+			const workspaceDewt = getWorkspacePath()
 			const normalizedPaths = filePaths.map((filePath) => {
-				const absolutePath = path.resolve(workspaceRoot, filePath)
+				const absolutePath = path.resolve(workspaceDewt, filePath)
 				return path.normalize(absolutePath)
 			})
 

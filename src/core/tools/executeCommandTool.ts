@@ -4,15 +4,15 @@ import * as vscode from "vscode"
 
 import delay from "delay"
 
-import { CommandExecutionStatus, DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import { CommandExecutionStatus, DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT } from "@dew-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
 
 import { Task } from "../task/Task"
 
 import { ToolUse, AskApproval, HandleError, PushToolResult, RemoveClosingTag, ToolResponse } from "../../shared/tools"
 import { formatResponse } from "../prompts/responses"
 import { unescapeHtmlEntities } from "../../utils/text-normalization"
-import { ExitCodeDetails, RooTerminalCallbacks, RooTerminalProcess } from "../../integrations/terminal/types"
+import { ExitCodeDetails, DewTerminalCallbacks, DewTerminalProcess } from "../../integrations/terminal/types"
 import { TerminalRegistry } from "../../integrations/terminal/TerminalRegistry"
 import { Terminal } from "../../integrations/terminal/Terminal"
 import { Package } from "../../shared/package"
@@ -43,11 +43,11 @@ export async function executeCommandTool(
 				return
 			}
 
-			const ignoredFileAttemptedToAccess = cline.rooIgnoreController?.validateCommand(command)
+			const ignoredFileAttemptedToAccess = cline.dewIgnoreController?.validateCommand(command)
 
 			if (ignoredFileAttemptedToAccess) {
-				await cline.say("rooignore_error", ignoredFileAttemptedToAccess)
-				pushToolResult(formatResponse.toolError(formatResponse.rooIgnoreError(ignoredFileAttemptedToAccess)))
+				await cline.say("dewignore_error", ignoredFileAttemptedToAccess)
+				pushToolResult(formatResponse.toolError(formatResponse.dewIgnoreError(ignoredFileAttemptedToAccess)))
 				return
 			}
 
@@ -183,8 +183,8 @@ export async function executeCommand(
 	const clineProvider = await cline.providerRef.deref()
 
 	let accumulatedOutput = ""
-	const callbacks: RooTerminalCallbacks = {
-		onLine: async (lines: string, process: RooTerminalProcess) => {
+	const callbacks: DewTerminalCallbacks = {
+		onLine: async (lines: string, process: DewTerminalProcess) => {
 			accumulatedOutput += lines
 			const compressedOutput = Terminal.compressTerminalOutput(
 				accumulatedOutput,

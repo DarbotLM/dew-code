@@ -1,8 +1,8 @@
 import * as vscode from "vscode"
 import delay from "delay"
 
-import type { CommandId } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import type { CommandId } from "@dew-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
 
 import { Package } from "../shared/package"
 import { getCommand } from "../utils/commands"
@@ -253,7 +253,7 @@ export const openClineInNewTab = async ({ context, outputChannel }: Omit<Registe
 	const newPanel = vscode.window.createWebviewPanel(ClineProvider.tabPanelId, "Dew-Coder", targetCol, {
 		enableScripts: true,
 		retainContextWhenHidden: true,
-		localResourceRoots: [context.extensionUri],
+		localResourceDewts: [context.extensionUri],
 	})
 
 	// Save as tab type panel.

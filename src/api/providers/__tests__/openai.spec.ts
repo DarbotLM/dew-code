@@ -4,7 +4,7 @@ import { OpenAiHandler } from "../openai"
 import { ApiHandlerOptions } from "../../../shared/api"
 import { Anthropic } from "@anthropic-ai/sdk"
 import OpenAI from "openai"
-import { openAiModelInfoSaneDefaults } from "@roo-code/types"
+import { openAiModelInfoSaneDefaults } from "@dew-code/types"
 import { Package } from "../../../shared/package"
 
 const mockCreate = vitest.fn()
@@ -105,7 +105,7 @@ describe("OpenAiHandler", () => {
 				defaultHeaders: {
 					"HTTP-Referer": "https://github.com/darbotlm/dew-code",
 					"X-Title": "Dew-Coder",
-					"User-Agent": `RooCode/${Package.version}`,
+					"User-Agent": `DewCode/${Package.version}`,
 				},
 			})
 		})

@@ -7,8 +7,8 @@ import type {
 	InstallMarketplaceItemOptions,
 	MarketplaceItem,
 	ShareVisibility,
-} from "@roo-code/types"
-import { marketplaceItemSchema } from "@roo-code/types"
+} from "@dew-code/types"
+import { marketplaceItemSchema } from "@dew-code/types"
 
 import { Mode } from "./modes"
 
@@ -155,7 +155,7 @@ export interface WebviewMessage {
 		| "browserToolEnabled"
 		| "codebaseIndexEnabled"
 		| "telemetrySetting"
-		| "showRooIgnoredFiles"
+		| "showDewIgnoredFiles"
 		| "testBrowserConnection"
 		| "browserConnectionResult"
 		| "remoteBrowserEnabled"
@@ -167,8 +167,8 @@ export interface WebviewMessage {
 		| "setHistoryPreviewCollapsed"
 		| "hasOpenedModeSelector"
 		| "accountButtonClicked"
-		| "rooCloudSignIn"
-		| "rooCloudSignOut"
+		| "dewCloudSignIn"
+		| "dewCloudSignOut"
 		| "condenseTaskContextRequest"
 		| "requestIndexingStatus"
 		| "startIndexing"

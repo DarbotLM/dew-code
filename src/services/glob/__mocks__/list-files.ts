@@ -36,9 +36,9 @@ export const listFiles = vi.fn((dirPath: string, _recursive: boolean, limit: num
 		return Promise.resolve([[], false])
 	}
 
-	// Special case: Root or home directories
+	// Special case: Dewt or home directories
 	// Prevents tests from trying to list all files in these directories
-	if (dirPath === "/" || dirPath === "/root" || dirPath === "/home/user") {
+	if (dirPath === "/" || dirPath === "/dewt" || dirPath === "/home/user") {
 		return Promise.resolve([[dirPath], false])
 	}
 

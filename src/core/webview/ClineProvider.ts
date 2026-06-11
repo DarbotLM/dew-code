@@ -13,7 +13,7 @@ import {
 	type GlobalState,
 	type ProviderName,
 	type ProviderSettings,
-	type RooCodeSettings,
+	type DewCodeSettings,
 	type ProviderSettingsEntry,
 	type TelemetryProperties,
 	type TelemetryPropertiesProvider,
@@ -29,9 +29,9 @@ import {
 	glamaDefaultModelId,
 	ORGANIZATION_ALLOW_ALL,
 	DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT,
-} from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
-import { CloudService, getRooCodeApiUrl } from "@roo-code/cloud"
+} from "@dew-code/types"
+import { TelemetryService } from "@dew-code/telemetry"
+import { CloudService, getDewCodeApiUrl } from "@dew-code/cloud"
 
 import { t } from "../../i18n"
 import { setPanel } from "../../activate/registerCommands"
@@ -43,7 +43,7 @@ import { ExtensionMessage, MarketplaceInstalledMetadata } from "../../shared/Ext
 import { Mode, defaultModeSlug } from "../../shared/modes"
 import { experimentDefault, experiments, EXPERIMENT_IDS } from "../../shared/experiments"
 import { formatLanguage } from "../../shared/language"
-import { DEFAULT_WRITE_DELAY_MS } from "@roo-code/types"
+import { DEFAULT_WRITE_DELAY_MS } from "@dew-code/types"
 import { Terminal } from "../../integrations/terminal/Terminal"
 import { downloadTask } from "../../integrations/misc/export-markdown"
 import { getTheme } from "../../integrations/theme/getTheme"
@@ -435,7 +435,7 @@ export class ClineProvider
 		webviewView.webview.options = {
 			// Allow scripts in the webview
 			enableScripts: true,
-			localResourceRoots: [this.contextProxy.extensionUri],
+			localResourceDewts: [this.contextProxy.extensionUri],
 		}
 
 		webviewView.webview.html =
@@ -559,7 +559,7 @@ export class ClineProvider
 			task,
 			images,
 			experiments,
-			rootTask: this.clineStack.length > 0 ? this.clineStack[0] : undefined,
+			dewtTask: this.clineStack.length > 0 ? this.clineStack[0] : undefined,
 			parentTask,
 			taskNumber: this.clineStack.length + 1,
 			onCreated: (cline) => this.emit("clineCreated", cline),
@@ -575,7 +575,7 @@ export class ClineProvider
 		return cline
 	}
 
-	public async initClineWithHistoryItem(historyItem: HistoryItem & { rootTask?: Task; parentTask?: Task }) {
+	public async initClineWithHistoryItem(historyItem: HistoryItem & { dewtTask?: Task; parentTask?: Task }) {
 		await this.removeClineFromStack()
 
 		const {
@@ -595,7 +595,7 @@ export class ClineProvider
 			consecutiveMistakeLimit: apiConfiguration.consecutiveMistakeLimit,
 			historyItem,
 			experiments,
-			rootTask: historyItem.rootTask,
+			dewtTask: historyItem.dewtTask,
 			parentTask: historyItem.parentTask,
 			taskNumber: historyItem.number,
 			onCreated: (cline) => this.emit("clineCreated", cline),
@@ -702,7 +702,7 @@ export class ClineProvider
 					<title>Dew-Coder</title>
 				</head>
 				<body>
-					<div id="root"></div>
+					<div id="dewt"></div>
 					${reactRefresh}
 					<script type="module" src="${scriptUri}"></script>
 				</body>
@@ -776,7 +776,7 @@ export class ClineProvider
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
-            <div id="root"></div>
+            <div id="dewt"></div>
             <script nonce="${nonce}" type="module" src="${scriptUri}"></script>
           </body>
         </html>
@@ -972,8 +972,8 @@ export class ClineProvider
 		console.log(`[subtasks] cancelling task ${cline.taskId}.${cline.instanceId}`)
 
 		const { historyItem } = await this.getTaskWithId(cline.taskId)
-		// Preserve parent and root task information for history item.
-		const rootTask = cline.rootTask
+		// Preserve parent and dewt task information for history item.
+		const dewtTask = cline.dewtTask
 		const parentTask = cline.parentTask
 
 		cline.abortTask()
@@ -1002,7 +1002,7 @@ export class ClineProvider
 		}
 
 		// Clears task again, so we need to abortTask manually above.
-		await this.initClineWithHistoryItem({ ...historyItem, rootTask, parentTask })
+		await this.initClineWithHistoryItem({ ...historyItem, dewtTask, parentTask })
 	}
 
 	async updateCustomInstructions(instructions?: string) {
@@ -1031,7 +1031,7 @@ export class ClineProvider
 			await fs.mkdir(mcpServersDir, { recursive: true })
 		} catch (error) {
 			// Fallback to a relative path if directory creation fails
-			return path.join(os.homedir(), ".roo-code", "mcp")
+			return path.join(os.homedir(), ".dew-code", "mcp")
 		}
 		return mcpServersDir
 	}
@@ -1422,7 +1422,7 @@ export class ClineProvider
 			maxWorkspaceFiles,
 			browserToolEnabled,
 			telemetrySetting,
-			showRooIgnoredFiles,
+			showDewIgnoredFiles,
 			language,
 			maxReadFileLine,
 			terminalCompressProgressBar,
@@ -1527,7 +1527,7 @@ export class ClineProvider
 			telemetrySetting,
 			telemetryKey,
 			machineId,
-			showRooIgnoredFiles: showRooIgnoredFiles ?? true,
+			showDewIgnoredFiles: showDewIgnoredFiles ?? true,
 			language: language ?? formatLanguage(vscode.env.language),
 			renderContext: this.renderContext,
 			maxReadFileLine: maxReadFileLine ?? -1,
@@ -1556,7 +1556,7 @@ export class ClineProvider
 			},
 			mdmCompliant: this.checkMdmCompliance(),
 			profileThresholds: profileThresholds ?? {},
-			cloudApiUrl: getRooCodeApiUrl(),
+			cloudApiUrl: getDewCodeApiUrl(),
 			hasOpenedModeSelector: this.getGlobalState("hasOpenedModeSelector") ?? false,
 			alwaysAllowFollowupQuestions: alwaysAllowFollowupQuestions ?? false,
 			followupAutoApproveTimeoutMs: followupAutoApproveTimeoutMs ?? 60000,
@@ -1698,7 +1698,7 @@ export class ClineProvider
 			openRouterUseMiddleOutTransform: stateValues.openRouterUseMiddleOutTransform ?? true,
 			browserToolEnabled: stateValues.browserToolEnabled ?? true,
 			telemetrySetting: stateValues.telemetrySetting || "unset",
-			showRooIgnoredFiles: stateValues.showRooIgnoredFiles ?? true,
+			showDewIgnoredFiles: stateValues.showDewIgnoredFiles ?? true,
 			maxReadFileLine: stateValues.maxReadFileLine ?? -1,
 			maxConcurrentFileReads: stateValues.maxConcurrentFileReads ?? 5,
 			historyPreviewCollapsed: stateValues.historyPreviewCollapsed ?? false,
@@ -1755,11 +1755,11 @@ export class ClineProvider
 		return this.contextProxy.getValue(key)
 	}
 
-	public async setValue<K extends keyof RooCodeSettings>(key: K, value: RooCodeSettings[K]) {
+	public async setValue<K extends keyof DewCodeSettings>(key: K, value: DewCodeSettings[K]) {
 		await this.contextProxy.setValue(key, value)
 	}
 
-	public getValue<K extends keyof RooCodeSettings>(key: K) {
+	public getValue<K extends keyof DewCodeSettings>(key: K) {
 		return this.contextProxy.getValue(key)
 	}
 
@@ -1767,7 +1767,7 @@ export class ClineProvider
 		return this.contextProxy.getValues()
 	}
 
-	public async setValues(values: RooCodeSettings) {
+	public async setValues(values: DewCodeSettings) {
 		await this.contextProxy.setValues(values)
 	}
 

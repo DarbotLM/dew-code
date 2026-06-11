@@ -15,7 +15,7 @@
 
 ## Onze Belofte
 
-In het belang van het bevorderen van een open en gastvrije omgeving, beloven wij als bijdragers en beheerders om deelname aan ons project en onze community een ervaring zonder intimidatie te maken voor iedereen, ongeacht leeftijd, lichaamsgrootte, handicap, etniciteit, geslachtskenmerken, genderidentiteit en -expressie, ervaringsniveau, opleiding, sociaal-economische status, nationaliteit, uiterlijk, ras, religie of seksuele identiteit en oriëntatie.
+In het belang van het bevorderen van een open en gastvrije omgeving, beloven wij als bijdragers en beheerders om deelname aan ons project en onze community een ervaring zonder intimidatie te maken voor iedereen, ongeacht leeftijd, lichaamsgdewtte, handicap, etniciteit, geslachtskenmerken, genderidentiteit en -expressie, ervaringsniveau, opleiding, sociaal-economische status, nationaliteit, uiterlijk, ras, religie of seksuele identiteit en oriëntatie.
 
 ## Onze Standaarden
 

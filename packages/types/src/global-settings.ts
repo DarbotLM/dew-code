@@ -88,7 +88,7 @@ export const globalSettingsSchema = z.object({
 
 	maxOpenTabsContext: z.number().optional(),
 	maxWorkspaceFiles: z.number().optional(),
-	showRooIgnoredFiles: z.boolean().optional(),
+	showDewIgnoredFiles: z.boolean().optional(),
 	maxReadFileLine: z.number().optional(),
 
 	terminalOutputLineLimit: z.number().optional(),
@@ -138,12 +138,12 @@ export type GlobalSettings = z.infer<typeof globalSettingsSchema>
 export const GLOBAL_SETTINGS_KEYS = globalSettingsSchema.keyof().options
 
 /**
- * RooCodeSettings
+ * DewCodeSettings
  */
 
-export const rooCodeSettingsSchema = providerSettingsSchema.merge(globalSettingsSchema)
+export const dewCodeSettingsSchema = providerSettingsSchema.merge(globalSettingsSchema)
 
-export type RooCodeSettings = GlobalSettings & ProviderSettings
+export type DewCodeSettings = GlobalSettings & ProviderSettings
 
 /**
  * SecretState
@@ -181,10 +181,10 @@ export const isSecretStateKey = (key: string): key is Keys<SecretState> =>
  * GlobalState
  */
 
-export type GlobalState = Omit<RooCodeSettings, Keys<SecretState>>
+export type GlobalState = Omit<DewCodeSettings, Keys<SecretState>>
 
 export const GLOBAL_STATE_KEYS = [...GLOBAL_SETTINGS_KEYS, ...PROVIDER_SETTINGS_KEYS].filter(
-	(key: Keys<RooCodeSettings>) => !SECRET_STATE_KEYS.includes(key as Keys<SecretState>),
+	(key: Keys<DewCodeSettings>) => !SECRET_STATE_KEYS.includes(key as Keys<SecretState>),
 ) as Keys<GlobalState>[]
 
 export const isGlobalStateKey = (key: string): key is Keys<GlobalState> =>
@@ -195,7 +195,7 @@ export const isGlobalStateKey = (key: string): key is Keys<GlobalState> =>
  */
 
 // Default settings when running evals (unless overridden).
-export const EVALS_SETTINGS: RooCodeSettings = {
+export const EVALS_SETTINGS: DewCodeSettings = {
 	apiProvider: "openrouter",
 	openRouterUseMiddleOutTransform: false,
 
@@ -257,7 +257,7 @@ export const EVALS_SETTINGS: RooCodeSettings = {
 	rateLimitSeconds: 0,
 	maxOpenTabsContext: 20,
 	maxWorkspaceFiles: 200,
-	showRooIgnoredFiles: true,
+	showDewIgnoredFiles: true,
 	maxReadFileLine: -1, // -1 to enable full file reading.
 
 	language: "en",

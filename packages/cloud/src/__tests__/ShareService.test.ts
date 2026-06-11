@@ -36,7 +36,7 @@ vi.mock("vscode", () => ({
 
 // Mock config
 vi.mock("../Config", () => ({
-	getRooCodeApiUrl: () => "https://app.dewcode.com",
+	getDewCodeApiUrl: () => "https://app.dewcode.com",
 }))
 
 // Mock utils

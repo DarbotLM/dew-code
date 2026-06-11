@@ -4,7 +4,7 @@ import * as path from "path"
 
 // Load environment variables from .env file
 try {
-	// Specify path to .env file in the project root directory
+	// Specify path to .env file in the project dewt directory
 	const envPath = path.join(__dirname, "..", ".env")
 	dotenvx.config({ path: envPath })
 } catch (e) {
@@ -12,8 +12,8 @@ try {
 	console.warn("Failed to load environment variables:", e)
 }
 
-import { CloudService } from "@roo-code/cloud"
-import { TelemetryService, PostHogTelemetryClient } from "@roo-code/telemetry"
+import { CloudService } from "@dew-code/cloud"
+import { TelemetryService, PostHogTelemetryClient } from "@dew-code/telemetry"
 
 import "./utils/path" // Necessary to have access to String.prototype.toPosix.
 import { createOutputChannelLogger, createDualLogger } from "./utils/outputChannelLogger"
@@ -174,11 +174,11 @@ export async function activate(context: vscode.ExtensionContext) {
 	registerCodeActions(context)
 	registerTerminalActions(context)
 
-	// Allows other extensions to activate once Roo is ready.
+	// Allows other extensions to activate once Dew is ready.
 	vscode.commands.executeCommand(`${Package.name}.activationCompleted`)
 
-	// Implements the `RooCodeAPI` interface.
-	const socketPath = process.env.ROO_CODE_IPC_SOCKET_PATH
+	// Implements the `DewCodeAPI` interface.
+	const socketPath = process.env.DEW_CODE_IPC_SOCKET_PATH
 	const enableLogging = typeof socketPath === "string"
 
 	// Watch the core files and automatically reload the extension host.
