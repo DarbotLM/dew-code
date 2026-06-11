@@ -13,19 +13,19 @@
       <task_template>
         Analyze the following changed files for pattern consistency:
         [List of changed files]
-        
+
         Please focus on:
         1. Finding similar existing implementations in the codebase
         2. Identifying established patterns for this type of feature
         3. Checking if the new code follows these patterns
         4. Looking for potential code redundancy
         5. Verifying proper file organization
-        
+
         Use codebase_search and search_files to find similar code.
         Document all findings with specific examples and file references.
-        
+
         Save your analysis to: .roo/temp/pr-[PR_NUMBER]/pattern-analysis.md
-        
+
         Format the output as:
         ## Pattern Analysis for PR #[PR_NUMBER]
         ### Similar Existing Implementations
@@ -43,22 +43,22 @@
       <delegate_to>architect</delegate_to>
       <task_template>
         Review the architectural implications of PR #[PR_NUMBER]:
-        
+
         Changed files:
         [List of changed files]
-        
+
         PR Description:
         [PR description]
-        
+
         Please analyze:
         1. Module boundary adherence
         2. Dependency management (new dependencies, circular dependencies)
         3. Separation of concerns
         4. Impact on system architecture
         5. Consistency with architectural patterns
-        
+
         Save your findings to: .roo/temp/pr-[PR_NUMBER]/architecture-review.md
-        
+
         Format as:
         ## Architecture Review for PR #[PR_NUMBER]
         ### Module Boundaries
@@ -75,21 +75,21 @@
       <delegate_to>test</delegate_to>
       <task_template>
         Analyze test changes in PR #[PR_NUMBER]:
-        
+
         Test files changed:
         [List of test files]
-        
+
         Please review:
         1. Test file organization and location
         2. Test naming conventions
         3. Coverage of edge cases
         4. Mock usage patterns
         5. Consistency with existing test patterns
-        
+
         Compare with similar existing tests in the codebase.
-        
+
         Save analysis to: .roo/temp/pr-[PR_NUMBER]/test-analysis.md
-        
+
         Format as:
         ## Test Analysis for PR #[PR_NUMBER]
         ### Test Organization
@@ -106,17 +106,17 @@
       <delegate_to>design-engineer</delegate_to>
       <task_template>
         Review UI changes in PR #[PR_NUMBER]:
-        
+
         UI files changed:
         [List of UI files]
-        
+
         Please analyze:
         1. Component structure consistency
         2. Styling approach (Tailwind usage)
         3. Accessibility considerations
         4. i18n implementation
         5. Component reusability
-        
+
         Save findings to: .roo/temp/pr-[PR_NUMBER]/ui-review.md
       </task_template>
     </strategy>

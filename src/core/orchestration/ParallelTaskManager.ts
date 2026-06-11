@@ -80,8 +80,8 @@ export interface ExecutionMetrics {
 }
 
 /**
- * ParallelTaskManager - Advanced parallel execution engine for darbot-coder
- * 
+ * ParallelTaskManager - Advanced parallel execution engine for dew-coder
+ *
  * Manages concurrent task execution with intelligent agent coordination,
  * dependency resolution, and performance optimization.
  */
@@ -99,7 +99,7 @@ export class ParallelTaskManager extends EventEmitter {
 		config?: Partial<ParallelTaskConfig>
 	) {
 		super()
-		
+
 		this.config = {
 			maxConcurrentTasks: config?.maxConcurrentTasks || 5,
 			priorityEnabled: config?.priorityEnabled ?? true,
@@ -127,7 +127,7 @@ export class ParallelTaskManager extends EventEmitter {
 	private async initializeWorkerPool(): Promise<void> {
 		try {
 			const capabilities = this.orchestrationEngine.getOrchestrationCapabilities()
-			
+
 			for (const capability of capabilities) {
 				const worker: AgentWorker = {
 					id: `worker-${capability.slug}-${Date.now()}`,
@@ -137,11 +137,11 @@ export class ParallelTaskManager extends EventEmitter {
 					maxConcurrency: capability.constraints.maxConcurrency,
 					activeTasks: 0
 				}
-				
+
 				this.activeWorkers.set(worker.id, worker)
 				logger.debug('Initialized worker', { workerId: worker.id, agentType: worker.agentType })
 			}
-			
+
 			this.emit('workerPoolInitialized', { workerCount: this.activeWorkers.size })
 		} catch (error) {
 			logger.error('Failed to initialize worker pool', { error })
@@ -153,9 +153,9 @@ export class ParallelTaskManager extends EventEmitter {
 	 * Execute an orchestration plan with parallel task coordination
 	 */
 	public async executeOrchestrationPlan(plan: ExecutionPlan): Promise<ExecutionMetrics> {
-		logger.info('Starting orchestration plan execution', { 
-			planId: plan.id, 
-			totalSteps: plan.steps.length 
+		logger.info('Starting orchestration plan execution', {
+			planId: plan.id,
+			totalSteps: plan.steps.length
 		})
 
 		try {
@@ -164,7 +164,7 @@ export class ParallelTaskManager extends EventEmitter {
 
 			// Convert execution steps to parallel tasks
 			const parallelTasks = this.convertExecutionStepsToTasks(plan.steps)
-			
+
 			// Add tasks to queue
 			for (const task of parallelTasks) {
 				this.taskQueue.set(task.id, task)
@@ -176,9 +176,9 @@ export class ParallelTaskManager extends EventEmitter {
 			// Calculate final metrics
 			this.calculateFinalMetrics()
 
-			this.emit('orchestrationCompleted', { 
-				planId: plan.id, 
-				metrics: this.metrics 
+			this.emit('orchestrationCompleted', {
+				planId: plan.id,
+				metrics: this.metrics
 			})
 
 			return this.metrics
@@ -218,12 +218,12 @@ export class ParallelTaskManager extends EventEmitter {
 			step.description || step.action,
 			this.context
 		)
-		
+
 		// Set additional properties if available
 		if (step.expectedOutputs) {
 			task.setExpectedOutputs(step.expectedOutputs)
 		}
-		
+
 		return task
 	}
 
@@ -251,7 +251,7 @@ export class ParallelTaskManager extends EventEmitter {
 		while (this.hasPendingTasks()) {
 			// Find tasks ready for execution (dependencies satisfied)
 			const readyTasks = this.getReadyTasks(dependencyGraph)
-			
+
 			if (readyTasks.length === 0 && this.hasRunningTasks()) {
 				// Wait for running tasks to complete
 				await this.waitForTaskCompletion()
@@ -270,7 +270,7 @@ export class ParallelTaskManager extends EventEmitter {
 
 			// Execute ready tasks in parallel (up to concurrency limit)
 			const tasksToExecute = this.selectTasksForExecution(readyTasks)
-			
+
 			for (const task of tasksToExecute) {
 				const executionPromise = this.executeTask(task)
 				executionPromises.push(executionPromise)
@@ -291,11 +291,11 @@ export class ParallelTaskManager extends EventEmitter {
 	 */
 	private buildDependencyGraph(): Map<string, string[]> {
 		const graph = new Map<string, string[]>()
-		
+
 		for (const task of this.taskQueue.values()) {
 			graph.set(task.id, task.dependencies)
 		}
-		
+
 		return graph
 	}
 
@@ -304,26 +304,26 @@ export class ParallelTaskManager extends EventEmitter {
 	 */
 	private getReadyTasks(dependencyGraph: Map<string, string[]>): ParallelTask[] {
 		const readyTasks: ParallelTask[] = []
-		
+
 		for (const task of this.taskQueue.values()) {
 			if (task.status !== 'pending') continue
-			
+
 			const dependencies = dependencyGraph.get(task.id) || []
 			const dependenciesSatisfied = dependencies.every(depId => {
 				const depTask = this.taskQueue.get(depId)
 				return depTask?.status === 'completed'
 			})
-			
+
 			if (dependenciesSatisfied) {
 				readyTasks.push(task)
 			}
 		}
-		
+
 		// Sort by priority if priority is enabled
 		if (this.config.priorityEnabled) {
 			readyTasks.sort(this.comparePriority.bind(this))
 		}
-		
+
 		return readyTasks
 	}
 
@@ -355,7 +355,7 @@ export class ParallelTaskManager extends EventEmitter {
 	 */
 	private findAvailableWorker(agentType: string): AgentWorker | null {
 		for (const worker of this.activeWorkers.values()) {
-			if (worker.agentType === agentType && 
+			if (worker.agentType === agentType &&
 				worker.activeTasks < worker.maxConcurrency) {
 				return worker
 			}
@@ -380,8 +380,8 @@ export class ParallelTaskManager extends EventEmitter {
 		worker.activeTasks++
 		worker.currentTask = parallelTask.id
 
-		this.emit('taskStarted', { 
-			taskId: parallelTask.id, 
+		this.emit('taskStarted', {
+			taskId: parallelTask.id,
 			agentType: parallelTask.agentType,
 			workerId: worker.id
 		})
@@ -389,7 +389,7 @@ export class ParallelTaskManager extends EventEmitter {
 		try {
 			// Execute the actual task
 			const result = await this.executeTaskWithTimeout(parallelTask)
-			
+
 			// Task completed successfully
 			parallelTask.status = 'completed'
 			parallelTask.endTime = new Date()
@@ -407,13 +407,13 @@ export class ParallelTaskManager extends EventEmitter {
 			this.executionResults.set(parallelTask.id, executionResult)
 			this.metrics.completedTasks++
 
-			this.emit('taskCompleted', { 
-				taskId: parallelTask.id, 
-				result: executionResult 
+			this.emit('taskCompleted', {
+				taskId: parallelTask.id,
+				result: executionResult
 			})
 
-			logger.info('Task completed successfully', { 
-				taskId: parallelTask.id, 
+			logger.info('Task completed successfully', {
+				taskId: parallelTask.id,
 				duration,
 				agentType: parallelTask.agentType
 			})
@@ -436,13 +436,13 @@ export class ParallelTaskManager extends EventEmitter {
 			this.executionResults.set(parallelTask.id, executionResult)
 			this.metrics.failedTasks++
 
-			this.emit('taskFailed', { 
-				taskId: parallelTask.id, 
-				error: error as Error 
+			this.emit('taskFailed', {
+				taskId: parallelTask.id,
+				error: error as Error
 			})
 
-			logger.error('Task execution failed', { 
-				taskId: parallelTask.id, 
+			logger.error('Task execution failed', {
+				taskId: parallelTask.id,
 				error,
 				agentType: parallelTask.agentType
 			})
@@ -462,7 +462,7 @@ export class ParallelTaskManager extends EventEmitter {
 	 */
 	private async executeTaskWithTimeout(parallelTask: ParallelTask): Promise<any> {
 		const timeoutMs = this.config.timeoutMinutes * 60 * 1000
-		
+
 		return new Promise((resolve, reject) => {
 			const timeout = setTimeout(() => {
 				reject(new Error(`Task ${parallelTask.id} timed out after ${this.config.timeoutMinutes} minutes`))
@@ -490,18 +490,18 @@ export class ParallelTaskManager extends EventEmitter {
 				logger.info('Aborting execution due to task failure', { taskId: parallelTask.id })
 				await this.abortAllTasks()
 				break
-			
+
 			case 'retry':
 				if (parallelTask.task.getRetryCount() < this.config.retryAttempts) {
-					logger.info('Retrying failed task', { 
-						taskId: parallelTask.id, 
-						retryCount: parallelTask.task.getRetryCount() 
+					logger.info('Retrying failed task', {
+						taskId: parallelTask.id,
+						retryCount: parallelTask.task.getRetryCount()
 					})
 					parallelTask.status = 'pending'
 					parallelTask.error = undefined
 				}
 				break
-			
+
 			case 'continue':
 				logger.info('Continuing execution despite task failure', { taskId: parallelTask.id })
 				// Just log and continue - no special action needed
@@ -565,7 +565,7 @@ export class ParallelTaskManager extends EventEmitter {
 	private calculateFinalMetrics(): void {
 		const results = Array.from(this.executionResults.values())
 		const totalDuration = results.reduce((sum, r) => sum + r.duration, 0)
-		
+
 		this.metrics.averageDuration = results.length > 0 ? totalDuration / results.length : 0
 		this.metrics.concurrencyUtilization = this.calculateConcurrencyUtilization()
 		this.metrics.costEfficiency = this.calculateCostEfficiency()
@@ -601,7 +601,7 @@ export class ParallelTaskManager extends EventEmitter {
 		metrics: ExecutionMetrics
 	} {
 		const tasks = Array.from(this.taskQueue.values())
-		
+
 		return {
 			isRunning: this.isRunning,
 			queuedTasks: tasks.filter(t => t.status === 'pending').length,
@@ -628,7 +628,7 @@ export class ParallelTaskManager extends EventEmitter {
 		this.activeWorkers.clear()
 		this.executionResults.clear()
 		this.removeAllListeners()
-		
+
 		logger.info('ParallelTaskManager disposed')
 	}
 }

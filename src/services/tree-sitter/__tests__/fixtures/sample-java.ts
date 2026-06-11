@@ -33,7 +33,7 @@ public interface TestInterfaceDefinition<T extends Comparable<T>> {
         String message,
         T data
     );
-    
+
     // Default method in interface - 4+ lines
     default String testInterfaceDefaultMethod(
         String input,
@@ -70,7 +70,7 @@ public enum TestEnumDefinition {
 )
 public class TestClassDefinition<T extends Comparable<T>>
         implements TestInterfaceDefinition<T> {
-    
+
     // Field declarations - expanded to 4+ lines with annotations
     @TestAnnotationDefinition(
         value = "field",

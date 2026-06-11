@@ -12,30 +12,30 @@
 </div>
 <br>
 <div align="center">
-  <h2>Word lid van de Roo Code Community</h2>
+  <h2>Word lid van de Dew-Coder Community</h2>
   <p>Verbind met ontwikkelaars, draag ideeën bij en blijf op de hoogte met de nieuwste AI-gestuurde coderingstools.</p>
-  
-  <a href="https://discord.gg/roocode" target="_blank"><img src="https://img.shields.io/badge/Word%20lid%20van%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Word lid van Discord"></a>
-  <a href="https://www.reddit.com/r/RooCode/" target="_blank"><img src="https://img.shields.io/badge/Word%20lid%20van%20Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Word lid van Reddit"></a>
-  
+
+  <a href="https://github.com/darbotlm/dew-code/issues" target="_blank"><img src="https://img.shields.io/badge/Word%20lid%20van%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Word lid van Discord"></a>
+  <a href="https://github.com/darbotlm/dew-code/issues" target="_blank"><img src="https://img.shields.io/badge/Word%20lid%20van%20Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Word lid van Reddit"></a>
+
 </div>
 <br>
 <br>
 
 <div align="center">
-<h1>Roo Code (voorheen Roo Cline)</h1>
+<h1>Dew-Coder (voorheen Dew-Coder)</h1>
 <p align="center">
-<img src="https://media.githubusercontent.com/media/RooCodeInc/Roo-Code/main/src/assets/docs/demo.gif" width="100%" />
+<img src="https://media.githubusercontent.com/media/darbotlm/dew-code/main/src/assets/docs/demo.gif" width="100%" />
 </p>
 
-<a href="https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline" target="_blank"><img src="https://img.shields.io/badge/Download%20op%20VS%20Marketplace-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Download op VS Marketplace"></a>
-<a href="https://github.com/RooCodeInc/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop" target="_blank"><img src="https://img.shields.io/badge/Feature%20Requests-yellow?style=for-the-badge" alt="Feature Requests"></a>
-<a href="https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline&ssr=false#review-details" target="_blank"><img src="https://img.shields.io/badge/Beoordeel%20%26%20Review-green?style=for-the-badge" alt="Beoordeel & Review"></a>
-<a href="https://docs.roocode.com" target="_blank"><img src="https://img.shields.io/badge/Documentatie-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Documentatie"></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=darbotlm.dew-coder" target="_blank"><img src="https://img.shields.io/badge/Download%20op%20VS%20Marketplace-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Download op VS Marketplace"></a>
+<a href="https://github.com/darbotlm/dew-code/issues" target="_blank"><img src="https://img.shields.io/badge/Feature%20Requests-yellow?style=for-the-badge" alt="Feature Requests"></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=darbotlm.dew-coder&ssr=false#review-details" target="_blank"><img src="https://img.shields.io/badge/Beoordeel%20%26%20Review-green?style=for-the-badge" alt="Beoordeel & Review"></a>
+<a href="https://github.com/darbotlm/dew-code" target="_blank"><img src="https://img.shields.io/badge/Documentatie-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Documentatie"></a>
 
 </div>
 
-**Roo Code** is een AI-gestuurde **autonome codeeragent** die in je editor leeft. Het kan:
+**Dew-Coder** is een AI-gestuurde **autonome codeeragent** die in je editor leeft. Het kan:
 
 - Communiceren in natuurlijke taal
 - Bestanden direct in je werkruimte lezen en schrijven
@@ -44,24 +44,24 @@
 - Integreren met elke OpenAI-compatibele of aangepaste API/model
 - Zijn "persoonlijkheid" en mogelijkheden aanpassen via **Aangepaste Modi**
 
-Of je nu op zoek bent naar een flexibele codeerpartner, een systeemarchitect, of gespecialiseerde rollen zoals QA-engineer of productmanager, Roo Code helpt je efficiënter software te bouwen.
+Of je nu op zoek bent naar een flexibele codeerpartner, een systeemarchitect, of gespecialiseerde rollen zoals QA-engineer of productmanager, Dew-Coder helpt je efficiënter software te bouwen.
 
 Bekijk de [CHANGELOG](../../CHANGELOG.md) voor gedetailleerde updates en fixes.
 
 ---
 
-## 🎉 Roo Code 3.23 Uitgebracht
+##  Dew-Coder 3.23 Uitgebracht
 
-Roo Code 3.23 brengt krachtige nieuwe functies en significante verbeteringen om je ontwikkelingsworkflow te verbeteren!
+Dew-Coder 3.23 brengt krachtige nieuwe functies en significante verbeteringen om je ontwikkelingsworkflow te verbeteren!
 
 - **Codebase indexering afgestudeerd van experimenteel** - Volledige codebase indexering is nu stabiel en klaar voor productiegebruik met verbeterde zoekfunctionaliteit en contextbegrip.
 - **Nieuwe todo-lijst functie** - Houd je taken op koers met geïntegreerd taakbeheer dat je helpt georganiseerd te blijven en gefocust op je ontwikkelingsdoelen.
 
 ---
 
-## Wat kan Roo Code?
+## Wat kan Dew-Coder?
 
-- 🚀 **Genereer code** vanuit natuurlijke taalbeschrijvingen
+-  **Genereer code** vanuit natuurlijke taalbeschrijvingen
 - 🔧 **Refactor & Debug** bestaande code
 - 📝 **Schrijf & Update** documentatie
 - 🤔 **Beantwoord vragen** over je codebase
@@ -70,55 +70,55 @@ Roo Code 3.23 brengt krachtige nieuwe functies en significante verbeteringen om 
 
 ## Snelstart
 
-1. [Installeer Roo Code](https://docs.roocode.com/getting-started/installing)
-2. [Verbind je AI-provider](https://docs.roocode.com/getting-started/connecting-api-provider)
-3. [Probeer je eerste taak](https://docs.roocode.com/getting-started/your-first-task)
+1. [Installeer Dew-Coder](https://github.com/darbotlm/dew-code)
+2. [Verbind je AI-provider](https://github.com/darbotlm/dew-code)
+3. [Probeer je eerste taak](https://github.com/darbotlm/dew-code)
 
 ## Belangrijkste functies
 
 ### Meerdere Modi
 
-Roo Code past zich aan jouw behoeften aan met gespecialiseerde [modi](https://docs.roocode.com/basic-usage/using-modes):
+Dew-Coder past zich aan jouw behoeften aan met gespecialiseerde [modi](https://github.com/darbotlm/dew-code):
 
 - **Code-modus:** Voor algemene coderingstaken
 - **Architect-modus:** Voor planning en technisch leiderschap
 - **Vraag-modus:** Voor het beantwoorden van vragen en het geven van informatie
 - **Debug-modus:** Voor systematische probleemdiagnose
-- **[Aangepaste modi](https://docs.roocode.com/advanced-usage/custom-modes):** Maak onbeperkt gespecialiseerde persona's voor beveiligingsaudits, prestatieoptimalisatie, documentatie of andere taken
+- **[Aangepaste modi](https://github.com/darbotlm/dew-code):** Maak onbeperkt gespecialiseerde persona's voor beveiligingsaudits, prestatieoptimalisatie, documentatie of andere taken
 
 ### Slimme Tools
 
-Roo Code wordt geleverd met krachtige [tools](https://docs.roocode.com/basic-usage/how-tools-work) die kunnen:
+Dew-Coder wordt geleverd met krachtige [tools](https://github.com/darbotlm/dew-code) die kunnen:
 
 - Bestanden in je project lezen en schrijven
 - Commando's uitvoeren in je VS Code-terminal
 - Een webbrowser aansturen
-- Externe tools gebruiken via [MCP (Model Context Protocol)](https://docs.roocode.com/advanced-usage/mcp)
+- Externe tools gebruiken via [MCP (Model Context Protocol)](https://github.com/darbotlm/dew-code)
 
-MCP breidt de mogelijkheden van Roo Code uit door je in staat te stellen onbeperkt aangepaste tools toe te voegen. Integreer met externe API's, maak verbinding met databases of creëer gespecialiseerde ontwikkeltools - MCP biedt het framework om Roo Code uit te breiden naar jouw specifieke wensen.
+MCP breidt de mogelijkheden van Dew-Coder uit door je in staat te stellen onbeperkt aangepaste tools toe te voegen. Integreer met externe API's, maak verbinding met databases of creëer gespecialiseerde ontwikkeltools - MCP biedt het framework om Dew-Coder uit te breiden naar jouw specifieke wensen.
 
 ### Aanpassen
 
-Laat Roo Code werken zoals jij wilt met:
+Laat Dew-Coder werken zoals jij wilt met:
 
-- [Aangepaste instructies](https://docs.roocode.com/advanced-usage/custom-instructions) voor gepersonaliseerd gedrag
-- [Aangepaste modi](https://docs.roocode.com/advanced-usage/custom-modes) voor specialistische taken
-- [Lokale modellen](https://docs.roocode.com/advanced-usage/local-models) voor offline gebruik
-- [Auto-Approve-instellingen](https://docs.roocode.com/advanced-usage/auto-approving-actions) voor snellere workflows
+- [Aangepaste instructies](https://github.com/darbotlm/dew-code) voor gepersonaliseerd gedrag
+- [Aangepaste modi](https://github.com/darbotlm/dew-code) voor specialistische taken
+- [Lokale modellen](https://github.com/darbotlm/dew-code) voor offline gebruik
+- [Auto-Approve-instellingen](https://github.com/darbotlm/dew-code) voor snellere workflows
 
 ## Bronnen
 
 ### Documentatie
 
-- [Basisgebruik](https://docs.roocode.com/basic-usage/the-chat-interface)
-- [Geavanceerde functies](https://docs.roocode.com/advanced-usage/auto-approving-actions)
-- [Veelgestelde vragen](https://docs.roocode.com/faq)
+- [Basisgebruik](https://github.com/darbotlm/dew-code)
+- [Geavanceerde functies](https://github.com/darbotlm/dew-code)
+- [Veelgestelde vragen](https://github.com/darbotlm/dew-code)
 
 ### Community
 
-- **Discord:** [Word lid van onze Discord-server](https://discord.gg/roocode) voor directe hulp en discussies
-- **Reddit:** [Bezoek onze subreddit](https://www.reddit.com/r/RooCode) om ervaringen en tips te delen
-- **GitHub:** Meld [problemen](https://github.com/RooCodeInc/Roo-Code/issues) of vraag [features](https://github.com/RooCodeInc/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop) aan
+- **Discord:** [Word lid van onze Discord-server](https://github.com/darbotlm/dew-code/issues) voor directe hulp en discussies
+- **Reddit:** [Bezoek onze subreddit](https://github.com/darbotlm/dew-code/issues) om ervaringen en tips te delen
+- **GitHub:** Meld [problemen](https://github.com/darbotlm/dew-code/issues) of vraag [features](https://github.com/darbotlm/dew-code/issues) aan
 
 ---
 
@@ -127,7 +127,7 @@ Laat Roo Code werken zoals jij wilt met:
 1. **Kloon** de repo:
 
 ```sh
-git clone https://github.com/RooCodeInc/Roo-Code.git
+git clone https://github.com/darbotlm/dew-code.git
 ```
 
 2. **Installeer afhankelijkheden**:
@@ -143,7 +143,7 @@ npm run dev
 ```
 
 4. **Debuggen**:
-   Druk op `F5` (of **Run** → **Start Debugging**) in VSCode om een nieuwe sessie met Roo Code te openen.
+   Druk op `F5` (of **Run** → **Start Debugging**) in VSCode om een nieuwe sessie met Dew-Coder te openen.
 
 Wijzigingen aan de webview verschijnen direct. Wijzigingen aan de core-extensie vereisen een herstart van de extensiehost.
 
@@ -156,7 +156,7 @@ npm run build
 Een `.vsix`-bestand verschijnt in de `bin/`-map en kan worden geïnstalleerd met:
 
 ```sh
-code --install-extension bin/roo-cline-<versie>.vsix
+code --install-extension bin/dew-coder-<versie>.vsix
 ```
 
 We gebruiken [changesets](https://github.com/changesets/changesets) voor versiebeheer en publicatie. Bekijk onze `CHANGELOG.md` voor release-opmerkingen.
@@ -165,7 +165,7 @@ We gebruiken [changesets](https://github.com/changesets/changesets) voor versieb
 
 ## Disclaimer
 
-**Let op**: Roo Code, Inc geeft **geen** garanties of waarborgen met betrekking tot enige code, modellen of andere tools die worden geleverd of beschikbaar worden gesteld in verband met Roo Code, bijbehorende tools van derden, of enige resulterende output. Je neemt **alle risico's** die gepaard gaan met het gebruik van dergelijke tools of output; deze tools worden geleverd op een **"AS IS"** en **"AS AVAILABLE"** basis. Risico's kunnen onder meer zijn: inbreuk op intellectueel eigendom, cyberkwetsbaarheden of -aanvallen, vooringenomenheid, onnauwkeurigheden, fouten, defecten, virussen, uitval, verlies of schade aan eigendommen en/of persoonlijk letsel. Je bent zelf volledig verantwoordelijk voor het gebruik van dergelijke tools of output (inclusief, maar niet beperkt tot, de legaliteit, geschiktheid en resultaten daarvan).
+**Let op**: Dew-Coder, Inc geeft **geen** garanties of waarborgen met betrekking tot enige code, modellen of andere tools die worden geleverd of beschikbaar worden gesteld in verband met Dew-Coder, bijbehorende tools van derden, of enige resulterende output. Je neemt **alle risico's** die gepaard gaan met het gebruik van dergelijke tools of output; deze tools worden geleverd op een **"AS IS"** en **"AS AVAILABLE"** basis. Risico's kunnen onder meer zijn: inbreuk op intellectueel eigendom, cyberkwetsbaarheden of -aanvallen, vooringenomenheid, onnauwkeurigheden, fouten, defecten, virussen, uitval, verlies of schade aan eigendommen en/of persoonlijk letsel. Je bent zelf volledig verantwoordelijk voor het gebruik van dergelijke tools of output (inclusief, maar niet beperkt tot, de legaliteit, geschiktheid en resultaten daarvan).
 
 ---
 
@@ -177,7 +177,7 @@ We houden van bijdragen uit de community! Begin met het lezen van onze [CONTRIBU
 
 ## Bijdragers
 
-Dank aan alle bijdragers die Roo Code beter hebben gemaakt!
+Dank aan alle bijdragers die Dew-Coder beter hebben gemaakt!
 
 <!-- START CONTRIBUTORS SECTION - AUTO-GENERATED, DO NOT EDIT MANUALLY -->
 |<a href="https://github.com/mrubens"><img src="https://avatars.githubusercontent.com/u/2600?v=4" width="100" height="100" alt="mrubens"/><br /><sub><b>mrubens</b></sub></a>|<a href="https://github.com/saoudrizwan"><img src="https://avatars.githubusercontent.com/u/7799382?v=4" width="100" height="100" alt="saoudrizwan"/><br /><sub><b>saoudrizwan</b></sub></a>|<a href="https://github.com/cte"><img src="https://avatars.githubusercontent.com/u/16332?v=4" width="100" height="100" alt="cte"/><br /><sub><b>cte</b></sub></a>|<a href="https://github.com/samhvw8"><img src="https://avatars.githubusercontent.com/u/12538214?v=4" width="100" height="100" alt="samhvw8"/><br /><sub><b>samhvw8</b></sub></a>|<a href="https://github.com/daniel-lxs"><img src="https://avatars.githubusercontent.com/u/57051444?v=4" width="100" height="100" alt="daniel-lxs"/><br /><sub><b>daniel-lxs</b></sub></a>|<a href="https://github.com/hannesrudolph"><img src="https://avatars.githubusercontent.com/u/49103247?v=4" width="100" height="100" alt="hannesrudolph"/><br /><sub><b>hannesrudolph</b></sub></a>|
@@ -222,8 +222,8 @@ Dank aan alle bijdragers die Roo Code beter hebben gemaakt!
 
 ## Licentie
 
-[Apache 2.0 © 2025 Roo Code, Inc.](../../LICENSE)
+[Apache 2.0 © 2025 Dew-Coder, Inc.](../../LICENSE)
 
 ---
 
-**Veel plezier met Roo Code!** Of je het nu kort houdt of autonoom laat werken, we zijn benieuwd wat je bouwt. Heb je vragen of ideeën voor functies, kom dan langs op onze [Reddit-community](https://www.reddit.com/r/RooCode/) of [Discord](https://discord.gg/roocode). Veel programmeerplezier!
+**Veel plezier met Dew-Coder!** Of je het nu kort houdt of autonoom laat werken, we zijn benieuwd wat je bouwt. Heb je vragen of ideeën voor functies, kom dan langs op onze [Reddit-community](https://github.com/darbotlm/dew-code/issues) of [Discord](https://github.com/darbotlm/dew-code/issues). Veel programmeerplezier!

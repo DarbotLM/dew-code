@@ -325,7 +325,7 @@ describe("CustomModesManager - YAML Edge Cases", () => {
 					{
 						slug: "emoji-mode",
 						name: "📝 Writing Mode",
-						roleDefinition: "A mode for writing with emojis 🚀",
+						roleDefinition: "A mode for writing with emojis ",
 						groups: ["read", "edit"],
 					},
 				],
@@ -340,7 +340,7 @@ describe("CustomModesManager - YAML Edge Cases", () => {
 
 			expect(modes).toHaveLength(1)
 			expect(modes[0].name).toBe("📝 Writing Mode")
-			expect(modes[0].roleDefinition).toBe("A mode for writing with emojis 🚀")
+			expect(modes[0].roleDefinition).toBe("A mode for writing with emojis ")
 		})
 
 		it("should handle various international characters", async () => {

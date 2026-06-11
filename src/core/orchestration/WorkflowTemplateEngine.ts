@@ -5,7 +5,7 @@ import { logger } from "../../utils/logging"
 /**
  * Workflow template types for common development scenarios
  */
-export type WorkflowTemplateType = 
+export type WorkflowTemplateType =
 	| 'feature_development'
 	| 'bug_fix'
 	| 'code_review'
@@ -82,7 +82,7 @@ export interface WorkflowExecutionResult {
 
 /**
  * WorkflowTemplateEngine - Provides pre-defined workflow templates for common development scenarios
- * 
+ *
  * This engine enables developers to quickly execute complex multi-agent workflows
  * with industry best practices built-in.
  */
@@ -117,8 +117,8 @@ export class WorkflowTemplateEngine {
 			this.templates.set(template.id, template)
 		}
 
-		logger.info('Built-in workflow templates loaded', { 
-			templateCount: this.templates.size 
+		logger.info('Built-in workflow templates loaded', {
+			templateCount: this.templates.size
 		})
 	}
 
@@ -748,8 +748,8 @@ export class WorkflowTemplateEngine {
 			throw new Error(`Workflow template not found: ${templateId}`)
 		}
 
-		logger.info('Starting workflow execution', { 
-			templateId, 
+		logger.info('Starting workflow execution', {
+			templateId,
 			templateName: template.name,
 			userRequest: userRequest.substring(0, 100) + '...'
 		})
@@ -757,7 +757,7 @@ export class WorkflowTemplateEngine {
 		try {
 			// Convert workflow template to execution plan
 			const executionPlan = await this.convertTemplateToExecutionPlan(template, context, userRequest)
-			
+
 			// Store active workflow
 			this.activeWorkflows.set(executionPlan.id, executionPlan)
 
@@ -783,7 +783,7 @@ export class WorkflowTemplateEngine {
 			// Clean up active workflow
 			this.activeWorkflows.delete(executionPlan.id)
 
-			logger.info('Workflow execution completed', { 
+			logger.info('Workflow execution completed', {
 				workflowId: result.workflowId,
 				success: result.success,
 				duration: result.duration
@@ -864,7 +864,7 @@ export class WorkflowTemplateEngine {
 	 */
 	private extractWorkflowOutputs(executedSteps: ExecutionStep[]): Record<string, any> {
 		const outputs: Record<string, any> = {}
-		
+
 		for (const step of executedSteps) {
 			if (step.expectedOutputs) {
 				for (const output of step.expectedOutputs) {
@@ -888,7 +888,7 @@ export class WorkflowTemplateEngine {
 	 */
 	public registerCustomTemplate(template: WorkflowTemplate): void {
 		this.templates.set(template.id, template)
-		logger.info('Custom workflow template registered', { 
+		logger.info('Custom workflow template registered', {
 			templateId: template.id,
 			templateName: template.name
 		})

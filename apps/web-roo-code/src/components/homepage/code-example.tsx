@@ -131,9 +131,9 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   return (
     <div className="bg-white rounded-lg shadow-md p-6 max-w-sm">
       <div className="flex items-center space-x-4">
-        <img 
-          src={avatar || "/placeholder.svg"} 
-          alt={name} 
+        <img
+          src={avatar || "/placeholder.svg"}
+          alt={name}
           className="w-16 h-16 rounded-full object-cover"
         />
         <div>
@@ -206,28 +206,28 @@ Roo has analyzed your code and found 3 issues:
 
 🐛 Issue #1: Null data reference
   Line 42: const items = data.items.map(item => item.name);
-  
-  ✓ Root Cause: 'data' is undefined when component mounts
-  ✓ Context: API request in useEffect hasn't completed yet
-  
+
+  OK Root Cause: 'data' is undefined when component mounts
+  OK Context: API request in useEffect hasn't completed yet
+
   Recommended Fix:
   const items = data?.items?.map(item => item.name) || [];
 
 🐛 Issue #2: Missing dependency in useEffect
   Line 37: useEffect(() => { fetchData() }, []);
-  
-  ✓ Root Cause: fetchData depends on 'userId' but isn't in deps array
-  ✓ Context: This causes stale data when userId changes
-  
+
+  OK Root Cause: fetchData depends on 'userId' but isn't in deps array
+  OK Context: This causes stale data when userId changes
+
   Recommended Fix:
   useEffect(() => { fetchData() }, [userId, fetchData]);
 
 🐛 Issue #3: Memory leak from unfinished API call
   Line 38: const response = await api.getItems(userId);
-  
-  ✓ Root Cause: No cleanup when component unmounts during API call
-  ✓ Context: This triggers React warning in development
-  
+
+  OK Root Cause: No cleanup when component unmounts during API call
+  OK Context: This triggers React warning in development
+
   Recommended Fix:
   Add AbortController to cancel pending requests on unmount
 

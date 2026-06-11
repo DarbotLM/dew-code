@@ -1,17 +1,17 @@
 <pr_template_instructions>
   <overview>
-    This file contains the official Roo Code PR template that must be used when creating pull requests.
+    This file contains the official Dew-Coder PR template that must be used when creating pull requests.
     All PRs must follow this exact format to ensure consistency and proper documentation.
   </overview>
 
   <pr_body_template>
     <description>
-      The PR body must follow this exact Roo Code PR template with all required sections.
+      The PR body must follow this exact Dew-Coder PR template with all required sections.
       Replace placeholder content in square brackets with actual information.
     </description>
     <template><![CDATA[
 <!--
-Thank you for contributing to Roo Code!
+Thank you for contributing to Dew-Coder!
 
 Before submitting your PR, please ensure:
 - It's linked to an approved GitHub Issue.
@@ -24,12 +24,12 @@ Before submitting your PR, please ensure:
 
 Closes: #[ISSUE_NUMBER] <!-- Replace with the issue number, e.g., Closes: #123 -->
 
-### Roo Code Task Context (Optional)
+### Dew-Coder Task Context (Optional)
 
 <!--
-If you used Roo Code to help create this PR, you can share public task links here.
+If you used Dew-Coder to help create this PR, you can share public task links here.
 This helps reviewers understand your development process and provides additional context.
-Example: https://app.roocode.com/share/task-id
+Example: https://app.dewcode.com/share/task-id
 -->
 
 [TASK_CONTEXT]
@@ -106,7 +106,7 @@ Please provide your Discord username for reviewers or maintainers to reach you i
     <description>
       Valid GitHub CLI commands for creating PRs with the proper template
     </description>
-    
+
     <create_pr_command>
       <description>Create a PR using the filled template</description>
       <command><![CDATA[
@@ -162,9 +162,9 @@ gh repo fork [owner]/[repo] --clone=false
         <example>123</example>
       </placeholder>
       <placeholder name="TASK_CONTEXT">
-        <description>Optional Roo Code task links if used during development</description>
-        <example>https://app.roocode.com/share/task-abc123</example>
-        <default>_No Roo Code task context for this PR_</default>
+        <description>Optional Dew-Coder task links if used during development</description>
+        <example>https://app.dewcode.com/share/task-abc123</example>
+        <default>_No Dew-Coder task context for this PR_</default>
       </placeholder>
       <placeholder name="DESCRIPTION_CONTENT">
         <description>Detailed explanation of implementation approach</description>

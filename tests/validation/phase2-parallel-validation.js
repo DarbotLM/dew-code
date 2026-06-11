@@ -8,19 +8,20 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🎯 Phase 2 Validation Test Suite - darbot-coder');
+console.log('Phase 2 Validation Test Suite - dew-coder');
 console.log('='.repeat(50));
 
 let passed = 0;
 let failed = 0;
+const repoRoot = path.resolve(__dirname, '../..');
 
 function test(name, fn) {
     try {
         fn();
-        console.log(`✅ ${name}`);
+        console.log(`PASS ${name}`);
         passed++;
     } catch (error) {
-        console.log(`❌ ${name}: ${error.message}`);
+        console.log(`FAIL ${name}: ${error.message}`);
         failed++;
     }
 }
@@ -33,9 +34,9 @@ function assert(condition, message) {
 
 // Test 1: Check ParallelTaskManager implementation
 test('ParallelTaskManager.ts exists and has correct structure', () => {
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     assert(fs.existsSync(parallelTaskPath), 'ParallelTaskManager.ts file does not exist');
-    
+
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
     assert(content.includes('class ParallelTaskManager'), 'ParallelTaskManager class not found');
     assert(content.includes('executeOrchestrationPlan'), 'executeOrchestrationPlan method not found');
@@ -46,9 +47,9 @@ test('ParallelTaskManager.ts exists and has correct structure', () => {
 
 // Test 2: Check Task.ts parallel execution enhancements
 test('Task.ts has parallel execution enhancements', () => {
-    const taskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/task/Task.ts';
+    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
     assert(fs.existsSync(taskPath), 'Task.ts file does not exist');
-    
+
     const content = fs.readFileSync(taskPath, 'utf8');
     assert(content.includes('execute()'), 'execute method not found');
     assert(content.includes('configureForParallelExecution'), 'configureForParallelExecution method not found');
@@ -59,9 +60,9 @@ test('Task.ts has parallel execution enhancements', () => {
 
 // Test 3: Check WorkflowTemplateEngine implementation
 test('WorkflowTemplateEngine.ts exists and has correct structure', () => {
-    const workflowPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/WorkflowTemplateEngine.ts';
+    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     assert(fs.existsSync(workflowPath), 'WorkflowTemplateEngine.ts file does not exist');
-    
+
     const content = fs.readFileSync(workflowPath, 'utf8');
     assert(content.includes('class WorkflowTemplateEngine'), 'WorkflowTemplateEngine class not found');
     assert(content.includes('executeWorkflow'), 'executeWorkflow method not found');
@@ -71,9 +72,9 @@ test('WorkflowTemplateEngine.ts exists and has correct structure', () => {
 
 // Test 4: Check parallel task execution interfaces
 test('ParallelTaskManager has proper interfaces and types', () => {
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
-    
+
     assert(content.includes('TaskStatus'), 'TaskStatus type not found');
     assert(content.includes('TaskPriority'), 'TaskPriority type not found');
     assert(content.includes('ParallelTaskConfig'), 'ParallelTaskConfig interface not found');
@@ -83,9 +84,9 @@ test('ParallelTaskManager has proper interfaces and types', () => {
 
 // Test 5: Check workflow template types and interfaces
 test('WorkflowTemplateEngine has proper workflow definitions', () => {
-    const workflowPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/WorkflowTemplateEngine.ts';
+    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const content = fs.readFileSync(workflowPath, 'utf8');
-    
+
     assert(content.includes('WorkflowTemplateType'), 'WorkflowTemplateType not found');
     assert(content.includes('WorkflowStep'), 'WorkflowStep interface not found');
     assert(content.includes('WorkflowContext'), 'WorkflowContext interface not found');
@@ -94,9 +95,9 @@ test('WorkflowTemplateEngine has proper workflow definitions', () => {
 
 // Test 6: Check built-in workflow templates
 test('WorkflowTemplateEngine has built-in templates', () => {
-    const workflowPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/WorkflowTemplateEngine.ts';
+    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const content = fs.readFileSync(workflowPath, 'utf8');
-    
+
     const expectedTemplates = [
         'createFeatureDevelopmentTemplate',
         'createBugFixTemplate',
@@ -107,7 +108,7 @@ test('WorkflowTemplateEngine has built-in templates', () => {
         'createSecurityAuditTemplate',
         'createPerformanceOptimizationTemplate'
     ];
-    
+
     expectedTemplates.forEach(template => {
         assert(content.includes(template), `Template method ${template} not found`);
     });
@@ -115,9 +116,9 @@ test('WorkflowTemplateEngine has built-in templates', () => {
 
 // Test 7: Check parallel execution configuration
 test('Task.ts parallel execution configuration methods', () => {
-    const taskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/task/Task.ts';
+    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
     const content = fs.readFileSync(taskPath, 'utf8');
-    
+
     assert(content.includes('setExpectedOutputs'), 'setExpectedOutputs method not found');
     assert(content.includes('getRetryCount'), 'getRetryCount method not found');
     assert(content.includes('cancelParallelExecution'), 'cancelParallelExecution method not found');
@@ -127,31 +128,31 @@ test('Task.ts parallel execution configuration methods', () => {
 
 // Test 8: Check dependency resolution and coordination
 test('ParallelTaskManager has dependency resolution capabilities', () => {
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
-    
+
     assert(content.includes('buildDependencyGraph'), 'buildDependencyGraph method not found');
     assert(content.includes('getReadyTasks'), 'getReadyTasks method not found');
     assert(content.includes('dependencies satisfied'), 'dependency satisfaction logic not found');
     assert(content.includes('selectTasksForExecution'), 'selectTasksForExecution method not found');
-    
+
     // Check Task.ts for dependency satisfaction
-    const taskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/task/Task.ts';
+    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
     const taskContent = fs.readFileSync(taskPath, 'utf8');
     assert(taskContent.includes('areDependenciesSatisfied'), 'areDependenciesSatisfied method not found in Task.ts');
 });
 
 // Test 9: Check error handling and retry mechanisms
 test('Parallel execution has robust error handling', () => {
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
-    
+
     assert(content.includes('handleTaskFailure'), 'handleTaskFailure method not found');
     assert(content.includes('executeTaskWithTimeout'), 'executeTaskWithTimeout method not found');
     assert(content.includes('failureStrategy'), 'failureStrategy configuration not found');
-    
+
     // Check Task.ts for retry logic
-    const taskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/task/Task.ts';
+    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
     const taskContent = fs.readFileSync(taskPath, 'utf8');
     assert(taskContent.includes('retryCount'), 'retryCount property not found');
     assert(taskContent.includes('shouldRetry'), 'shouldRetry method not found in Task.ts');
@@ -159,9 +160,9 @@ test('Parallel execution has robust error handling', () => {
 
 // Test 10: Check worker pool management
 test('ParallelTaskManager has worker pool management', () => {
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
-    
+
     assert(content.includes('initializeWorkerPool'), 'initializeWorkerPool method not found');
     assert(content.includes('findAvailableWorker'), 'findAvailableWorker method not found');
     assert(content.includes('activeWorkers'), 'activeWorkers property not found');
@@ -170,9 +171,9 @@ test('ParallelTaskManager has worker pool management', () => {
 
 // Test 11: Check metrics and monitoring
 test('Parallel execution has comprehensive metrics', () => {
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
-    
+
     assert(content.includes('calculateFinalMetrics'), 'calculateFinalMetrics method not found');
     assert(content.includes('calculateConcurrencyUtilization'), 'calculateConcurrencyUtilization method not found');
     assert(content.includes('calculateCostEfficiency'), 'calculateCostEfficiency method not found');
@@ -181,9 +182,9 @@ test('Parallel execution has comprehensive metrics', () => {
 
 // Test 12: Check workflow template execution integration
 test('WorkflowTemplateEngine integrates with orchestration', () => {
-    const workflowPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/WorkflowTemplateEngine.ts';
+    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const content = fs.readFileSync(workflowPath, 'utf8');
-    
+
     assert(content.includes('convertTemplateToExecutionPlan'), 'convertTemplateToExecutionPlan method not found');
     assert(content.includes('estimateWorkflowCost'), 'estimateWorkflowCost method not found');
     assert(content.includes('getWorkflowRecommendations'), 'getWorkflowRecommendations method not found');
@@ -192,9 +193,9 @@ test('WorkflowTemplateEngine integrates with orchestration', () => {
 
 // Test 13: Check event-driven architecture
 test('Parallel execution has event-driven architecture', () => {
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     const content = fs.readFileSync(parallelTaskPath, 'utf8');
-    
+
     assert(content.includes('EventEmitter'), 'EventEmitter inheritance not found');
     assert(content.includes('taskStarted'), 'taskStarted event not found');
     assert(content.includes('taskCompleted'), 'taskCompleted event not found');
@@ -204,12 +205,12 @@ test('Parallel execution has event-driven architecture', () => {
 
 // Test 14: Check Phase 2 file organization
 test('Phase 2 files are properly organized', () => {
-    const orchestrationDir = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration';
+    const orchestrationDir = path.join(repoRoot, 'src/core/orchestration');
     assert(fs.existsSync(orchestrationDir), 'Orchestration directory does not exist');
-    
+
     const orchestrationFiles = fs.readdirSync(orchestrationDir);
     const expectedFiles = ['OrchestrationEngine.ts', 'ParallelTaskManager.ts', 'WorkflowTemplateEngine.ts'];
-    
+
     expectedFiles.forEach(file => {
         assert(orchestrationFiles.includes(file), `${file} not found in orchestration directory`);
     });
@@ -218,33 +219,33 @@ test('Phase 2 files are properly organized', () => {
 // Test 15: Check integration readiness
 test('Phase 2 components are integration ready', () => {
     // Check that ParallelTaskManager imports OrchestrationEngine
-    const parallelTaskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/ParallelTaskManager.ts';
+    const parallelTaskPath = path.join(repoRoot, 'src/core/orchestration/ParallelTaskManager.ts');
     const parallelContent = fs.readFileSync(parallelTaskPath, 'utf8');
     assert(parallelContent.includes('OrchestrationEngine'), 'ParallelTaskManager does not import OrchestrationEngine');
-    
+
     // Check that WorkflowTemplateEngine imports OrchestrationEngine
-    const workflowPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/WorkflowTemplateEngine.ts';
+    const workflowPath = path.join(repoRoot, 'src/core/orchestration/WorkflowTemplateEngine.ts');
     const workflowContent = fs.readFileSync(workflowPath, 'utf8');
     assert(workflowContent.includes('OrchestrationEngine'), 'WorkflowTemplateEngine does not import OrchestrationEngine');
-    
+
     // Check that Task.ts has proper integration methods
-    const taskPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/task/Task.ts';
+    const taskPath = path.join(repoRoot, 'src/core/task/Task.ts');
     const taskContent = fs.readFileSync(taskPath, 'utf8');
     assert(taskContent.includes('execute'), 'Task.ts execute method not properly integrated');
 });
 
 // Summary
 console.log('\n' + '='.repeat(50));
-console.log(`📊 Phase 2 Validation Results: ${passed} passed, ${failed} failed`);
+console.log(`Phase 2 Validation Results: ${passed} passed, ${failed} failed`);
 
 if (failed === 0) {
-    console.log('🎉 All Phase 2 validation tests PASSED!');
-    console.log('✅ Parallel execution capabilities fully implemented');
-    console.log('✅ Task coordination and dependency resolution working');
-    console.log('✅ Workflow templates and automation ready');
-    console.log('✅ Ready to proceed to Phase 3 implementation');
+    console.log('All Phase 2 validation tests PASSED!');
+    console.log('Parallel execution capabilities fully implemented');
+    console.log('Task coordination and dependency resolution working');
+    console.log('Workflow templates and automation ready');
+    console.log('Ready to proceed to Phase 3 implementation');
     process.exit(0);
 } else {
-    console.log('⚠️  Some Phase 2 validation tests failed. Please review and fix before proceeding to Phase 3.');
+    console.log('WARNING: Some Phase 2 validation tests failed. Please review and fix before proceeding to Phase 3.');
     process.exit(1);
 }

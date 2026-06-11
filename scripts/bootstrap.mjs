@@ -13,7 +13,7 @@ if (process.env.npm_execpath && process.env.npm_execpath.includes("pnpm")) {
 	process.exit(0)
 }
 
-console.log("🚀 Bootstrapping to pnpm...")
+console.log(" Bootstrapping to pnpm...")
 
 /**
  * Run pnpm install with bootstrap environment variable.
@@ -49,7 +49,7 @@ try {
 		console.log("✨ Found pnpm")
 		pnpmInstall = runPnpmInstall("pnpm")
 	} else {
-		console.log("⚠️  Unable to find pnpm, installing it temporarily...")
+		console.log("WARNING: Unable to find pnpm, installing it temporarily...")
 		ensurePackageJson()
 
 		console.log("📥 Installing pnpm locally...")
@@ -60,7 +60,7 @@ try {
 		})
 
 		if (npmInstall.status !== 0) {
-			console.error("❌ Failed to install pnpm locally")
+			console.error("FAIL Failed to install pnpm locally")
 			process.exit(1)
 		}
 
@@ -69,11 +69,11 @@ try {
 	}
 
 	if (pnpmInstall.status !== 0) {
-		console.error("❌ pnpm install failed")
+		console.error("FAIL pnpm install failed")
 		process.exit(pnpmInstall.status)
 	}
 
-	console.log("🎉 Bootstrap completed successfully!")
+	console.log(" Bootstrap completed successfully!")
 	process.exit(0)
 } catch (error) {
 	console.error("💥 Bootstrap failed:", error.message)

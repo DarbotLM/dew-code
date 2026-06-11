@@ -1,5 +1,5 @@
 export default String.raw`
-<%# Multi-line comment block explaining 
+<%# Multi-line comment block explaining
     template purpose and usage
     across multiple lines %>
 
@@ -35,14 +35,14 @@ export default String.raw`
 <div class="container">
   <% if user.authenticated? %>
     <h1>Welcome, <%= user.name %></h1>
-    
+
     <% user.posts.each do |post| %>
       <article class="post">
         <h2><%= post.title %></h2>
         <div class="content">
           <%= post.content %>
         </div>
-        
+
         <% if post.has_comments? %>
           <section class="comments">
             <% post.comments.each do |comment| %>

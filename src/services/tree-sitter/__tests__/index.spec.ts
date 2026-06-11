@@ -165,7 +165,7 @@ export const CheckboxExample = () => (
 		  onChange={(e: any) => {
 		    const isChecked = e.target.checked
 		    setIsCustomTemperature(isChecked)
-		
+
 		    if (!isChecked) {
 		      setInputValue(null) // Unset the temperature
 		    } else {

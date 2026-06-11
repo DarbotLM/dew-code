@@ -345,7 +345,7 @@ describe("TelemetryClient", () => {
 			})
 
 			expect(mockFetch).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/events",
+				"https://app.dewcode.com/api/events",
 				expect.objectContaining({
 					method: "POST",
 					body: JSON.stringify(mockValidatedData),
@@ -390,7 +390,7 @@ describe("TelemetryClient", () => {
 			})
 
 			expect(mockFetch).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/events",
+				"https://app.dewcode.com/api/events",
 				expect.objectContaining({
 					method: "POST",
 					body: JSON.stringify(mockValidatedData),
@@ -502,7 +502,7 @@ describe("TelemetryClient", () => {
 			await client.backfillMessages(messages, "test-task-id")
 
 			expect(mockFetch).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/events/backfill",
+				"https://app.dewcode.com/api/events/backfill",
 				expect.objectContaining({
 					method: "POST",
 					headers: {
@@ -557,7 +557,7 @@ describe("TelemetryClient", () => {
 			await client.backfillMessages(messages, "test-task-id")
 
 			expect(mockFetch).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/events/backfill",
+				"https://app.dewcode.com/api/events/backfill",
 				expect.objectContaining({
 					method: "POST",
 					headers: {
@@ -603,7 +603,7 @@ describe("TelemetryClient", () => {
 			await client.backfillMessages(messages, "test-task-id")
 
 			expect(mockFetch).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/events/backfill",
+				"https://app.dewcode.com/api/events/backfill",
 				expect.objectContaining({
 					method: "POST",
 					headers: {
@@ -710,7 +710,7 @@ describe("TelemetryClient", () => {
 			await client.backfillMessages([], "test-task-id")
 
 			expect(mockFetch).toHaveBeenCalledWith(
-				"https://app.roocode.com/api/events/backfill",
+				"https://app.dewcode.com/api/events/backfill",
 				expect.objectContaining({
 					method: "POST",
 					headers: {

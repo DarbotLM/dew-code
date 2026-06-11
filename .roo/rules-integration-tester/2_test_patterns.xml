@@ -39,11 +39,11 @@
         ```typescript
         test('should handle task completion events', async () => {
           const events: any[] = [];
-          
+
           const messageListener = (message: any) => {
             events.push({ type: 'message', data: message });
           };
-          
+
           const taskCompletedListener = (result: any) => {
             events.push({ type: 'taskCompleted', data: result });
           };
@@ -55,7 +55,7 @@
             // Perform test actions
             await api.startTask('test prompt');
             await waitUntilCompleted();
-            
+
             // Validate events
             assert(events.some(e => e.type === 'taskCompleted'));
           } finally {
@@ -75,20 +75,20 @@
         test('should create files in workspace', async () => {
           const fileName = 'test-file.txt';
           const expectedContent = 'test content';
-          
+
           await api.startTask(`Create a file named ${fileName} with content: ${expectedContent}`);
           await waitUntilCompleted();
-          
+
           // Check multiple possible locations
           const possiblePaths = [
             path.join(testWorkspaceDir, fileName),
             path.join(process.cwd(), fileName),
             // Add other possible locations
           ];
-          
+
           let fileFound = false;
           let actualContent = '';
-          
+
           for (const filePath of possiblePaths) {
             if (fs.existsSync(filePath)) {
               actualContent = fs.readFileSync(filePath, 'utf8');
@@ -96,7 +96,7 @@
               break;
             }
           }
-          
+
           assert(fileFound, `File ${fileName} not found in any expected location`);
           assert.strictEqual(actualContent.trim(), expectedContent);
         });
@@ -126,7 +126,7 @@
           alwaysAllowWrite: true,
           alwaysAllowExecute: true
         });
-        
+
         await api.startTask('Create and execute a script');
         await waitUntilCompleted();
         ```
@@ -146,7 +146,7 @@
         await waitUntilCompleted();
 
         // Validate specific message types
-        const toolMessages = messages.filter(m => 
+        const toolMessages = messages.filter(m =>
           m.type === 'say' && m.say === 'api_req_started'
         );
         assert(toolMessages.length > 0, 'Expected tool execution messages');
@@ -162,12 +162,12 @@
         ```typescript
         test('should handle task abortion', async () => {
           await api.startTask('long running task');
-          
+
           // Abort after short delay
           setTimeout(() => api.abortTask(), 1000);
-          
+
           await waitUntilAborted();
-          
+
           // Verify task was properly aborted
           const status = await api.getTaskStatus();
           assert.strictEqual(status, 'aborted');
@@ -182,7 +182,7 @@
         ```typescript
         test('should handle invalid input gracefully', async () => {
           const errorMessages: any[] = [];
-          
+
           api.onDidReceiveMessage((message) => {
             if (message.type === 'error' || message.text?.includes('error')) {
               errorMessages.push(message);
@@ -191,7 +191,7 @@
 
           await api.startTask('invalid prompt that should fail');
           await waitFor(() => errorMessages.length > 0, 5000);
-          
+
           assert(errorMessages.length > 0, 'Expected error messages');
         });
         ```
@@ -211,13 +211,13 @@
             path.join(os.tmpdir(), fileName),
             // Add other common locations
           ];
-          
+
           for (const filePath of possiblePaths) {
             if (fs.existsSync(filePath)) {
               return filePath;
             }
           }
-          
+
           return null;
         }
         ```
@@ -230,25 +230,25 @@
         ```typescript
         class EventCollector {
           private events: any[] = [];
-          
+
           constructor(private api: any) {
             this.setupListeners();
           }
-          
+
           private setupListeners() {
             this.api.onDidReceiveMessage((message: any) => {
               this.events.push({ type: 'message', timestamp: Date.now(), data: message });
             });
-            
+
             this.api.onTaskCompleted((result: any) => {
               this.events.push({ type: 'taskCompleted', timestamp: Date.now(), data: result });
             });
           }
-          
+
           getEvents(type?: string) {
             return type ? this.events.filter(e => e.type === type) : this.events;
           }
-          
+
           clear() {
             this.events = [];
           }
@@ -265,7 +265,7 @@
         ```typescript
         test('should log execution flow for debugging', async () => {
           console.log('Starting test execution');
-          
+
           const events: any[] = [];
           api.onDidReceiveMessage((message) => {
             console.log('Received message:', JSON.stringify(message, null, 2));
@@ -274,10 +274,10 @@
 
           console.log('Starting task with prompt');
           await api.startTask('test prompt');
-          
+
           console.log('Waiting for task completion');
           await waitUntilCompleted();
-          
+
           console.log('Task completed, events received:', events.length);
           console.log('Final workspace state:', fs.readdirSync(testWorkspaceDir));
         });

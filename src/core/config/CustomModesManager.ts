@@ -60,7 +60,7 @@ export class CustomModesManager {
 		this.watchCustomModesFiles().catch((error) => {
 			console.error("[CustomModesManager] Failed to setup file watchers:", error)
 		})
-		
+
 		// Initialize orchestration engine
 		this.initializeOrchestration()
 	}
@@ -84,7 +84,7 @@ export class CustomModesManager {
 		if (!this.orchestrationEngine) {
 			return null
 		}
-		
+
 		try {
 			return await this.orchestrationEngine.getAgentSuggestion(userRequest)
 		} catch (error) {

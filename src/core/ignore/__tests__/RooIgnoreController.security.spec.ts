@@ -223,7 +223,7 @@ config/secrets/**
 # Build artifacts
 dist/
 build/
-        
+
 # Comments and empty lines should be ignored
       `)
 

@@ -13,10 +13,10 @@ import kotlin.properties.Delegates
 abstract class TestAbstractClassDefinition {
     // Abstract property test
     abstract val abstractPropertyDefinition: String
-    
+
     // Abstract method test
     abstract fun abstractMethodDefinition(): String
-    
+
     // Open method test with implementation
     open fun concreteMethodDefinition(
         param1: String,
@@ -30,13 +30,13 @@ abstract class TestAbstractClassDefinition {
 interface TestInterfaceDefinition {
     // Interface property test
     val interfacePropertyDefinition: String
-    
+
     // Required method test
     fun requiredMethodDefinition(
         param1: String,
         param2: Int
     ): Boolean
-    
+
     // Default method test
     fun defaultMethodDefinition(
         message: String = "default"
@@ -60,9 +60,9 @@ enum class TestEnumClassDefinition(
             return "Enum value: $enumValue, Description: $enumDescription"
         }
     };
-    
+
     abstract fun describeEnumDefinition(): String
-    
+
     fun getEnumValueDefinition(): Int = enumValue
 }
 
@@ -92,7 +92,7 @@ class TestConstructorDefinition(
 ) {
     private var constructorField1: String? = null
     private var constructorField2: Int = 0
-    
+
     // Secondary constructor test
     constructor(
         param1: String,
@@ -102,7 +102,7 @@ class TestConstructorDefinition(
         this.constructorField1 = param3
         this.constructorField2 = param2 * 2
     }
-    
+
     // Another secondary constructor test
     constructor(
         param1: String,
@@ -125,14 +125,14 @@ class TestPropertyDefinition {
                 field = value
             }
         }
-    
+
     // Property with custom accessors
     var propertyWithCustomAccessors: String = ""
         get() = field.uppercase()
         set(value) {
             field = "Custom: $value"
         }
-    
+
     // Property with backing field
     private var _propertyWithBackingField: String = "inactive"
     var propertyWithBackingField: String
@@ -140,7 +140,7 @@ class TestPropertyDefinition {
         set(value) {
             _propertyWithBackingField = value.lowercase()
         }
-    
+
     // Delegated property test
     var delegatedPropertyDefinition: Int by Delegates.observable(0) {
         property, oldValue, newValue ->
@@ -154,7 +154,7 @@ class TestOuterClassDefinition(
     private val outerParam2: Int
 ) {
     private val outerPropertyDefinition: String = "outer"
-    
+
     // Inner class test
     inner class TestInnerClassDefinition(
         private val innerParam: String
@@ -163,7 +163,7 @@ class TestOuterClassDefinition(
             return "$innerParam: $outerPropertyDefinition"
         }
     }
-    
+
     // Nested class test
     class TestNestedClassDefinition(
         private val nestedParam: String
@@ -172,11 +172,11 @@ class TestOuterClassDefinition(
             return "Nested: $nestedParam"
         }
     }
-    
+
     // Companion object test
     companion object TestCompanionDefinition {
         const val COMPANION_CONSTANT = "constant"
-        
+
         fun companionMethodDefinition(): String {
             return "Companion method"
         }
@@ -190,11 +190,11 @@ data class TestDataClassDefinition<T, R>(
     val dataClassParam3: Map<String, Any> = mapOf(),
     val dataClassParam4: List<T> = listOf()
 ) where T : Any, R : Any {
-    
+
     fun dataClassMethodDefinition(): R {
         return dataClassParam2(dataClassParam1)
     }
-    
+
     fun dataClassListMethodDefinition(): List<R> {
         return dataClassParam4.map(dataClassParam2)
     }
@@ -222,7 +222,7 @@ infix fun Int.testInfixFunctionDefinition(
 class TestFlowClassDefinition {
     private val _stateFlowDefinition = MutableStateFlow<String>("")
     val stateFlowDefinition: StateFlow<String> = _stateFlowDefinition.asStateFlow()
-    
+
     fun testFlowCollectionDefinition(
         count: Int = 5,
         delayTime: Long = 100
@@ -232,7 +232,7 @@ class TestFlowClassDefinition {
             delay(delayTime)
         }
     }
-    
+
     fun updateStateFlowDefinition(
         newValue: String
     ) {
@@ -245,7 +245,7 @@ class TestCoroutineClassDefinition {
     private val coroutineScope = CoroutineScope(
         Dispatchers.Default + SupervisorJob()
     )
-    
+
     suspend fun testSuspendFunctionDefinition(
         items: List<String>,
         processDelay: Long = 100
@@ -259,7 +259,7 @@ class TestCoroutineClassDefinition {
             }
         }.awaitAll()
     }
-    
+
     private suspend fun processSuspendItemDefinition(
         item: String,
         delay: Long
@@ -272,17 +272,17 @@ class TestCoroutineClassDefinition {
 // Sealed interface declaration test - at least 4 lines long
 sealed interface TestSealedInterfaceDefinition<T> {
     val interfaceMetadata: Map<String, Any>
-    
+
     data class SealedSuccess<T>(
         val successData: T,
         override val interfaceMetadata: Map<String, Any>
     ) : TestSealedInterfaceDefinition<T>
-    
+
     data class SealedError<T>(
         val errorData: Throwable,
         override val interfaceMetadata: Map<String, Any>
     ) : TestSealedInterfaceDefinition<T>
-    
+
     class SealedLoading<T>(
         override val interfaceMetadata: Map<String, Any> = mapOf()
     ) : TestSealedInterfaceDefinition<T>
@@ -293,17 +293,17 @@ object TestObjectDefinition {
     private var objectCount: Int by lazy {
         calculateObjectCountDefinition()
     }
-    
+
     private fun calculateObjectCountDefinition(): Int {
         return (1..10).sum()
     }
-    
+
     val objectDelegatedString by lazy {
         val prefix = "Computed"
         val value = objectCount * 2
         "$prefix string value: $value"
     }
-    
+
     fun getObjectCountDefinition(): Int {
         return objectCount
     }
@@ -323,7 +323,7 @@ data class TestOperatorDefinition(
             "$operatorName + $otherName"
         )
     }
-    
+
     operator fun invoke(
         multiplier: Int
     ): TestOperatorDefinition {
@@ -366,12 +366,12 @@ suspend fun testSuspendFlowFunctionDefinition(
 // Sealed class declaration test - at least 4 lines long
 sealed class TestSealedClassDefinition {
     abstract val sealedProperty: String
-    
+
     data class SealedSubclassOneDefinition(
         val subclassValue: String,
         override val sealedProperty: String
     ) : TestSealedClassDefinition()
-    
+
     class SealedSubclassTwoDefinition(
         override val sealedProperty: String
     ) : TestSealedClassDefinition() {
@@ -379,10 +379,10 @@ sealed class TestSealedClassDefinition {
             return "Subclass Two: $sealedProperty"
         }
     }
-    
+
     object SealedSubclassThreeDefinition : TestSealedClassDefinition() {
         override val sealedProperty: String = "Object Subclass"
-        
+
         fun objectMethod(): String {
             return "Subclass Three: $sealedProperty"
         }

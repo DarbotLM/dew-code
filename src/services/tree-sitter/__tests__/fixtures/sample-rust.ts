@@ -57,7 +57,7 @@ struct test_unit_struct_definition;
 enum test_enum_definition {
     // Unit variant - exempt from 4-line requirement
     TestUnitVariant,
-    
+
     // Tuple variant with multiple fields
     TestTupleVariant(
         String,
@@ -65,7 +65,7 @@ enum test_enum_definition {
         f64,
         Vec<u8>
     ),
-    
+
     // Struct variant with fields
     TestStructVariant {
         name: String,
@@ -73,7 +73,7 @@ enum test_enum_definition {
         data: Option<Vec<f64>>,
         timestamp: std::time::SystemTime
     },
-    
+
     // Recursive variant
     TestRecursiveVariant(
         String,
@@ -89,14 +89,14 @@ trait test_trait_definition {
         input: &str,
         count: usize
     ) -> Result<String, Box<dyn std::error::Error>>;
-    
+
     // Method with generics
     fn test_generic_method<T: std::fmt::Debug + Clone>(
         &self,
         data: T,
         prefix: &str
     ) -> Option<T>;
-    
+
     // Default implementation
     fn test_default_method(
         &self,
@@ -116,7 +116,7 @@ impl test_struct_definition {
     ) -> i32 {
         (self.value * multiplier + offset) as i32
     }
-    
+
     fn test_static_method(
         name: String,
         value: i32,
@@ -141,7 +141,7 @@ impl test_trait_definition for test_struct_definition {
     ) -> Result<String, Box<dyn std::error::Error>> {
         Ok(format!("{}: {}", self.name, input.repeat(count)))
     }
-    
+
     fn test_generic_method<T: std::fmt::Debug + Clone>(
         &self,
         data: T,
@@ -165,7 +165,7 @@ mod test_module_definition {
         test_trait_definition,
         test_enum_definition
     };
-    
+
     pub fn test_module_function(
         param: &test_struct_definition,
         timeout: Duration,
@@ -181,7 +181,7 @@ macro_rules! test_macro_definition {
     ($test_expr:expr) => {
         println!("Test macro: {}", $test_expr)
     };
-    
+
     // Complex pattern with repetition
     ($test_expr:expr, $($test_arg:expr),+ $(,)?) => {
         {
@@ -192,7 +192,7 @@ macro_rules! test_macro_definition {
             println!();
         }
     };
-    
+
     // Pattern with different types
     ($test_expr:expr, $test_ident:ident, $test_ty:ty) => {
         {

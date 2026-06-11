@@ -31,10 +31,10 @@ async function main() {
 		const publisher = packageJson.publisher
 		const extensionId = `${publisher}.${name}`
 
-		console.log("\n🚀 Roo Code VSIX Installer")
+		console.log("\nDew-Coder VSIX Installer")
 		console.log("========================")
 		console.log("\nThis script will:")
-		console.log("1. Uninstall any existing version of the Roo Code extension")
+		console.log("1. Uninstall any existing version of the Dew-Coder extension")
 		console.log("2. Install the newly built VSIX package")
 		console.log(`\nExtension: ${extensionId}`)
 		console.log(`VSIX file: ${vsixFileName}`)
@@ -68,7 +68,7 @@ async function main() {
 		}
 
 		if (!fs.existsSync(vsixFileName)) {
-			console.error(`\n❌ VSIX file not found: ${vsixFileName}`)
+			console.error(`\nVSIX file not found: ${vsixFileName}`)
 			console.error("Make sure the build completed successfully")
 			rl.close()
 			process.exit(1)
@@ -76,13 +76,13 @@ async function main() {
 
 		execSync(`${editorCommand} --install-extension ${vsixFileName}`, { stdio: "inherit" })
 
-		console.log(`\n✅ Successfully installed extension from ${vsixFileName}`)
-		console.log("\n⚠️  IMPORTANT: You need to restart VS Code for the changes to take effect.")
+		console.log(`\nSuccessfully installed extension from ${vsixFileName}`)
+		console.log("\nIMPORTANT: You need to restart VS Code for the changes to take effect.")
 		console.log("   Please close and reopen VS Code to use the updated extension.\n")
 
 		rl.close()
 	} catch (error) {
-		console.error("\n❌ Failed to install extension:", error.message)
+		console.error("\nFailed to install extension:", error.message)
 		rl.close()
 		process.exit(1)
 	}

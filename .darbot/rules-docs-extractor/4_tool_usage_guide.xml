@@ -146,7 +146,7 @@ The authentication system provides secure user authentication using JWT tokens..
 </write_to_file>
       ]]></example>
     </tool>
-    
+
     <tool name="ask_followup_question">
       <purpose>Clarify ambiguous requirements.</purpose>
       <when_to_use>

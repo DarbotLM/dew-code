@@ -30,7 +30,7 @@ interface PropsDefinitionExample {
 // Function Components (function declarations and arrow functions) - spans 4+ lines
 function StandardFunctionComponent(props: StandardInterfaceProps): JSX.Element {
   const { required, numeric, callback, complex } = props;
-  
+
   return (
     <div className="standard-component">
       {required}: {numeric}
@@ -198,7 +198,7 @@ const HooksStateComponent: React.FC = () => {
     age: 30,
     isActive: true
   });
-  
+
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1);
   };
@@ -226,11 +226,11 @@ const HooksUsageComponent: React.FC<{ id: string }> = ({ id }) => {
   const [data, setData] = React.useState<string[]>([]);
   const counter = React.useRef<number>(0);
   const prevId = React.useRef<string>();
-  
+
   React.useEffect(() => {
     console.log('Component mounted');
     fetchData(id);
-    
+
     return () => {
       console.log('Component unmounted');
     };

@@ -4,7 +4,7 @@ export default String.raw`
 // Standard class definition test - at least 4 lines long
 class StandardClassDefinition {
     private var standardProperty: String
-    
+
     func standardMethod() -> String {
         return "Standard class method"
     }
@@ -13,7 +13,7 @@ class StandardClassDefinition {
 // Final class definition test - at least 4 lines long
 final class FinalClassDefinition {
     private let finalProperty: Int
-    
+
     func finalClassMethod(
         parameter: String
     ) -> Int {
@@ -24,7 +24,7 @@ final class FinalClassDefinition {
 // Open class definition test - at least 4 lines long
 open class OpenClassDefinition {
     public var openProperty: Double
-    
+
     open func openOverridableMethod(
         parameter1: String,
         parameter2: Int
@@ -36,11 +36,11 @@ open class OpenClassDefinition {
 // Class with inheritance and protocol conformance test - at least 4 lines long
 class InheritingClassDefinition: StandardClassDefinition, ProtocolDefinition {
     var protocolRequiredProperty: String = "Required property"
-    
+
     override func standardMethod() -> String {
         return "Overridden method"
     }
-    
+
     func protocolRequiredMethod(
         with parameter: String
     ) -> Bool {
@@ -54,7 +54,7 @@ class InheritingClassDefinition: StandardClassDefinition, ProtocolDefinition {
 struct StandardStructDefinition {
     private var standardStructProperty: String
     let readOnlyProperty: Int
-    
+
     mutating func modifyingMethod(
         newValue: String
     ) {
@@ -66,7 +66,7 @@ struct StandardStructDefinition {
 struct GenericStructDefinition<T: Comparable, U> {
     private var items: [T]
     private var mappings: [T: U]
-    
+
     init(
         items: [T] = [],
         mappings: [T: U] = [:]
@@ -74,7 +74,7 @@ struct GenericStructDefinition<T: Comparable, U> {
         self.items = items
         self.mappings = mappings
     }
-    
+
     func findMapping(for key: T) -> U? {
         return mappings[key]
     }
@@ -85,7 +85,7 @@ struct GenericStructDefinition<T: Comparable, U> {
 // Protocol with requirements test - at least 4 lines long
 protocol ProtocolDefinition {
     var protocolRequiredProperty: String { get set }
-    
+
     func protocolRequiredMethod(
         with parameter: String
     ) -> Bool
@@ -94,13 +94,13 @@ protocol ProtocolDefinition {
 // Protocol with associated type test - at least 4 lines long
 protocol AssociatedTypeProtocolDefinition {
     associatedtype AssociatedItem
-    
+
     var items: [AssociatedItem] { get set }
-    
+
     func add(
         item: AssociatedItem
     )
-    
+
     func remove(at index: Int)
 }
 
@@ -165,7 +165,7 @@ struct TypeMethodContainer {
 class StoredPropertyContainer {
     // Simple stored property
     private var privateStoredProperty: String = "Private"
-    
+
     // Stored property with property observer
     var storedPropertyWithObserver: Int = 0 {
         willSet {
@@ -180,7 +180,7 @@ class StoredPropertyContainer {
 // Computed property definition test - at least 4 lines long
 class ComputedPropertyContainer {
     private var backingStorage: String = ""
-    
+
     // Full computed property
     var computedProperty: String {
         get {
@@ -190,7 +190,7 @@ class ComputedPropertyContainer {
             backingStorage = newValue.lowercased()
         }
     }
-    
+
     // Read-only computed property
     var readOnlyComputedProperty: Int {
         return backingStorage.count * 2
@@ -203,7 +203,7 @@ class ComputedPropertyContainer {
 class DesignatedInitializerContainer {
     let property1: String
     let property2: Int
-    
+
     // Designated initializer
     init(
         property1: String,
@@ -218,13 +218,13 @@ class DesignatedInitializerContainer {
 class ConvenienceInitializerContainer {
     let property1: String
     let property2: Int
-    
+
     // Designated initializer
     init(property1: String, property2: Int) {
         self.property1 = property1
         self.property2 = property2
     }
-    
+
     // Convenience initializer
     convenience init(
         defaultsWithOverride: String = "Default"
@@ -241,12 +241,12 @@ class ConvenienceInitializerContainer {
 // Deinitializer definition test - at least 4 lines long
 class DeinitializerDefinition {
     private var resource: String
-    
+
     init(resource: String) {
         self.resource = resource
         print("Initialized with: \\(resource)")
     }
-    
+
     deinit {
         print("Releasing resource: \\(resource)")
         resource = ""
@@ -259,7 +259,7 @@ class DeinitializerDefinition {
 // Subscript definition test - at least 4 lines long
 class SubscriptDefinition {
     private var items: [String] = []
-    
+
     subscript(
         index: Int,
         default defaultValue: String = ""
@@ -285,13 +285,13 @@ class SubscriptDefinition {
 class TypeAliasContainer {
     // Simple type alias
     typealias SimpleTypeAlias = String
-    
+
     // Complex type alias with generic constraints
     typealias DictionaryOfArrays<
         Key: Hashable,
         Value: Equatable
     > = [Key: [Value]]
-    
+
     // Using the type alias
     var dictionaryOfArrays: DictionaryOfArrays<String, Int> = [:]
 }

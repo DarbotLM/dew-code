@@ -74,7 +74,7 @@ jobs:
           echo "PR SHA: ${{ github.event.pull_request.head.sha }}"
 
           if [[ "${{ github.event.action }}" == "opened" && "${{ github.actor }}" == "R00-B0T" ]]; then
-            echo "Using branch ref: ${{ github.head_ref }}"  
+            echo "Using branch ref: ${{ github.head_ref }}"
             echo "git_ref=${{ github.head_ref }}" >> $GITHUB_OUTPUT
           else
             echo "Using SHA ref: ${{ github.event.pull_request.head.sha }}"
@@ -123,7 +123,7 @@ jobs:
         uses: hmarr/auto-approve-action@v4
         with:
           review-message: "I'm approving since it's a bump version PR"
-      
+
       # Auto-merge PR
       - name: Automerge on PR
         if: false # Needs enablePullRequestAutoMerge in repo settings to work contains(github.event.pull_request.labels.*.name, 'changelog-ready')

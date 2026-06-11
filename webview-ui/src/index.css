@@ -416,7 +416,7 @@ input[cmdk-input]:focus {
 }
 
 /*
- * Use geometric precision for codicons to avoid blurriness 
+ * Use geometric precision for codicons to avoid blurriness
  */
 
 .codicon[class*="codicon-"] {

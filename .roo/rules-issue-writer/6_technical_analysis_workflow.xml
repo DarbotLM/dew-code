@@ -67,7 +67,7 @@
           ]]></tool_use>
         </instructions>
       </iteration>
-      
+
       <iteration number="2">
         <title>Component Discovery</title>
         <instructions>
@@ -78,7 +78,7 @@
           - Test files that might reveal expected behavior
         </instructions>
       </iteration>
-      
+
       <iteration number="3">
         <title>Deep Implementation Search</title>
         <instructions>
@@ -90,7 +90,7 @@
           - UI components and their interactions
         </instructions>
       </iteration>
-      
+
       <iteration number="4">
         <title>Edge Case and Integration Search</title>
         <instructions>
@@ -101,7 +101,7 @@
           - Feature flags or conditional logic
         </instructions>
       </iteration>
-      
+
       <update_todo>Update search-related todos as each iteration completes</update_todo>
     </phase>
 
@@ -197,7 +197,7 @@
             - Migration strategy if needed
           </details>
         </component>
-        
+
         <component name="dependency_analysis">
           <details>
             - All files that import affected code
@@ -207,7 +207,7 @@
             - Documentation updates needed
           </details>
         </component>
-        
+
         <component name="test_strategy">
           <details>
             - Unit tests to add or modify
@@ -217,7 +217,7 @@
             - Manual testing scenarios
           </details>
         </component>
-        
+
         <component name="risk_assessment">
           <details>
             - Breaking changes identified

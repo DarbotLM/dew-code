@@ -42,14 +42,14 @@ Description: Request to read the contents of one or more files. The tool outputs
 Parameters:
 - args: Contains one or more file elements, where each file contains:
   - path: (required) File path (relative to workspace directory /test/path)
-  
+
 
 Usage:
 <read_file>
 <args>
   <file>
     <path>path/to/file</path>
-    
+
   </file>
 </args>
 </read_file>
@@ -61,7 +61,7 @@ Examples:
 <args>
   <file>
     <path>src/app.ts</path>
-    
+
   </file>
 </args>
 </read_file>
@@ -71,11 +71,11 @@ Examples:
 <args>
   <file>
     <path>src/app.ts</path>
-    
+
   </file>
   <file>
     <path>src/utils.ts</path>
-    
+
   </file>
 </args>
 </read_file>

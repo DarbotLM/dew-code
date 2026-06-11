@@ -8,19 +8,20 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🎯 Phase 1 Validation Test Suite - darbot-coder');
+console.log('Phase 1 Validation Test Suite - dew-coder');
 console.log('='.repeat(50));
 
 let passed = 0;
 let failed = 0;
+const repoRoot = path.resolve(__dirname, '../..');
 
 function test(name, fn) {
     try {
         fn();
-        console.log(`✅ ${name}`);
+        console.log(`PASS ${name}`);
         passed++;
     } catch (error) {
-        console.log(`❌ ${name}: ${error.message}`);
+        console.log(`FAIL ${name}: ${error.message}`);
         failed++;
     }
 }
@@ -33,9 +34,9 @@ function assert(condition, message) {
 
 // Test 1: Check OrchestrationEngine file exists and structure
 test('OrchestrationEngine.ts exists and has correct structure', () => {
-    const orchestrationPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/OrchestrationEngine.ts';
+    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
     assert(fs.existsSync(orchestrationPath), 'OrchestrationEngine.ts file does not exist');
-    
+
     const content = fs.readFileSync(orchestrationPath, 'utf8');
     assert(content.includes('class OrchestrationEngine'), 'OrchestrationEngine class not found');
     assert(content.includes('analyzeTask'), 'analyzeTask method not found');
@@ -46,37 +47,37 @@ test('OrchestrationEngine.ts exists and has correct structure', () => {
 
 // Test 2: Check CustomModesManager refactoring
 test('CustomModesManager has orchestration enhancements', () => {
-    const customModesPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/config/CustomModesManager.ts';
+    const customModesPath = path.join(repoRoot, 'src/core/config/CustomModesManager.ts');
     assert(fs.existsSync(customModesPath), 'CustomModesManager.ts file does not exist');
-    
+
     const content = fs.readFileSync(customModesPath, 'utf8');
     assert(content.includes('getAgentSuggestion'), 'getAgentSuggestion method not found');
     assert(content.includes('getOrchestrationCapabilities'), 'getOrchestrationCapabilities method not found');
     assert(content.includes('OrchestrationEngine'), 'OrchestrationEngine import not found');
 });
 
-// Test 3: Check darbot-coder refactoring in package.json
-test('package.json updated to darbot-coder', () => {
-    const packagePath = '/mnt/d/0GH_PROD/DR-Coder/package.json';
+// Test 3: Check dew-coder refactoring in package.json
+test('package.json updated to dew-coder', () => {
+    const packagePath = path.join(repoRoot, 'package.json');
     assert(fs.existsSync(packagePath), 'package.json file does not exist');
-    
+
     const content = fs.readFileSync(packagePath, 'utf8');
     const packageJson = JSON.parse(content);
-    assert(packageJson.name === 'darbot-coder', `Package name is ${packageJson.name}, expected darbot-coder`);
+    assert(packageJson.name === 'dew-coder', `Package name is ${packageJson.name}, expected dew-coder`);
 });
 
 // Test 4: Check "roo" to "darbot" refactoring in CustomModesManager
 test('CustomModesManager roo→darbot refactoring completed', () => {
-    const customModesPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/config/CustomModesManager.ts';
+    const customModesPath = path.join(repoRoot, 'src/core/config/CustomModesManager.ts');
     const content = fs.readFileSync(customModesPath, 'utf8');
-    
+
     // Check that old roo references are replaced
     const rooMatches = content.match(/\.roo\//g) || [];
     assert(rooMatches.length === 0, `Found ${rooMatches.length} ".roo/" references that should be ".darbot/"`);
-    
+
     const roomodesMatches = content.match(/roomodes/g) || [];
     assert(roomodesMatches.length === 0, `Found ${roomodesMatches.length} "roomodes" references that should be "darbotmodes"`);
-    
+
     // Check that new darbot references exist
     assert(content.includes('.darbot/'), '.darbot/ references not found');
     assert(content.includes('darbotmodes'), 'darbotmodes references not found');
@@ -84,9 +85,9 @@ test('CustomModesManager roo→darbot refactoring completed', () => {
 
 // Test 5: Check darbot-config service exists
 test('darbot-config service created', () => {
-    const darbotConfigPath = '/mnt/d/0GH_PROD/DR-Coder/src/services/darbot-config/index.ts';
+    const darbotConfigPath = path.join(repoRoot, 'src/services/darbot-config/index.ts');
     assert(fs.existsSync(darbotConfigPath), 'darbot-config service does not exist');
-    
+
     const content = fs.readFileSync(darbotConfigPath, 'utf8');
     assert(content.includes('getDarbotPath'), 'getDarbotPath function not found');
     assert(content.includes('~/.darbot'), '~/.darbot directory reference not found');
@@ -94,15 +95,15 @@ test('darbot-config service created', () => {
 
 // Test 6: Validate OrchestrationEngine agent definitions
 test('OrchestrationEngine has correct agent definitions', () => {
-    const orchestrationPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/OrchestrationEngine.ts';
+    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
-    
+
     // Check for expected agent types
     const expectedAgents = ['architect', 'coder', 'tester', 'security', 'docs'];
     expectedAgents.forEach(agent => {
         assert(content.includes(`slug: '${agent}'`), `Agent ${agent} not found in definitions`);
     });
-    
+
     // Check for capability definitions
     assert(content.includes('capabilities:'), 'Agent capabilities not defined');
     assert(content.includes('costLevel:'), 'Cost level not defined');
@@ -111,16 +112,16 @@ test('OrchestrationEngine has correct agent definitions', () => {
 
 // Test 7: Validate task analysis functionality
 test('OrchestrationEngine task analysis structure', () => {
-    const orchestrationPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/OrchestrationEngine.ts';
+    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
-    
+
     // Check for complexity analysis
     assert(content.includes('complexity:'), 'Complexity analysis not found');
     assert(content.includes('simple'), 'Simple complexity level not found');
     assert(content.includes('medium'), 'Medium complexity level not found');
     assert(content.includes('complex'), 'Complex complexity level not found');
     assert(content.includes('enterprise'), 'Enterprise complexity level not found');
-    
+
     // Check for domain identification
     assert(content.includes('domains:'), 'Domain identification not found');
     assert(content.includes('parallelizable:'), 'Parallelizable analysis not found');
@@ -128,9 +129,9 @@ test('OrchestrationEngine task analysis structure', () => {
 
 // Test 8: Check integration readiness
 test('Integration points properly defined', () => {
-    const orchestrationPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/OrchestrationEngine.ts';
+    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
-    
+
     // Check for execution plan structure
     assert(content.includes('ExecutionPlan'), 'ExecutionPlan interface not found');
     assert(content.includes('steps:'), 'Execution steps not defined');
@@ -141,37 +142,37 @@ test('Integration points properly defined', () => {
 
 // Test 9: Validate error handling and safety
 test('Error handling and safety measures', () => {
-    const orchestrationPath = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration/OrchestrationEngine.ts';
+    const orchestrationPath = path.join(repoRoot, 'src/core/orchestration/OrchestrationEngine.ts');
     const content = fs.readFileSync(orchestrationPath, 'utf8');
-    
+
     // Check for error handling
     assert(content.includes('try {') || content.includes('catch'), 'Error handling not implemented');
-    
+
     // Check for validation
     assert(content.includes('validation'), 'Validation logic not found');
-    
+
     // Check for safety constraints
     assert(content.includes('maxConcurrency'), 'Concurrency limits not defined');
 });
 
 // Test 10: Check directory structure for orchestration
 test('Orchestration directory structure', () => {
-    const orchestrationDir = '/mnt/d/0GH_PROD/DR-Coder/src/core/orchestration';
+    const orchestrationDir = path.join(repoRoot, 'src/core/orchestration');
     assert(fs.existsSync(orchestrationDir), 'Orchestration directory does not exist');
-    
+
     const orchestrationFiles = fs.readdirSync(orchestrationDir);
     assert(orchestrationFiles.includes('OrchestrationEngine.ts'), 'OrchestrationEngine.ts not in orchestration directory');
 });
 
 // Summary
 console.log('\n' + '='.repeat(50));
-console.log(`📊 Validation Results: ${passed} passed, ${failed} failed`);
+console.log(`Validation Results: ${passed} passed, ${failed} failed`);
 
 if (failed === 0) {
-    console.log('🎉 All Phase 1 validation tests PASSED!');
-    console.log('✅ Ready to proceed to Phase 2 implementation');
+    console.log('All Phase 1 validation tests PASSED!');
+    console.log('Ready to proceed to Phase 2 implementation');
     process.exit(0);
 } else {
-    console.log('⚠️  Some validation tests failed. Please review and fix before proceeding to Phase 2.');
+    console.log('WARNING: Some validation tests failed. Please review and fix before proceeding to Phase 2.');
     process.exit(1);
 }

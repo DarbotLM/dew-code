@@ -124,7 +124,7 @@ Customize this feature in settings:
 
     <visuals>
       <emojis>
-        <when>Error: ⚠️</when>
+        <when>Error: WARNING: </when>
         <when>Tip: 💡</when>
         <when>Note: 📝</when>
         <when>Security: 🔒</when>

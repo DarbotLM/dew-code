@@ -157,8 +157,8 @@
         <option>--jq [expression]: Parse JSON with jq</option>
       </options>
       <json_fields>
-        number, title, author, state, body, url, 
-        headRefName, baseRefName, files, additions, 
+        number, title, author, state, body, url,
+        headRefName, baseRefName, files, additions,
         deletions, changedFiles, comments, reviews,
         isDraft, mergeable, mergeStateStatus
       </json_fields>
@@ -178,7 +178,7 @@
     <command_group name="issue_info">
       <base_command>gh issue view [number]</base_command>
       <json_fields>
-        number, title, body, author, state, 
+        number, title, body, author, state,
         labels, assignees, milestone, comments
       </json_fields>
     </command_group>

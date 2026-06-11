@@ -2,7 +2,7 @@
 
 set -e
 
-echo "🚀 Starting evals web service..."
+echo " Starting evals web service..."
 
 wait_for_db() {
     echo "⏳ Waiting for database..."
@@ -22,17 +22,17 @@ wait_for_db() {
         echo "⏳ Database not ready yet, waiting 2 seconds..."
         sleep 2
     done
-    
-    echo "✅ Database is ready"
+
+    echo "PASS Database is ready"
 }
 
 run_migrations() {
     echo "🔄 Running database migrations..."
 
     if pnpm --filter @roo-code/evals db:migrate; then
-        echo "✅ Database migrations completed successfully!"
+        echo "PASS Database migrations completed successfully!"
     else
-        echo "❌ Database migration failed!"
+        echo "FAIL Database migration failed!"
         exit 1
     fi
 }

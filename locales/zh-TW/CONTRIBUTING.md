@@ -11,9 +11,9 @@
 </sub>
 </div>
 
-# 參與 Roo Code 貢獻
+# 參與 Dew-Coder 貢獻
 
-Roo Code 是一個由社群驅動的專案，我們深深重視每一份貢獻。為了簡化協作流程，我們採用 [Issue-First](#issue-first-方式) 原則，這表示所有 [Pull Request (PR)](#提交-pull-request) 必須先關聯至 GitHub Issue。請仔細閱讀本指南。
+Dew-Coder 是一個由社群驅動的專案，我們深深重視每一份貢獻。為了簡化協作流程，我們採用 [Issue-First](#issue-first-方式) 原則，這表示所有 [Pull Request (PR)](#提交-pull-request) 必須先關聯至 GitHub Issue。請仔細閱讀本指南。
 
 ## 目錄
 
@@ -52,10 +52,10 @@ Roo Code 是一個由社群驅動的專案，我們深深重視每一份貢獻�
 
 在 PR 中請提及與這些領域的關聯。
 
-### 3. 加入 Roo Code 社群
+### 3. 加入 Dew-Coder 社群
 
-- **主要方式：** 加入我們的 [Discord](https://discord.gg/roocode) 並私訊 **Hannes Rudolph (`hrudolph`)**。
-- **替代方式：** 有經驗的貢獻者可透過 [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1) 直接參與。
+- **主要方式：** 加入我們的 [Discord](https://github.com/darbotlm/dew-code/issues) 並私訊 **Hannes Rudolph (`hrudolph`)**。
+- **替代方式：** 有經驗的貢獻者可透過 [GitHub Projects](https://github.com/orgs/darbotlm/projects) 直接參與。
 
 ## 尋找與規劃你的貢獻
 
@@ -69,7 +69,7 @@ Roo Code 是一個由社群驅動的專案，我們深深重視每一份貢獻�
 
 所有貢獻必須從 GitHub Issue 開始。
 
-- **檢查現有 issue：** 搜尋 [GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues)。
+- **檢查現有 issue：** 搜尋 [GitHub Issues](https://github.com/darbotlm/dew-code/issues)。
 - **建立 issue：** 使用適當範本：
     - **Bug：** 「Bug Report」範本。
     - **功能：** 「Detailed Feature Proposal」範本。開始前需獲得批准。
@@ -79,14 +79,14 @@ Roo Code 是一個由社群驅動的專案，我們深深重視每一份貢獻�
 
 ### 決定要做什麼
 
-- 查看 [GitHub 專案](https://github.com/orgs/RooCodeInc/projects/1) 中未分配的「Good First Issues」。
-- 文件相關，請訪問 [Roo Code Docs](https://github.com/RooCodeInc/Roo-Code-Docs)。
+- 查看 [GitHub 專案](https://github.com/orgs/darbotlm/projects) 中未分配的「Good First Issues」。
+- 文件相關，請訪問 [Dew-Coder Docs](https://github.com/darbotlm/dew-code)。
 
 ### 回報 Bug
 
 - 先檢查是否已有相關報告。
-- 使用 [「Bug Report」範本](https://github.com/RooCodeInc/Roo-Code/issues/new/choose) 建立新 bug 報告。
-- **安全問題：** 透過 [security advisories](https://github.com/RooCodeInc/Roo-Code/security/advisories/new) 私下回報。
+- 使用 [「Bug Report」範本](https://github.com/darbotlm/dew-code/issues) 建立新 bug 報告。
+- **安全問題：** 透過 [security advisories](https://github.com/darbotlm/dew-code/security/advisories/new) 私下回報。
 
 ## 開發與提交流程
 
@@ -95,7 +95,7 @@ Roo Code 是一個由社群驅動的專案，我們深深重視每一份貢獻�
 1. **Fork & Clone：**
 
 ```
-git clone https://github.com/你的帳號/Roo-Code.git
+git clone https://github.com/你的帳號/dew-code.git
 ```
 
 2. **安裝相依套件：**
@@ -135,4 +135,4 @@ npm run install:all
 
 ## 法律聲明
 
-提交貢獻即表示你同意你的貢獻將基於 Apache 2.0 授權條款，與 Roo Code 的授權一致。
+提交貢獻即表示你同意你的貢獻將基於 Apache 2.0 授權條款，與 Dew-Coder 的授權一致。

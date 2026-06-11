@@ -69,7 +69,7 @@ namespace TestNamespaceDefinition
             get;
             init;
         }
-        
+
         // Required member (C# 11.0+)
         public required string TestRequiredProperty
         {
@@ -115,7 +115,7 @@ namespace TestNamespaceDefinition
         {
             var formattedMessage = TestInterfaceFormatMethod(message, TestPropertyWithAccessor);
             Console.WriteLine(formattedMessage);
-            
+
             // Raise event
             _testEvent?.Invoke(this, new TestEventArgsDefinition(formattedMessage));
         }
@@ -153,7 +153,7 @@ namespace TestNamespaceDefinition
     {
         // Property with only getter
         public string Message { get; }
-        
+
         // Constructor - at least 4 lines
         public TestEventArgsDefinition(string message)
         {
@@ -190,7 +190,7 @@ namespace TestNamespaceDefinition
     {
         // Additional members can be added to records
         public string FormattedTimestamp => Timestamp.ToString("yyyy-MM-dd HH:mm:ss");
-        
+
         // Method in record
         public string TestRecordMethodDefinition()
         {
@@ -203,7 +203,7 @@ namespace TestNamespaceDefinition
     {
         // Field in partial class
         private Dictionary<string, string> _storage = new Dictionary<string, string>();
-        
+
         public string TestPartialMethod1(string key)
         {
             // Implementation would go here
@@ -216,7 +216,7 @@ namespace TestNamespaceDefinition
     {
         // Another field in partial class
         private bool _modified = false;
-        
+
         public void TestPartialMethod2(string key, string value)
         {
             // Implementation would go here
@@ -233,7 +233,7 @@ namespace TestNamespaceDefinition
         {
             logger.TestInterfaceMethod($"DEBUG: {message}");
         }
-        
+
         // Another extension method
         public static void TestExtensionMethod2(this ITestInterfaceDefinition logger, Exception ex)
         {
@@ -245,17 +245,17 @@ namespace TestNamespaceDefinition
     public class TestGenericClassDefinition<T> where T : class, new()
     {
         private List<T> _items = new List<T>();
-        
+
         public void TestGenericClassMethod1(T item)
         {
             _items.Add(item);
         }
-        
+
         public List<T> TestGenericClassMethod2()
         {
             return _items;
         }
-        
+
         public T TestGenericMethodWithConstraint<TId>(TId id) where TId : IEquatable<TId>
         {
             // Implementation would go here
@@ -267,17 +267,17 @@ namespace TestNamespaceDefinition
     public class TestOuterClassDefinition
     {
         private int _value;
-        
+
         public TestOuterClassDefinition(int value)
         {
             _value = value;
         }
-        
+
         // Nested class - expanded to 4+ lines
         public class TestNestedClassDefinition
         {
             private string _nestedField = "Nested";
-            
+
             public void TestNestedMethod()
             {
                 Console.WriteLine("Nested class method");
@@ -291,20 +291,20 @@ namespace TestNamespaceDefinition
         public async Task TestAsyncMethodDefinition(string data)
         {
             await Task.Delay(100); // Simulate async work
-            
+
             // Process the data
             var result = await TestAsyncPrivateMethod1(data);
-            
+
             // More async operations
             await TestAsyncPrivateMethod2(result);
         }
-        
+
         private async Task<string> TestAsyncPrivateMethod1(string data)
         {
             await Task.Delay(50); // Simulate async work
             return data.ToUpper();
         }
-        
+
         private async Task TestAsyncPrivateMethod2(string result)
         {
             await Task.Delay(50); // Simulate async work
@@ -317,7 +317,7 @@ namespace TestNamespaceDefinition
     {
         // Abstract property
         public abstract string TestAbstractProperty { get; }
-        
+
         // Abstract method
         public abstract double TestAbstractMethod();
     }
@@ -326,15 +326,15 @@ namespace TestNamespaceDefinition
     public class TestDerivedClass1 : TestAbstractClassDefinition
     {
         public double TestProperty1 { get; set; }
-        
+
         // Implementation of abstract property
         public override string TestAbstractProperty => "Derived1";
-        
+
         public TestDerivedClass1(double value)
         {
             TestProperty1 = value;
         }
-        
+
         public override double TestAbstractMethod() => Math.PI * TestProperty1 * TestProperty1;
     }
 
@@ -342,16 +342,16 @@ namespace TestNamespaceDefinition
     {
         public double TestProperty2 { get; set; }
         public double TestProperty3 { get; set; }
-        
+
         // Implementation of abstract property
         public override string TestAbstractProperty => "Derived2";
-        
+
         public TestDerivedClass2(double width, double height)
         {
             TestProperty2 = width;
             TestProperty3 = height;
         }
-        
+
         public override double TestAbstractMethod() => TestProperty2 * TestProperty3;
     }
 }
@@ -363,7 +363,7 @@ namespace TestFileScopedNamespaceDefinition
     public class TestFileScopedClassDefinition
     {
         private string _scopedField = "Scoped";
-        
+
         public void TestFileScopedMethod()
         {
             Console.WriteLine("File-scoped namespace class");
@@ -374,7 +374,7 @@ namespace TestFileScopedNamespaceDefinition
     public class TestLinqExpressionDefinition
     {
         private readonly List<int> _numbers = new List<int> { 1, 2, 3, 4, 5 };
-        
+
         public IEnumerable<int> TestLinqMethod()
         {
             // Multi-line LINQ query expression
@@ -382,7 +382,7 @@ namespace TestFileScopedNamespaceDefinition
                         where num % 2 == 0
                         orderby num descending
                         select num * num;
-            
+
             return result;
         }
     }

@@ -699,7 +699,7 @@ export class ClineProvider
 						window.AUDIO_BASE_URI = "${audioUri}"
 						window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 					</script>
-					<title>Roo Code</title>
+					<title>Dew-Coder</title>
 				</head>
 				<body>
 					<div id="root"></div>
@@ -772,7 +772,7 @@ export class ClineProvider
 				window.AUDIO_BASE_URI = "${audioUri}"
 				window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 			</script>
-            <title>Roo Code</title>
+            <title>Dew-Coder</title>
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -1017,14 +1017,14 @@ export class ClineProvider
 		// Get platform-specific application data directory
 		let mcpServersDir: string
 		if (process.platform === "win32") {
-			// Windows: %APPDATA%\Roo-Code\MCP
-			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "Roo-Code", "MCP")
+			// Windows: %APPDATA%\dew-code\MCP
+			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "dew-code", "MCP")
 		} else if (process.platform === "darwin") {
 			// macOS: ~/Documents/Cline/MCP
 			mcpServersDir = path.join(os.homedir(), "Documents", "Cline", "MCP")
 		} else {
 			// Linux: ~/.local/share/Cline/MCP
-			mcpServersDir = path.join(os.homedir(), ".local", "share", "Roo-Code", "MCP")
+			mcpServersDir = path.join(os.homedir(), ".local", "share", "dew-code", "MCP")
 		}
 
 		try {
@@ -1849,7 +1849,7 @@ export class ClineProvider
 
 		const packageJSON = this.context.extension?.packageJSON
 
-		// Get Roo Code Cloud authentication state
+		// Get Dew-Coder Cloud authentication state
 		let cloudIsAuthenticated: boolean | undefined
 
 		try {

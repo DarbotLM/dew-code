@@ -208,35 +208,35 @@
 1. 避免过度直译导致生硬
 
     - ✗ "Do more with Boomerang Tasks" → "使用回旋镖任务完成更多工作"
-    - ✓ "Do more with Boomerang Tasks" → "允许任务拆分"
+    - OK "Do more with Boomerang Tasks" → "允许任务拆分"
 
 2. 保持功能描述准确
 
     - ✗ "Enhance prompt with additional context" → "使用附加上下文增强提示"
-    - ✓ "Enhance prompt with additional context" → "增强提示词"
+    - OK "Enhance prompt with additional context" → "增强提示词"
 
 3. 操作指引清晰
 
     - ✗ "hold shift to drag in files" → "按住shift拖动文件"
-    - ✓ "hold shift to drag in files" → "Shift+拖拽文件"
+    - OK "hold shift to drag in files" → "Shift+拖拽文件"
 
 4. 确保术语一致性
 
     - ✗ 同一文档中混用"Token"/"令牌"/"代币"
-    - ✓ 统一使用"Token"作为技术术语
+    - OK 统一使用"Token"作为技术术语
 
 5. 注意文化适应性
 
     - ✗ "Kill the process" → "杀死进程"(过于暴力)
-    - ✓ "Kill the process" → "终止进程"
+    - OK "Kill the process" → "终止进程"
 
 6. 技术文档特殊处理
     - 代码示例中的注释：
       ✗ 翻译后破坏代码结构
-      ✓ 保持代码注释原样或仅翻译说明部分
+      OK 保持代码注释原样或仅翻译说明部分
     - 命令行参数：
       ✗ 翻译参数名称导致无法使用
-      ✓ 保持参数名称英文，仅翻译说明
+      OK 保持参数名称英文，仅翻译说明
 
 ## Best Practices
 

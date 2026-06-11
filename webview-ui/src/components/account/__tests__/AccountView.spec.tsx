@@ -9,8 +9,8 @@ vi.mock("@src/i18n/TranslationContext", () => ({
 			const translations: Record<string, string> = {
 				"account:title": "Account",
 				"settings:common.done": "Done",
-				"account:signIn": "Connect to Roo Code Cloud",
-				"account:cloudBenefitsTitle": "Connect to Roo Code Cloud",
+				"account:signIn": "Connect to Dew-Coder Cloud",
+				"account:cloudBenefitsTitle": "Connect to Dew-Coder Cloud",
 				"account:cloudBenefitsSubtitle": "Sync your prompts and telemetry to enable:",
 				"account:cloudBenefitHistory": "Online task history",
 				"account:cloudBenefitSharing": "Sharing and collaboration features",
@@ -48,13 +48,13 @@ describe("AccountView", () => {
 			<AccountView
 				userInfo={null}
 				isAuthenticated={false}
-				cloudApiUrl="https://app.roocode.com"
+				cloudApiUrl="https://app.dewcode.com"
 				onDone={() => {}}
 			/>,
 		)
 
 		// Check that the benefits section is displayed
-		expect(screen.getByRole("heading", { name: "Connect to Roo Code Cloud" })).toBeInTheDocument()
+		expect(screen.getByRole("heading", { name: "Connect to Dew-Coder Cloud" })).toBeInTheDocument()
 		expect(screen.getByText("Sync your prompts and telemetry to enable:")).toBeInTheDocument()
 		expect(screen.getByText("Online task history")).toBeInTheDocument()
 		expect(screen.getByText("Sharing and collaboration features")).toBeInTheDocument()
@@ -74,7 +74,7 @@ describe("AccountView", () => {
 			<AccountView
 				userInfo={mockUserInfo}
 				isAuthenticated={true}
-				cloudApiUrl="https://app.roocode.com"
+				cloudApiUrl="https://app.dewcode.com"
 				onDone={() => {}}
 			/>,
 		)

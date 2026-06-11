@@ -9,7 +9,7 @@
     - Titles that don't summarize the issue
     - Not checking for duplicates
   </problem_reporting_mistakes>
-  
+
   <workflow_mistakes>
     - Asking for technical details from non-contributing users
     - Exploring codebase before confirming user wants to contribute
@@ -18,7 +18,7 @@
     - Not clearly indicating the "submit now" option
     - Overwhelming users with contributor requirements upfront
   </workflow_mistakes>
-  
+
   <contributor_mistakes>
     - Starting implementation before approval
     - Not providing detailed technical analysis when contributing

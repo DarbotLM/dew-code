@@ -59,8 +59,8 @@ jobs:
                   docker compose up -d db redis
                   timeout 60 bash -c 'until docker compose exec -T db pg_isready -U postgres; do sleep 2; done'
                   timeout 60 bash -c 'until docker compose exec -T redis redis-cli ping | grep -q PONG; do sleep 2; done'
-                  docker compose run --rm runner sh -c 'nc -z db 5432 && echo "✓ Runner -> Database connection successful"'
-                  docker compose run --rm runner sh -c 'nc -z redis 6379 && echo "✓ Runner -> Redis connection successful"'
+                  docker compose run --rm runner sh -c 'nc -z db 5432 && echo "OK Runner -> Database connection successful"'
+                  docker compose run --rm runner sh -c 'nc -z redis 6379 && echo "OK Runner -> Redis connection successful"'
                   docker compose run --rm runner docker ps
 
             - name: Run database migrations

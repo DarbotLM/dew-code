@@ -12,7 +12,7 @@ Max(a, b) ==
 
 \* Multi-line operator
 ComplexOperator(seq) ==
-    LET sum == 
+    LET sum ==
         CHOOSE s \in Nat :
             \E i \in 1..Len(seq) :
                 s = Sum(SubSeq(seq, 1, i))
@@ -41,7 +41,7 @@ HandleCase(val) ==
 
 \* Recursive operator definition
 Factorial[n \in Nat] ==
-    IF n = 0 
+    IF n = 0
     THEN 1
     ELSE n * Factorial[n-1]
 

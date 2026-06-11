@@ -12,30 +12,30 @@
 </div>
 <br>
 <div align="center">
-  <h2>Roo Codeコミュニティに参加しよう</h2>
+  <h2>Dew-Coderコミュニティに参加しよう</h2>
   <p>開発者とつながり、アイデアを提供し、最新のAIパワードコーディングツールで先を行きましょう。</p>
-  
-  <a href="https://discord.gg/roocode" target="_blank"><img src="https://img.shields.io/badge/Discord%E3%81%AB%E5%8F%82%E5%8A%A0-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discordに参加"></a>
-  <a href="https://www.reddit.com/r/RooCode/" target="_blank"><img src="https://img.shields.io/badge/Reddit%E3%81%AB%E5%8F%82%E5%8A%A0-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Redditに参加"></a>
-  
+
+  <a href="https://github.com/darbotlm/dew-code/issues" target="_blank"><img src="https://img.shields.io/badge/Discord%E3%81%AB%E5%8F%82%E5%8A%A0-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discordに参加"></a>
+  <a href="https://github.com/darbotlm/dew-code/issues" target="_blank"><img src="https://img.shields.io/badge/Reddit%E3%81%AB%E5%8F%82%E5%8A%A0-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="Redditに参加"></a>
+
 </div>
 <br>
 <br>
 
 <div align="center">
-<h1>Roo Code（旧Roo Cline）</h1>
+<h1>Dew-Coder（旧Dew-Coder）</h1>
 <p align="center">
-<img src="https://media.githubusercontent.com/media/RooCodeInc/Roo-Code/main/src/assets/docs/demo.gif" width="100%" />
+<img src="https://media.githubusercontent.com/media/darbotlm/dew-code/main/src/assets/docs/demo.gif" width="100%" />
 </p>
 
-<a href="https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline" target="_blank"><img src="https://img.shields.io/badge/VS%20Marketplace%E3%81%A7%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Marketplaceでダウンロード"></a>
-<a href="https://github.com/RooCodeInc/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop" target="_blank"><img src="https://img.shields.io/badge/%E6%A9%9F%E8%83%BD%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-yellow?style=for-the-badge" alt="機能リクエスト"></a>
-<a href="https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline&ssr=false#review-details" target="_blank"><img src="https://img.shields.io/badge/%E8%A9%95%E4%BE%A1%E3%81%A8%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC-green?style=for-the-badge" alt="評価とレビュー"></a>
-<a href="https://docs.roocode.com" target="_blank"><img src="https://img.shields.io/badge/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="ドキュメンテーション"></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=darbotlm.dew-coder" target="_blank"><img src="https://img.shields.io/badge/VS%20Marketplace%E3%81%A7%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Marketplaceでダウンロード"></a>
+<a href="https://github.com/darbotlm/dew-code/issues" target="_blank"><img src="https://img.shields.io/badge/%E6%A9%9F%E8%83%BD%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-yellow?style=for-the-badge" alt="機能リクエスト"></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=darbotlm.dew-coder&ssr=false#review-details" target="_blank"><img src="https://img.shields.io/badge/%E8%A9%95%E4%BE%A1%E3%81%A8%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC-green?style=for-the-badge" alt="評価とレビュー"></a>
+<a href="https://github.com/darbotlm/dew-code" target="_blank"><img src="https://img.shields.io/badge/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="ドキュメンテーション"></a>
 
 </div>
 
-**Roo Code**はエディター内に存在するAIパワードの**自律型コーディングエージェント**です。以下のことができます：
+**Dew-Coder**はエディター内に存在するAIパワードの**自律型コーディングエージェント**です。以下のことができます：
 
 - 自然言語でコミュニケーション
 - ワークスペース内のファイルを直接読み書き
@@ -44,24 +44,24 @@
 - OpenAI互換または独自のAPI/モデルと統合
 - **カスタムモード**を通じて「パーソナリティ」と機能を調整
 
-柔軟なコーディングパートナー、システムアーキテクト、QAエンジニアやプロダクトマネージャーなどの専門的な役割を求めているかどうかにかかわらず、Roo Codeはより効率的にソフトウェアを構築するのを手助けします。
+柔軟なコーディングパートナー、システムアーキテクト、QAエンジニアやプロダクトマネージャーなどの専門的な役割を求めているかどうかにかかわらず、Dew-Coderはより効率的にソフトウェアを構築するのを手助けします。
 
 詳細な更新と修正については[CHANGELOG](../../CHANGELOG.md)をご覧ください。
 
 ---
 
-## 🎉 Roo Code 3.23 リリース
+##  Dew-Coder 3.23 リリース
 
-Roo Code 3.23は、開発ワークフローを向上させる強力な新機能と重要な改善をもたらします！
+Dew-Coder 3.23は、開発ワークフローを向上させる強力な新機能と重要な改善をもたらします！
 
 - **コードベースインデックス化が実験的から卒業** - 完全なコードベースインデックス化が安定し、改善された検索とコンテキスト理解でプロダクション使用の準備が整いました。
 - **新しいTodoリスト機能** - 統合されたタスク管理でタスクを軌道に乗せ、整理された状態を保ち、開発目標に集中できるようサポートします。
 
 ---
 
-## Roo Codeでできること
+## Dew-Coderでできること
 
-- 🚀 自然言語の説明から**コードを生成**
+-  自然言語の説明から**コードを生成**
 - 🔧 既存のコードを**リファクタリング＆デバッグ**
 - 📝 ドキュメントを**作成＆更新**
 - 🤔 コードベースについて**質問に回答**
@@ -70,55 +70,55 @@ Roo Code 3.23は、開発ワークフローを向上させる強力な新機能�
 
 ## クイックスタート
 
-1. [Roo Codeをインストール](https://docs.roocode.com/getting-started/installing)
-2. [AIプロバイダーを接続](https://docs.roocode.com/getting-started/connecting-api-provider)
-3. [最初のタスクを試す](https://docs.roocode.com/getting-started/your-first-task)
+1. [Dew-Coderをインストール](https://github.com/darbotlm/dew-code)
+2. [AIプロバイダーを接続](https://github.com/darbotlm/dew-code)
+3. [最初のタスクを試す](https://github.com/darbotlm/dew-code)
 
 ## 主な機能
 
 ### 複数のモード
 
-Roo Codeは専門化された[モード](https://docs.roocode.com/basic-usage/using-modes)であなたのニーズに適応します：
+Dew-Coderは専門化された[モード](https://github.com/darbotlm/dew-code)であなたのニーズに適応します：
 
 - **コードモード：** 汎用的なコーディングタスク向け
 - **アーキテクトモード：** 計画と技術的リーダーシップ向け
 - **質問モード：** 質問への回答と情報提供向け
 - **デバッグモード：** 体系的な問題診断向け
-- **[カスタムモード](https://docs.roocode.com/advanced-usage/custom-modes)：** セキュリティ監査、パフォーマンス最適化、ドキュメント作成、またはその他のタスクのための無制限の専門ペルソナを作成
+- **[カスタムモード](https://github.com/darbotlm/dew-code)：** セキュリティ監査、パフォーマンス最適化、ドキュメント作成、またはその他のタスクのための無制限の専門ペルソナを作成
 
 ### スマートツール
 
-Roo Codeには強力な[ツール](https://docs.roocode.com/basic-usage/how-tools-work)が付属しています：
+Dew-Coderには強力な[ツール](https://github.com/darbotlm/dew-code)が付属しています：
 
 - プロジェクト内のファイルの読み書き
 - VS Codeターミナルでコマンドを実行
 - Webブラウザを制御
-- [MCP（モデルコンテキストプロトコル）](https://docs.roocode.com/advanced-usage/mcp)を介して外部ツールを使用
+- [MCP（モデルコンテキストプロトコル）](https://github.com/darbotlm/dew-code)を介して外部ツールを使用
 
-MCPは無制限のカスタムツールを追加できるようにしてRoo Codeの機能を拡張します。外部APIとの統合、データベースへの接続、または特殊な開発ツールの作成 - MCPはRoo Codeの機能を拡張してあなたの特定のニーズを満たすためのフレームワークを提供します。
+MCPは無制限のカスタムツールを追加できるようにしてDew-Coderの機能を拡張します。外部APIとの統合、データベースへの接続、または特殊な開発ツールの作成 - MCPはDew-Coderの機能を拡張してあなたの特定のニーズを満たすためのフレームワークを提供します。
 
 ### カスタマイズ
 
-Roo Codeをあなた好みに動作させる方法：
+Dew-Coderをあなた好みに動作させる方法：
 
-- パーソナライズされた動作のための[カスタム指示](https://docs.roocode.com/advanced-usage/custom-instructions)
-- 専門タスク用の[カスタムモード](https://docs.roocode.com/advanced-usage/custom-modes)
-- オフライン使用のための[ローカルモデル](https://docs.roocode.com/advanced-usage/local-models)
-- より高速なワークフローのための[自動承認設定](https://docs.roocode.com/advanced-usage/auto-approving-actions)
+- パーソナライズされた動作のための[カスタム指示](https://github.com/darbotlm/dew-code)
+- 専門タスク用の[カスタムモード](https://github.com/darbotlm/dew-code)
+- オフライン使用のための[ローカルモデル](https://github.com/darbotlm/dew-code)
+- より高速なワークフローのための[自動承認設定](https://github.com/darbotlm/dew-code)
 
 ## リソース
 
 ### ドキュメンテーション
 
-- [基本的な使用ガイド](https://docs.roocode.com/basic-usage/the-chat-interface)
-- [高度な機能](https://docs.roocode.com/advanced-usage/auto-approving-actions)
-- [よくある質問](https://docs.roocode.com/faq)
+- [基本的な使用ガイド](https://github.com/darbotlm/dew-code)
+- [高度な機能](https://github.com/darbotlm/dew-code)
+- [よくある質問](https://github.com/darbotlm/dew-code)
 
 ### コミュニティ
 
-- **Discord：** リアルタイムのヘルプとディスカッションについては[Discord サーバーに参加](https://discord.gg/roocode)
-- **Reddit：** 経験とヒントを共有するには[サブレディット](https://www.reddit.com/r/RooCode)にアクセス
-- **GitHub：** [問題](https://github.com/RooCodeInc/Roo-Code/issues)を報告したり[機能](https://github.com/RooCodeInc/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop)をリクエスト
+- **Discord：** リアルタイムのヘルプとディスカッションについては[Discord サーバーに参加](https://github.com/darbotlm/dew-code/issues)
+- **Reddit：** 経験とヒントを共有するには[サブレディット](https://github.com/darbotlm/dew-code/issues)にアクセス
+- **GitHub：** [問題](https://github.com/darbotlm/dew-code/issues)を報告したり[機能](https://github.com/darbotlm/dew-code/issues)をリクエスト
 
 ---
 
@@ -127,7 +127,7 @@ Roo Codeをあなた好みに動作させる方法：
 1. レポジトリを**クローン**：
 
 ```sh
-git clone https://github.com/RooCodeInc/Roo-Code.git
+git clone https://github.com/darbotlm/dew-code.git
 ```
 
 2. **依存関係をインストール**：
@@ -143,7 +143,7 @@ npm run dev
 ```
 
 4. **デバッグ**：
-   VSCodeで`F5`（または**実行**→**デバッグの開始**）を押すと、Roo Codeがロードされた新しいセッションが開きます。
+   VSCodeで`F5`（または**実行**→**デバッグの開始**）を押すと、Dew-Coderがロードされた新しいセッションが開きます。
 
 ウェブビューへの変更はすぐに表示されます。コア拡張機能への変更には拡張機能ホストの再起動が必要です。
 
@@ -156,7 +156,7 @@ npm run build
 `bin/`ディレクトリに`.vsix`ファイルが作成され、次のコマンドでインストールできます：
 
 ```sh
-code --install-extension bin/roo-cline-<version>.vsix
+code --install-extension bin/dew-coder-<version>.vsix
 ```
 
 バージョン管理と公開には[changesets](https://github.com/changesets/changesets)を使用しています。リリースノートについては`CHANGELOG.md`をご確認ください。
@@ -165,7 +165,7 @@ code --install-extension bin/roo-cline-<version>.vsix
 
 ## 免責事項
 
-**ご注意ください**：Roo Code, Incは、Roo Codeに関連して提供または利用可能になるコード、モデル、またはその他のツール、関連するサードパーティツール、または結果的な出力に関して、**いかなる表明や保証も行いません**。そのようなツールや出力の使用に関連するすべてのリスクはお客様が負うものとします。そのようなツールは**「現状のまま」**および**「利用可能な状態」**で提供されます。そのようなリスクには、知的財産権の侵害、サイバー脆弱性や攻撃、バイアス、不正確さ、エラー、欠陥、ウイルス、ダウンタイム、財産の損失または損害、および/または人身傷害が含まれますが、これらに限定されません。お客様は、そのようなツールまたは出力の使用について（適法性、適切性、および結果を含むがこれらに限定されない）単独で責任を負います。
+**ご注意ください**：Dew-Coder, Incは、Dew-Coderに関連して提供または利用可能になるコード、モデル、またはその他のツール、関連するサードパーティツール、または結果的な出力に関して、**いかなる表明や保証も行いません**。そのようなツールや出力の使用に関連するすべてのリスクはお客様が負うものとします。そのようなツールは**「現状のまま」**および**「利用可能な状態」**で提供されます。そのようなリスクには、知的財産権の侵害、サイバー脆弱性や攻撃、バイアス、不正確さ、エラー、欠陥、ウイルス、ダウンタイム、財産の損失または損害、および/または人身傷害が含まれますが、これらに限定されません。お客様は、そのようなツールまたは出力の使用について（適法性、適切性、および結果を含むがこれらに限定されない）単独で責任を負います。
 
 ---
 
@@ -177,7 +177,7 @@ code --install-extension bin/roo-cline-<version>.vsix
 
 ## 貢献者
 
-Roo Codeの改善に貢献してくれたすべての貢献者に感謝します！
+Dew-Coderの改善に貢献してくれたすべての貢献者に感謝します！
 
 <!-- START CONTRIBUTORS SECTION - AUTO-GENERATED, DO NOT EDIT MANUALLY -->
 |<a href="https://github.com/mrubens"><img src="https://avatars.githubusercontent.com/u/2600?v=4" width="100" height="100" alt="mrubens"/><br /><sub><b>mrubens</b></sub></a>|<a href="https://github.com/saoudrizwan"><img src="https://avatars.githubusercontent.com/u/7799382?v=4" width="100" height="100" alt="saoudrizwan"/><br /><sub><b>saoudrizwan</b></sub></a>|<a href="https://github.com/cte"><img src="https://avatars.githubusercontent.com/u/16332?v=4" width="100" height="100" alt="cte"/><br /><sub><b>cte</b></sub></a>|<a href="https://github.com/samhvw8"><img src="https://avatars.githubusercontent.com/u/12538214?v=4" width="100" height="100" alt="samhvw8"/><br /><sub><b>samhvw8</b></sub></a>|<a href="https://github.com/daniel-lxs"><img src="https://avatars.githubusercontent.com/u/57051444?v=4" width="100" height="100" alt="daniel-lxs"/><br /><sub><b>daniel-lxs</b></sub></a>|<a href="https://github.com/hannesrudolph"><img src="https://avatars.githubusercontent.com/u/49103247?v=4" width="100" height="100" alt="hannesrudolph"/><br /><sub><b>hannesrudolph</b></sub></a>|
@@ -222,8 +222,8 @@ Roo Codeの改善に貢献してくれたすべての貢献者に感謝します
 
 ## ライセンス
 
-[Apache 2.0 © 2025 Roo Code, Inc.](../LICENSE)
+[Apache 2.0 © 2025 Dew-Coder, Inc.](../LICENSE)
 
 ---
 
-**Roo Codeをお楽しみください！** 短いリードで保持するか、自律的に動き回らせるかにかかわらず、あなたが何を構築するのか楽しみにしています。質問や機能のアイデアがある場合は、[Redditコミュニティ](https://www.reddit.com/r/RooCode/)や[Discord](https://discord.gg/roocode)にお立ち寄りください。ハッピーコーディング！
+**Dew-Coderをお楽しみください！** 短いリードで保持するか、自律的に動き回らせるかにかかわらず、あなたが何を構築するのか楽しみにしています。質問や機能のアイデアがある場合は、[Redditコミュニティ](https://github.com/darbotlm/dew-code/issues)や[Discord](https://github.com/darbotlm/dew-code/issues)にお立ち寄りください。ハッピーコーディング！

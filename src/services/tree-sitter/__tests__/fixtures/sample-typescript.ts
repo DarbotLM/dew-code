@@ -8,7 +8,7 @@ import * as utils from './utils';
 interface TestInterfaceDefinition {
     name: string;
     value: number;
-    
+
     methodSignature(
         param1: string,
         param2: number
@@ -19,7 +19,7 @@ interface TestInterfaceDefinition {
 type TestTypeDefinition = {
     id: number;
     name: string;
-    
+
     callback: (
         param: string
     ) => void;
@@ -38,7 +38,7 @@ namespace TestNamespaceDefinition {
     export interface InnerInterface {
         prop: string;
     }
-    
+
     export function innerFunction(
         param: string
     ): void {
@@ -50,7 +50,7 @@ namespace TestNamespaceDefinition {
 interface TestGenericInterfaceDefinition<T, U> {
     data: T;
     metadata: U;
-    
+
     process(
         input: T
     ): U;
@@ -91,14 +91,14 @@ class TestTypedClassDefinition implements TestInterfaceDefinition {
     // Typed class fields
     private readonly #privateField: string;
     static staticField: number = 42;
-    
+
     constructor(
         public name: string,
         public value: number
     ) {
         this.#privateField = 'private';
     }
-    
+
     // Interface method implementation
     methodSignature(
         param1: string,
@@ -106,7 +106,7 @@ class TestTypedClassDefinition implements TestInterfaceDefinition {
     ): string {
         return param1.repeat(param2);
     }
-    
+
     // Generic method
     genericMethod<T>(
         input: T,
@@ -122,11 +122,11 @@ abstract class TestAbstractClassDefinition {
         protected name: string,
         private value: number
     ) {}
-    
+
     abstract process(
         input: string
     ): number;
-    
+
     // Concrete method
     format(): string {
         return this.name +
@@ -138,7 +138,7 @@ abstract class TestAbstractClassDefinition {
 const testTypedObjectLiteralDefinition: TestTypeDefinition = {
     id: 1,
     name: 'test',
-    
+
     callback: (
         param: string
     ): void => {
@@ -192,7 +192,7 @@ class TestTypedDecoratedClassDefinition {
         private name: string,
         protected type: string
     ) {}
-    
+
     @testTypedDecoratorDefinition
     testDecoratedMethodDefinition(
         param1: string,

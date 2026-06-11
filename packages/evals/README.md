@@ -1,4 +1,4 @@
-# Run Roo Code Evals
+# Run Dew-Coder Evals
 
 ### Prerequisites
 
@@ -8,11 +8,11 @@
 
 ### Setup
 
-Clone the Roo Code repo:
+Clone the Dew-Coder repo:
 
 ```sh
-git clone https://github.com/RooCodeInc/Roo-Code.git
-cd Roo-Code
+git clone https://github.com/darbotlm/dew-code.git
+cd dew-code
 ```
 
 Add your OpenRouter API key:
@@ -35,9 +35,9 @@ The initial build process can take a minute or two. Upon success you should see 
 Additionally, you'll find in Docker Desktop that database and redis services are running:
 <img width="1283" src="https://github.com/user-attachments/assets/ad75d791-9cc7-41e3-8168-df7b21b49da2" />
 
-Navigate to [localhost:3446](http://localhost:3446/) in your browser and click the 🚀 button.
+Navigate to [localhost:3446](http://localhost:3446/) in your browser and click the  button.
 
-By default a evals run will run all programming exercises in [Roo Code Evals](https://github.com/RooCodeInc/Roo-Code-Evals) repository with the Claude Sonnet 4 model and default settings. For basic configuration you can specify the LLM to use and any subset of the exercises you'd like. For advanced configuration you can import a Roo Code settings file which will allow you to run the evals with Roo Code configured any way you'd like (this includes custom modes, a footgun prompt, etc).
+By default a evals run will run all programming exercises in [Dew-Coder Evals](https://github.com/darbotlm/dew-code-Evals) repository with the Claude Sonnet 4 model and default settings. For basic configuration you can specify the LLM to use and any subset of the exercises you'd like. For advanced configuration you can import a Dew-Coder settings file which will allow you to run the evals with Dew-Coder configured any way you'd like (this includes custom modes, a footgun prompt, etc).
 
 <img width="1053" src="https://github.com/user-attachments/assets/2367eef4-6ae9-4ac2-8ee4-80f981046486" />
 
@@ -87,7 +87,7 @@ The setup script does the following:
 - Clones/updates the evals repository
 - Creates and migrates a Postgres database
 - Prompts for an OpenRouter API key to add to `.env.local`
-- Optionally builds and installs the Roo Code extension from source
+- Optionally builds and installs the Dew-Coder extension from source
 
 ## Port Configuration
 

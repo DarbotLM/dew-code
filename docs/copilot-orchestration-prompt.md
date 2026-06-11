@@ -2,7 +2,7 @@
 
 ## Context: AI Agent Orchestration Framework Implementation
 
-You are tasked with understanding and potentially implementing an AI agent orchestration framework for a coding assistant called DR-Coder. This prompt provides comprehensive analysis of current AI coding tools and their architectural patterns.
+You are tasked with understanding and potentially implementing an AI agent orchestration framework for a coding assistant called Dew-Coder. This prompt provides comprehensive analysis of current AI coding tools and their architectural patterns.
 
 ## AI Coding Assistant Capability Matrix
 
@@ -61,9 +61,9 @@ You are tasked with understanding and potentially implementing an AI agent orche
 - Open source flexibility and customization (5/5)
 - Cost-effective deployment options (5/5)
 
-## DR-Coder Architecture Foundation
+## Dew-Coder Architecture Foundation
 
-DR-Coder (formerly Roo Cline) provides an excellent foundation for AI orchestration with:
+Dew-Coder (formerly Dew-Coder) provides an excellent foundation for AI orchestration with:
 
 **Existing Infrastructure (80% Complete):**
 1. Custom Modes System: Specialized AI personas (.roomodes)
@@ -94,29 +94,29 @@ Human Request → Claude (Analysis & Planning) → Intelligent Agent Selection �
 
 ## Your Mission:
 
-Analyze the DR-Coder codebase and propose specific implementations for transforming it into an AI agent orchestration platform. Focus on:
+Analyze the Dew-Coder codebase and propose specific implementations for transforming it into an AI agent orchestration platform. Focus on:
 
-1. **Architectural Integration**: How to build orchestration on existing DR-Coder foundation
+1. **Architectural Integration**: How to build orchestration on existing Dew-Coder foundation
 2. **Agent Communication**: Protocols for multi-agent coordination
 3. **Workflow Design**: Templates for common development scenarios
 4. **Performance Optimization**: Cost and efficiency improvements
 5. **User Experience**: Seamless interaction despite underlying complexity
 
-The goal is to create the first true AI agent orchestration platform for software development, building on DR-Coder's strong foundation while adding the coordination intelligence that makes agent teams more powerful than individual agents.
+The goal is to create the first true AI agent orchestration platform for software development, building on Dew-Coder's strong foundation while adding the coordination intelligence that makes agent teams more powerful than individual agents.
 
 Remember: The Darbot framework emphasizes "proficiency and determination through ethical results driven outcomes" - ensure all orchestration designs maintain ethical oversight and deliver tangible value to developers.
 
 ---
 
 ## 📂 **Files to Save**
-1. **Save this as**: docs/copilot-orchestration-prompt.md in your DR-Coder repo
-2. **Save the analysis as**: docs/ai-orchestration-analysis.md in your DR-Coder repo
+1. **Save this as**: docs/copilot-orchestration-prompt.md in your Dew-Coder repo
+2. **Save the analysis as**: docs/ai-orchestration-analysis.md in your Dew-Coder repo
 
-These documents will give any AI agent (including future sessions with me) complete context about your orchestration framework vision and the architectural analysis we've conducted. The documentation captures the **evolutionary path** from current AI tools to true AI agent orchestration, with DR-Coder as the ideal platform to implement this vision! 🚀
+These documents will give any AI agent (including future sessions with me) complete context about your orchestration framework vision and the architectural analysis we've conducted. The documentation captures the **evolutionary path** from current AI tools to true AI agent orchestration, with Dew-Coder as the ideal platform to implement this vision!
 
 ## Implementation Context
 
-**Repository Location**: D:\0GH_PROD\DR-Coder
+**Repository Location**: D:\0GH_PROD\Dew-Coder
 
 **Key Files to Examine**:
 - `.roomodes` - Current mode definitions
@@ -126,11 +126,11 @@ These documents will give any AI agent (including future sessions with me) compl
 - `src/core/` - Core architecture modules
 
 **Current Capabilities Discovered**:
-- ✅ XML-based workflow system with delegation
-- ✅ Multi-agent task coordination (see `.roo/rules-pr-reviewer/1_orchestrator_workflow.xml`)
-- ✅ Event-driven task architecture
-- ✅ Tool orchestration framework
-- ✅ Task persistence and checkpointing
+- PASS XML-based workflow system with delegation
+- PASS Multi-agent task coordination (see `.roo/rules-pr-reviewer/1_orchestrator_workflow.xml`)
+- PASS Event-driven task architecture
+- PASS Tool orchestration framework
+- PASS Task persistence and checkpointing
 
 **Next Steps**:
 1. Implement intelligent agent selection engine

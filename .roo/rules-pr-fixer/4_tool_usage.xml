@@ -80,7 +80,7 @@
         <practice>Use 'gh run list --pr [PR_NUMBER] --repo [owner]/[repo]' to get detailed workflow status if needed.</practice>
       </best_practices>
     </tool>
-    
+
     <tool name="ask_followup_question">
       <best_practices>
         <practice>After analyzing all the problems (reviews, tests, conflicts), present a summary to the user.</practice>

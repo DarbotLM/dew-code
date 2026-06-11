@@ -128,7 +128,7 @@ const discoverChromeHosts = async (port: number): Promise<string | null> => {
 		const hostIsValid = await tryChromeHostUrl(hostEndpoint)
 		if (hostIsValid) {
 			// Store the successful IP for future use
-			console.log(`✅ Found Chrome at ${hostEndpoint}`)
+			console.log(`PASS Found Chrome at ${hostEndpoint}`)
 
 			// Return the host URL and endpoint
 			return hostEndpoint

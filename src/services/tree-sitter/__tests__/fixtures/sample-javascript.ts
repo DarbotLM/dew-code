@@ -51,7 +51,7 @@ class TestClassDefinition {
     // Class field declarations
     #privateField = 'private';
     static staticField = 'static';
-    
+
     constructor(
         name,
         value
@@ -59,7 +59,7 @@ class TestClassDefinition {
         this.name = name;
         this.value = value;
     }
-    
+
     // Method definition
     testMethodDefinition(
         param1,
@@ -67,7 +67,7 @@ class TestClassDefinition {
     ) {
         return param1 + param2;
     }
-    
+
     // Static method
     static testStaticMethodDefinition(
         input,
@@ -75,14 +75,14 @@ class TestClassDefinition {
     ) {
         return input * multiplier;
     }
-    
+
     // Getter/Setter test
     get testGetterDefinition() {
         return this.#privateField +
                this.name +
                this.value;
     }
-    
+
     set testSetterDefinition(
         newValue
     ) {
@@ -95,13 +95,13 @@ class TestClassDefinition {
 const testObjectLiteralDefinition = {
     property1: 'value1',
     property2: 'value2',
-    
+
     methodInObject(
         param
     ) {
         return param + this.property1;
     },
-    
+
     get computedProperty() {
         return this.property1 +
                this.property2;
@@ -145,7 +145,7 @@ class TestDecoratedClassDefinition {
         this.name = name;
         this.type = type;
     }
-    
+
     // Decorated method test
     @testDecoratorDefinition
     testDecoratedMethodDefinition(

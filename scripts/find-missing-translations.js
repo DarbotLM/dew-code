@@ -218,7 +218,7 @@ function outputResults(missingTranslations, area) {
 
 	for (const [locale, files] of Object.entries(missingTranslations)) {
 		if (Object.keys(files).length === 0) {
-			console.log(`✅ ${locale}: No missing translations`)
+			console.log(`PASS ${locale}: No missing translations`)
 			continue
 		}
 
@@ -259,7 +259,7 @@ function findMissingTranslations() {
 
 		// Summary
 		if (!anyAreaMissingTranslations) {
-			console.log("\n✅ All translations are complete across all checked areas!")
+			console.log("\nPASS All translations are complete across all checked areas!")
 		} else {
 			console.log("\n✏️  To add missing translations:")
 			console.log("1. Add the missing keys to the corresponding locale files")

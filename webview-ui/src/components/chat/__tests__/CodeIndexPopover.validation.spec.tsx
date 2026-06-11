@@ -27,7 +27,7 @@ vi.mock("react-i18next", () => ({
 
 // Mock the doc links utility
 vi.mock("@src/utils/docLinks", () => ({
-	buildDocLink: vi.fn(() => "https://docs.roocode.com"),
+	buildDocLink: vi.fn(() => "https://github.com/darbotlm/dew-code"),
 }))
 
 // Mock the portal hook

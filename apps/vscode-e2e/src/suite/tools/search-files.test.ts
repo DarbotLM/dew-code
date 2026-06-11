@@ -8,7 +8,7 @@ import type { ClineMessage } from "@roo-code/types"
 import { waitFor, sleep } from "../utils"
 import { setDefaultSuiteTimeout } from "../test-utils"
 
-suite("Roo Code search_files Tool", function () {
+suite("Dew-Coder search_files Tool", function () {
 	setDefaultSuiteTimeout(this)
 
 	let workspaceDir: string
@@ -84,7 +84,7 @@ class UserService {
 		// TODO: Implement user fetching
 		throw new Error("Not implemented")
 	}
-	
+
 	async updateUser(user: User): Promise<void> {
 		// Implementation here
 	}
@@ -184,17 +184,17 @@ app:
   name: "Test Application"
   version: "1.0.0"
   port: 3000
-  
+
 database:
   host: "localhost"
   port: 5432
   name: "testdb"
   user: "testuser"
-  
+
 redis:
   host: "localhost"
   port: 6379
-  
+
 logging:
   level: "info"
   file: "app.log"`,
@@ -210,7 +210,7 @@ This project contains various file types for testing the search_files functional
 ## File Types Included
 
 - **JavaScript files** (.js) - Contains functions and exports
-- **TypeScript files** (.ts) - Contains interfaces and classes  
+- **TypeScript files** (.ts) - Contains interfaces and classes
 - **JSON files** (.json) - Configuration and package files
 - **Text files** (.txt) - Documentation and notes
 - **YAML files** (.yaml) - Configuration files

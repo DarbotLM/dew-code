@@ -11,7 +11,7 @@
       <description>Always support criticism with evidence from the codebase</description>
       <example>
         Instead of: "This doesn't follow our patterns"
-        Say: "This implementation differs from the pattern used in src/api/handlers/*.ts 
+        Say: "This implementation differs from the pattern used in src/api/handlers/*.ts
         where we consistently use the factory pattern for endpoint creation"
       </example>
     </principle>
@@ -103,7 +103,7 @@
         <description>Reimplementing existing utilities</description>
         <examples>
           - String manipulation functions
-          - Array transformations  
+          - Array transformations
           - Date formatting
           - API response transformations
         </examples>
@@ -136,7 +136,7 @@
         [similar features] consistently use [pattern Y]. For example:
         - [Link to example 1]
         - [Link to example 2]
-        
+
         Consider aligning with the established pattern to maintain consistency.
         If there's a specific reason for the deviation, it would be helpful
         to document it."
@@ -148,7 +148,7 @@
         "This functionality appears to overlap with existing code in
         [file/module]. Specifically, [existing function/component] already
         handles [similar use case].
-        
+
         Could we either:
         1. Reuse the existing implementation
         2. Extend it to cover this use case

@@ -11,7 +11,7 @@
       <structure>
         {
           "prNumber": "string",
-          "repository": "string", 
+          "repository": "string",
           "reviewStartTime": "ISO timestamp",
           "calledByMode": "string or null",
           "prMetadata": {
@@ -198,19 +198,19 @@
     <practice name="always_update_status">
       Keep reviewStatus current to enable recovery
     </practice>
-    
+
     <practice name="timestamp_everything">
       Add timestamps to all operations for debugging
     </practice>
-    
+
     <practice name="validate_json">
       Ensure JSON is valid before writing
     </practice>
-    
+
     <practice name="use_descriptive_filenames">
       Make it clear what each file contains
     </practice>
-    
+
     <practice name="clean_up_old_reviews">
       Suggest cleaning .roo/temp/ periodically
     </practice>
@@ -229,7 +229,7 @@
 <content>
 {
   "prNumber": "123",
-  "repository": "RooCodeInc/Roo-Code",
+  "repository": "darbotlm/dew-code",
   "reviewStartTime": "2025-01-04T18:00:00Z",
   "calledByMode": null,
   "prMetadata": {},

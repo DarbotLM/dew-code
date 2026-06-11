@@ -6,7 +6,7 @@
     - Keep progress updates factual and concise
     - Example: "Found the root cause in the theme detection logic. Working on a fix that preserves backward compatibility."
   </issue_comments>
-  
+
   <commit_messages>
     - Follow conventional commit format: "type: description (#issue-number)"
     - Keep first line under 72 characters

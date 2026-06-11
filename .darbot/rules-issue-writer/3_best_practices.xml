@@ -5,7 +5,7 @@
     - Don't push users to provide technical details they may not have
     - Make it easy for non-technical users to report issues effectively
   </problem_reporting_focus>
-  
+
   <general_practices>
     - Always search for existing similar issues before creating a new one
     - Search GitHub Discussions (especially feature-requests category) for related topics
@@ -18,7 +18,7 @@
     - Add "Closes #[number]" for discussions that would be fully addressed by the issue
     - Add "Related to #[number]" for partially related discussions
   </general_practices>
-  
+
   <contributor_specific>
     - Only explore codebase if user wants to contribute
     - Reference specific files and line numbers from codebase exploration
@@ -27,7 +27,7 @@
     - Provide clear acceptance criteria in Given/When/Then format
     - Consider trade-offs and alternative approaches
   </contributor_specific>
-  
+
   <communication_guidelines>
     - Be supportive and encouraging to problem reporters
     - Don't overwhelm users with technical questions upfront

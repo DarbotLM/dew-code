@@ -76,7 +76,7 @@ export interface OrchestrationResult {
 
 /**
  * Core orchestration engine that provides intelligent agent selection,
- * task distribution, and coordination for the darbot-coder platform
+ * task distribution, and coordination for the dew-coder platform
  */
 export class OrchestrationEngine {
 	private capabilities: Map<string, AgentCapability> = new Map()
@@ -166,7 +166,7 @@ export class OrchestrationEngine {
 	private async loadCustomModeCapabilities(): Promise<void> {
 		try {
 			const customModes = await this.customModesManager.getCustomModes()
-			
+
 			for (const mode of customModes) {
 				if (!this.capabilities.has(mode.slug)) {
 					// Create capability from custom mode
@@ -180,7 +180,7 @@ export class OrchestrationEngine {
 						dependencies: [],
 						constraints: { maxConcurrency: 1, timeoutMinutes: 20 }
 					}
-					
+
 					this.capabilities.set(mode.slug, capability)
 				}
 			}
@@ -203,7 +203,7 @@ export class OrchestrationEngine {
 
 		// Agent selection
 		const suggestedAgents = this.selectOptimalAgents(requiredCapabilities, complexity)
-		
+
 		// Execution planning
 		const executionPlan = this.createExecutionPlan(suggestedAgents, parallelizable)
 
@@ -366,11 +366,11 @@ export class OrchestrationEngine {
 	private assessParallelizability(request: string): boolean {
 		const parallelIndicators = ['multiple', 'several', 'various', 'different', 'independent']
 		const sequentialIndicators = ['step by step', 'sequential', 'ordered', 'depends on']
-		
+
 		const lowerRequest = request.toLowerCase()
 		const hasParallelIndicators = parallelIndicators.some(indicator => lowerRequest.includes(indicator))
 		const hasSequentialIndicators = sequentialIndicators.some(indicator => lowerRequest.includes(indicator))
-		
+
 		return hasParallelIndicators && !hasSequentialIndicators
 	}
 
@@ -386,7 +386,7 @@ export class OrchestrationEngine {
 		}
 
 		const capabilities = new Set<string>()
-		
+
 		for (const domain of domains) {
 			const domainCapabilities = capabilityMap[domain] || ['coder']
 			domainCapabilities.forEach(cap => capabilities.add(cap))
@@ -397,14 +397,14 @@ export class OrchestrationEngine {
 
 	private selectOptimalAgents(requiredCapabilities: string[], complexity: string): AgentSelection[] {
 		const selections: AgentSelection[] = []
-		
+
 		for (const capabilitySlug of requiredCapabilities) {
 			const capability = this.capabilities.get(capabilitySlug)
 			if (capability) {
 				const confidence = this.calculateConfidence(capability, complexity)
 				const estimatedCost = this.estimateCost(capability, complexity)
 				const estimatedTime = this.estimateTime(capability, complexity)
-				
+
 				selections.push({
 					slug: capability.slug,
 					confidence,
@@ -420,12 +420,12 @@ export class OrchestrationEngine {
 
 	private createExecutionPlan(agents: AgentSelection[], parallelizable: boolean): ExecutionStep[] {
 		const steps: ExecutionStep[] = []
-		
+
 		// Create execution steps based on agent dependencies and capabilities
 		for (let i = 0; i < agents.length; i++) {
 			const agent = agents[i]
 			const capability = this.capabilities.get(agent.slug)
-			
+
 			if (capability) {
 				const step: ExecutionStep = {
 					stepId: `step-${i + 1}`,
@@ -436,7 +436,7 @@ export class OrchestrationEngine {
 					inputs: {},
 					expectedOutputs: capability.primaryFunctions
 				}
-				
+
 				steps.push(step)
 			}
 		}
@@ -445,17 +445,17 @@ export class OrchestrationEngine {
 	}
 
 	private async executeStep(
-		step: ExecutionStep, 
-		userRequest: string, 
+		step: ExecutionStep,
+		userRequest: string,
 		providerSettings: ProviderSettings
 	): Promise<{ success: boolean; cost?: number; error?: string }> {
 		// This would integrate with the existing Task execution system
 		// For now, return a mock result
 		logger.info(`Executing step ${step.stepId} with agent ${step.agentSlug}`)
-		
+
 		// Simulate execution
 		await new Promise(resolve => setTimeout(resolve, 1000))
-		
+
 		return {
 			success: true,
 			cost: Math.random() * 0.1, // Mock cost
@@ -468,20 +468,20 @@ export class OrchestrationEngine {
 	}
 
 	private generateRecommendations(
-		analysis: TaskAnalysis, 
-		executedSteps: ExecutionStep[], 
+		analysis: TaskAnalysis,
+		executedSteps: ExecutionStep[],
 		errors: string[]
 	): string[] {
 		const recommendations: string[] = []
-		
+
 		if (errors.length > 0) {
 			recommendations.push('Consider breaking down complex tasks into smaller steps')
 		}
-		
+
 		if (analysis.parallelizable && executedSteps.every(s => !s.parallel)) {
 			recommendations.push('Task could benefit from parallel execution for faster completion')
 		}
-		
+
 		if (analysis.complexity === 'enterprise') {
 			recommendations.push('Consider implementing checkpoints for long-running tasks')
 		}
@@ -492,7 +492,7 @@ export class OrchestrationEngine {
 	private inferFunctionsFromMode(mode: ModeConfig): string[] {
 		const description = mode.description?.toLowerCase() || ''
 		const name = mode.name.toLowerCase()
-		
+
 		// Infer functions from mode description and name
 		if (description.includes('test') || name.includes('test')) {
 			return ['testing', 'validation']
@@ -503,20 +503,20 @@ export class OrchestrationEngine {
 		if (description.includes('doc') || name.includes('doc')) {
 			return ['documentation', 'technical_writing']
 		}
-		
+
 		return ['general_assistance']
 	}
 
 	private inferComplexityFromMode(mode: ModeConfig): 'low' | 'medium' | 'high' {
 		const description = mode.description?.toLowerCase() || ''
-		
+
 		if (description.includes('architect') || description.includes('design')) {
 			return 'high'
 		}
 		if (description.includes('implement') || description.includes('code')) {
 			return 'medium'
 		}
-		
+
 		return 'low'
 	}
 
@@ -527,13 +527,13 @@ export class OrchestrationEngine {
 			'complex': 0.7,
 			'enterprise': 0.6
 		}[complexity] || 0.5
-		
+
 		const costScore = {
 			'efficient': 0.9,
 			'balanced': 0.8,
 			'premium': 0.7
 		}[capability.costLevel] || 0.5
-		
+
 		return Math.round((complexityScore + costScore) / 2 * 100) / 100
 	}
 
@@ -543,27 +543,27 @@ export class OrchestrationEngine {
 			'balanced': 0.05,
 			'premium': 0.15
 		}[capability.costLevel] || 0.05
-		
+
 		const complexityMultiplier = {
 			'simple': 1,
 			'medium': 2,
 			'complex': 4,
 			'enterprise': 8
 		}[complexity] || 1
-		
+
 		return baseCost * complexityMultiplier
 	}
 
 	private estimateTime(capability: AgentCapability, complexity: string): number {
 		const baseTime = capability.constraints.timeoutMinutes || 15
-		
+
 		const complexityMultiplier = {
 			'simple': 0.5,
 			'medium': 1,
 			'complex': 2,
 			'enterprise': 3
 		}[complexity] || 1
-		
+
 		return Math.round(baseTime * complexityMultiplier)
 	}
 
@@ -574,7 +574,7 @@ export class OrchestrationEngine {
 			'complex': 7,
 			'enterprise': 15
 		}[complexity] || 1
-		
+
 		return complexityScore * Math.max(1, domainCount)
 	}
 }

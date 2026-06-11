@@ -18,7 +18,7 @@ class MultiLineDecoratedClass:
 # Method definition - demonstrates class method structure
 class MethodContainer:
     """Class containing method definitions"""
-    
+
     def multi_line_method(
         self,
         param1: str,

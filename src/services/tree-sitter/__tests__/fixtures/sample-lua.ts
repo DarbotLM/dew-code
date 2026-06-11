@@ -23,7 +23,7 @@ end
 -- Table with method declaration test - at least 4 lines long
 local test_table_with_methods = {
     data = "test data",
-    
+
     test_method = function(
         self,
         param
@@ -108,13 +108,13 @@ do
 end
 
 -- Variable declaration test - at least 4 lines long
-test_variable_declaration = 
+test_variable_declaration =
     "This is a global variable" ..
     " with a long string" ..
     " split across multiple lines"
 
 -- Local variable declaration test - at least 4 lines long
-local test_local_variable = 
+local test_local_variable =
     "This is a local variable" ..
     " with a long string" ..
     " split across multiple lines"

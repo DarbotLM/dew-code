@@ -11,9 +11,9 @@
 </sub>
 </div>
 
-# Вклад в Roo Code
+# Вклад в Dew-Coder
 
-Roo Code — проект, управляемый сообществом, и мы высоко ценим каждый вклад. Для упрощения сотрудничества мы работаем по принципу [Issue-First](#подход-issue-first), что означает, что все [Pull Request (PR)](#отправка-pull-request) должны сначала быть связаны с GitHub Issue. Пожалуйста, внимательно ознакомься с этим руководством.
+Dew-Coder — проект, управляемый сообществом, и мы высоко ценим каждый вклад. Для упрощения сотрудничества мы работаем по принципу [Issue-First](#подход-issue-first), что означает, что все [Pull Request (PR)](#отправка-pull-request) должны сначала быть связаны с GitHub Issue. Пожалуйста, внимательно ознакомься с этим руководством.
 
 ## Содержание
 
@@ -52,10 +52,10 @@ Roo Code — проект, управляемый сообществом, и м�
 
 Упоминай связь с этими направлениями в своих PR.
 
-### 3. Присоединяйся к сообществу Roo Code
+### 3. Присоединяйся к сообществу Dew-Coder
 
-- **Основной способ:** Присоединись к нашему [Discord](https://discord.gg/roocode) и отправь личное сообщение **Hannes Rudolph (`hrudolph`)**.
-- **Альтернатива:** Опытные участники могут взаимодействовать напрямую через [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1).
+- **Основной способ:** Присоединись к нашему [Discord](https://github.com/darbotlm/dew-code/issues) и отправь личное сообщение **Hannes Rudolph (`hrudolph`)**.
+- **Альтернатива:** Опытные участники могут взаимодействовать напрямую через [GitHub Projects](https://github.com/orgs/darbotlm/projects).
 
 ## Поиск и планирование вклада
 
@@ -69,7 +69,7 @@ Roo Code — проект, управляемый сообществом, и м�
 
 Весь вклад должен начинаться с GitHub Issue.
 
-- **Проверь существующие issues:** Поищи в [GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues).
+- **Проверь существующие issues:** Поищи в [GitHub Issues](https://github.com/darbotlm/dew-code/issues).
 - **Создай issue:** Используй подходящие шаблоны:
     - **Баги:** Шаблон "Bug Report".
     - **Функции:** Шаблон "Detailed Feature Proposal". Требуется одобрение перед началом.
@@ -79,14 +79,14 @@ Roo Code — проект, управляемый сообществом, и м�
 
 ### Решение, над чем работать
 
-- Проверь [GitHub проект](https://github.com/orgs/RooCodeInc/projects/1) на наличие незанятых "Good First Issues".
-- Для документации посети [Roo Code Docs](https://github.com/RooCodeInc/Roo-Code-Docs).
+- Проверь [GitHub проект](https://github.com/orgs/darbotlm/projects) на наличие незанятых "Good First Issues".
+- Для документации посети [Dew-Coder Docs](https://github.com/darbotlm/dew-code).
 
 ### Сообщение об ошибках
 
 - Сначала проверь существующие сообщения.
-- Создай новые сообщения об ошибках, используя [шаблон "Bug Report"](https://github.com/RooCodeInc/Roo-Code/issues/new/choose).
-- **Уязвимости безопасности:** Сообщай приватно через [security advisories](https://github.com/RooCodeInc/Roo-Code/security/advisories/new).
+- Создай новые сообщения об ошибках, используя [шаблон "Bug Report"](https://github.com/darbotlm/dew-code/issues).
+- **Уязвимости безопасности:** Сообщай приватно через [security advisories](https://github.com/darbotlm/dew-code/security/advisories/new).
 
 ## Процесс разработки и отправки
 
@@ -95,7 +95,7 @@ Roo Code — проект, управляемый сообществом, и м�
 1. **Fork & Clone:**
 
 ```
-git clone https://github.com/ТВОЙ_ПОЛЬЗОВАТЕЛЬ/Roo-Code.git
+git clone https://github.com/ТВОЙ_ПОЛЬЗОВАТЕЛЬ/dew-code.git
 ```
 
 2. **Установка зависимостей:**
@@ -135,4 +135,4 @@ npm run install:all
 
 ## Юридическая информация
 
-Отправляя pull request, ты соглашаешься, что твой вклад будет лицензирован под лицензией Apache 2.0, в соответствии с лицензией Roo Code.
+Отправляя pull request, ты соглашаешься, что твой вклад будет лицензирован под лицензией Apache 2.0, в соответствии с лицензией Dew-Coder.

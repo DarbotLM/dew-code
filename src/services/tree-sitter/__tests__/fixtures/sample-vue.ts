@@ -13,7 +13,7 @@ export const sampleVue = `
 <script>
 export default {
   name: 'ExampleComponent',
-  
+
   components: {
     ChildComponent,
     AnotherComponent,

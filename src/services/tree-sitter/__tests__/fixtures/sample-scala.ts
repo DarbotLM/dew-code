@@ -64,7 +64,7 @@ implicit class RichString(val str: String) {
 // Type alias and lazy val
 object Types {
   type StringMap[T] = Map[String, T]
-  
+
   lazy val heavyComputation: Int = {
     Thread.sleep(1000)
     42
@@ -87,7 +87,7 @@ class ForComprehension {
 object Variables {
   val immutableValue: Int = 42
   var mutableValue: String = "changeable"
-  
+
   private lazy val lazyValue: Double = {
     math.random()
   }

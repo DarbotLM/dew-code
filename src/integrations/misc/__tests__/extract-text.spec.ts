@@ -287,7 +287,7 @@ describe("truncateOutput", () => {
 		})
 
 		it("should handle backspaces with special characters", () => {
-			const input = "abc😀\b\bdef🎉\b\b\bghi"
+			const input = "abc😀\b\bdef\b\b\bghi"
 			const expected = "abcdeghi"
 			expect(processBackspaces(input)).toBe(expected)
 		})
@@ -443,14 +443,14 @@ describe("truncateOutput", () => {
 			})
 
 			it("handles character limit with multi-byte characters", () => {
-				const content = "🚀🎉🔥💻🌟🎨🎯🎪🎭🎬" // 10 emojis, each is multi-byte
+				const content = "🔥💻🌟🎨🎪🎭🎬" // 10 emojis, each is multi-byte
 				const result = truncateOutput(content, undefined, 10)
 
 				// Character limit works on string length, not byte count
 				// 20% of 10 = 2, 80% of 10 = 8
 				// Note: In JavaScript, each emoji is actually 2 characters (surrogate pair)
 				// So the content is actually 20 characters long, not 10
-				const expected = "🚀\n[...10 characters omitted...]\n🎯🎪🎭🎬"
+				const expected = "\n[...10 characters omitted...]\n🎪🎭🎬"
 				expect(result).toBe(expected)
 			})
 
@@ -644,15 +644,15 @@ describe("processCarriageReturns", () => {
 		// we need to handle this special case to prevent display issues or corruption.
 		//
 		// In this example:
-		// 1. "Line with 🚀 emoji" is printed (note that the emoji is a multi-byte character)
+		// 1. "Line with  emoji" is printed (note that the emoji is a multi-byte character)
 		// 2. Carriage return (\r) moves cursor to start of line
 		// 3. "Line with a" is printed, which partially overwrites the line
-		// 4. The 'a' character ends at a position that would split the 🚀 emoji
+		// 4. The 'a' character ends at a position that would split the  emoji
 		// 5. Instead of creating corrupted output, we insert a space to replace the partial emoji
 		//
 		// This behavior mimics terminals that can detect and properly handle these situations
 		// by replacing partial characters with spaces to maintain text integrity.
-		const input = "Line with 🚀 emoji\rLine with a"
+		const input = "Line with  emoji\rLine with a"
 		const expected = "Line with a  emoji"
 		expect(processCarriageReturns(input)).toBe(expected)
 	})

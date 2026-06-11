@@ -53,8 +53,8 @@ async function loadLanguage(langName: string, sourceDirectory?: string) {
 let isParserInitialized = false
 
 /*
-Using node bindings for tree-sitter is problematic in vscode extensions 
-because of incompatibility with electron. Going the .wasm route has the 
+Using node bindings for tree-sitter is problematic in vscode extensions
+because of incompatibility with electron. Going the .wasm route has the
 advantage of not having to build for multiple architectures.
 
 We use web-tree-sitter and tree-sitter-wasms which provides auto-updating

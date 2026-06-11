@@ -47,7 +47,7 @@ class StandardClassDefinition
     private string $standardPrivateProperty;
     protected int $standardProtectedProperty;
     public ?array $standardNullableProperty;
-    
+
     // Constructor with property promotion
     public function __construct(
         private readonly string $standardPromotedProperty,
@@ -77,18 +77,18 @@ interface StandardInterfaceDefinition
         StandardClassDefinition $standardParam1,
         string $standardParam2
     ): array;
-    
+
     // Method with nullable return
     public function standardInterfaceMethodNullable(
         int $standardParam1,
         bool $standardParam2 = true
     ): ?string;
-    
+
     // Method with void return
     public function standardInterfaceMethodVoid(
         string $standardParam
     ): void;
-    
+
     // Method with mixed return (PHP 8.0+)
     public function standardInterfaceMethodMixed(
         mixed $standardParam
@@ -101,7 +101,7 @@ trait StandardTraitDefinition
     // Trait properties
     private string $standardTraitProperty = '';
     protected array $standardTraitConfig = [];
-    
+
     // Trait method with visibility modifier
     protected function standardTraitMethod(
         int $standardParam = 0,
@@ -112,7 +112,7 @@ trait StandardTraitDefinition
         $this->standardTraitProperty = (string)$standardParam;
         return $this->standardTraitProperty;
     }
-    
+
     // Abstract method in trait
     abstract protected function standardTraitAbstractMethod(): void;
 }
@@ -125,7 +125,7 @@ enum StandardEnumDefinition: string
     case PERMISSION_WRITE = 'write';
     case PERMISSION_EXECUTE = 'execute';
     case PERMISSION_DELETE = 'delete';
-    
+
     // Enum method using match expression
     public function standardEnumMethod(): array
     {
@@ -136,7 +136,7 @@ enum StandardEnumDefinition: string
             self::PERMISSION_DELETE => ['read', 'write', 'delete'],
         };
     }
-    
+
     // Static enum method
     public static function standardEnumFromString(
         string $permission
@@ -162,10 +162,10 @@ abstract class StandardAbstractClassDefinition
     // Class constants
     protected const STANDARD_STATUS_ACTIVE = 'active';
     protected const STANDARD_STATUS_INACTIVE = 'inactive';
-    
+
     // Static property with type
     private static string $standardStaticProperty = '';
-    
+
     // Constructor with promoted properties
     public function __construct(
         private string $standardPromotedProperty,
@@ -175,13 +175,13 @@ abstract class StandardAbstractClassDefinition
         self::$standardStaticProperty = $standardPromotedProperty;
         $this->validateConfig();
     }
-    
+
     // Abstract method declaration
     abstract public function standardAbstractMethod(
         string $standardParam,
         array $standardOptions = []
     ): string;
-    
+
     // Static method with return type
     public static function standardStaticMethod(
         string $standardValue
@@ -189,7 +189,7 @@ abstract class StandardAbstractClassDefinition
         self::$standardStaticProperty = $standardValue;
         return self::$standardStaticProperty;
     }
-    
+
     // Protected validation method
     protected function validateConfig(): void
     {
@@ -218,7 +218,7 @@ final class StandardFinalClassDefinition extends StandardAbstractClassDefinition
             $standardParam
         );
     }
-    
+
     // Method with union types (PHP 8.0+)
     public function standardUnionTypesMethod(
         string|int|float $standardParam,
@@ -226,7 +226,7 @@ final class StandardFinalClassDefinition extends StandardAbstractClassDefinition
     ): string|int {
         return $standardFlag ? (string)$standardParam : (int)$standardParam;
     }
-    
+
     // Method with intersection types (PHP 8.1+)
     public function standardIntersectionTypesMethod(
         Countable&Iterator $standardParam,
@@ -278,7 +278,7 @@ function standardGlobalFunction(
             $standardParam2 ?? []
         );
     }
-    
+
     return $standardParam2 ?? $standardParam1;
 }
 

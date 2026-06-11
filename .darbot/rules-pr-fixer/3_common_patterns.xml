@@ -33,7 +33,7 @@
       <command tool="git">git rebase --dry-run origin/main</command>
     </template>
   </pattern>
-  
+
   <pattern name="non_interactive_rebase">
     <usage>Rebase operations using GIT_EDITOR to prevent interactive prompts.</usage>
     <template>
@@ -43,7 +43,7 @@
       <command tool="git">git push --force-with-lease <remote> <pr_branch></command>
     </template>
   </pattern>
-  
+
   <pattern name="conflict_status_check">
     <usage>Check current conflict status without interactive input.</usage>
     <template>
@@ -61,7 +61,7 @@
       <command tool="git">git fetch origin pull/<pr_number>/head:<branch_name> && git checkout <branch_name></command>
     </template>
   </pattern>
-  
+
   <pattern name="determine_push_remote">
     <usage>Determine the correct remote to push to (handles forks).</usage>
     <template>
@@ -74,7 +74,7 @@
       <comment>Use appropriate remote based on PR source</comment>
     </template>
   </pattern>
-  
+
   <pattern name="real_time_monitoring">
     <usage>Monitor PR checks in real-time as they run.</usage>
     <template>
@@ -84,7 +84,7 @@
       <command tool="gh">gh run list --pr <pr_number> --json databaseId,status,conclusion</command>
     </template>
   </pattern>
-  
+
   <pattern name="safe_push_operations">
     <usage>Push operations that handle both origin and fork remotes correctly.</usage>
     <template>
@@ -122,19 +122,19 @@
       <comment>- Build artifacts (dist/, build/, *.pyc, *.o)</comment>
       <comment>- IDE files (.idea/, .vscode/, *.iml)</comment>
       <comment>- Temporary files (*.tmp, *.temp, *~)</comment>
-      
+
       <comment>Option 1: Stage only modified tracked files (safest)</comment>
       <command tool="git">git add -u</command>
-      
+
       <comment>Option 2: Stage specific files by path</comment>
       <command tool="git">git add src/file1.ts src/file2.ts</command>
-      
+
       <comment>Option 3: Use pathspec to add files matching a pattern</comment>
       <command tool="git">git add '*.ts' '*.tsx' --</command>
-      
+
       <comment>Option 4: Interactive staging to review each change</comment>
       <command tool="git">git add -p</command>
-      
+
       <comment>Always verify what's staged before committing</comment>
       <command tool="git">git diff --cached --name-only</command>
     </template>

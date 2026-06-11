@@ -3,11 +3,11 @@
     This mode uses the GitHub CLI (gh) for all GitHub operations.
     The mode assumes the user has gh installed and authenticated. If authentication errors occur,
     the mode will prompt the user to authenticate.
-    
+
     Users must provide full GitHub issue URLs (e.g., https://github.com/owner/repo/issues/123)
     so the mode can extract the repository information dynamically.
   </overview>
-  
+
   <url_parsing>
     <pattern>https://github.com/[owner]/[repo]/issues/[number]</pattern>
     <extraction>
@@ -38,7 +38,7 @@
         </execute_command>
       </example>
     </command>
-    
+
     <command name="gh_issue_comments">
       <purpose>Get additional context and requirements from issue comments</purpose>
       <when>Always use after viewing issue to see full discussion</when>
@@ -49,8 +49,8 @@
         </execute_command>
       </example>
     </command>
-    
-    
+
+
     <command name="gh_repo_view_commits">
       <purpose>Find recent changes to affected files</purpose>
       <when>Use during codebase exploration</when>
@@ -61,7 +61,7 @@
         </execute_command>
       </example>
     </command>
-    
+
     <command name="gh_search_code">
       <purpose>Search for code patterns on GitHub</purpose>
       <when>Use to supplement local codebase_search</when>
@@ -73,7 +73,7 @@
       </example>
     </command>
   </primary_commands>
-  
+
   <optional_commands>
     <command name="gh_issue_comment">
       <purpose>Add progress updates or ask questions on issues</purpose>
@@ -85,7 +85,7 @@
         </execute_command>
       </example>
     </command>
-    
+
     <command name="gh_pr_list">
       <purpose>Find related or similar PRs</purpose>
       <when>Use to understand similar changes</when>
@@ -96,7 +96,7 @@
         </execute_command>
       </example>
     </command>
-    
+
     <command name="gh_pr_diff">
       <purpose>View the diff of a pull request</purpose>
       <when>Use to understand changes in a PR</when>
@@ -108,7 +108,7 @@
       </example>
     </command>
   </optional_commands>
-  
+
   <pull_request_commands>
     <command name="gh_pr_create">
       <purpose>Create a pull request</purpose>
@@ -134,7 +134,7 @@ Fixes #123
         The gh CLI will automatically handle the fork workflow.
       </note>
     </command>
-    
+
     <command name="gh_repo_fork">
       <purpose>Fork the repository if user doesn't have push access</purpose>
       <when>Use if user needs to work from a fork</when>
@@ -145,7 +145,7 @@ Fixes #123
         </execute_command>
       </example>
     </command>
-    
+
     <command name="gh_pr_checks">
       <purpose>Monitor CI/CD checks on a pull request</purpose>
       <when>Use after creating PR to ensure checks pass</when>
@@ -157,7 +157,7 @@ Fixes #123
       </example>
     </command>
   </pull_request_commands>
-  
+
   <workflow_helpers>
     <command name="gh_api">
       <purpose>Access GitHub API directly for advanced operations</purpose>
@@ -167,19 +167,19 @@ Fixes #123
         <execute_command>
         <command>gh api repos/[owner]/[repo] --jq '.default_branch'</command>
         </execute_command>
-        
+
         <!-- Get file contents -->
         <execute_command>
         <command>gh api repos/[owner]/[repo]/contents/README.md --jq '.content' | base64 -d</command>
         </execute_command>
-        
+
         <!-- Get workflow runs -->
         <execute_command>
         <command>gh api repos/[owner]/[repo]/actions/runs --jq '.workflow_runs[0:5] | .[] | .id, .status, .conclusion'</command>
         </execute_command>
       </examples>
     </command>
-    
+
     <command name="gh_run_list">
       <purpose>Check GitHub Actions workflow status</purpose>
       <when>Use to monitor CI/CD pipeline</when>
@@ -191,7 +191,7 @@ Fixes #123
       </example>
     </command>
   </workflow_helpers>
-  
+
   <error_handling>
     <scenario name="not_authenticated">
       <error>gh: Not authenticated. Run 'gh auth login' to authenticate.</error>
@@ -207,7 +207,7 @@ Fixes #123
         </ask_followup_question>
       </action>
     </scenario>
-    
+
     <scenario name="no_permissions">
       <error>HTTP 403: Resource not accessible by integration</error>
       <action>

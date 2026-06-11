@@ -38,7 +38,7 @@ jobs:
             const [maj, min] = pkg.version.split('.');
             pkg.version = `${maj}.${min}.${process.env.VERSION_NUMBER}`;
             fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
-            console.log(`🔖 Nightly version set to ${pkg.version}`);
+            console.log(`Version: Nightly version set to ${pkg.version}`);
           EOF
       - name: Build VSIX
         run: pnpm vsix:nightly # Produces bin/roo-code-nightly-0.0.[count].vsix

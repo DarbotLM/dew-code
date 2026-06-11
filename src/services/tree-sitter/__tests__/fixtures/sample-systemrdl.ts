@@ -3,18 +3,18 @@ export default String.raw`
 addrmap top_map {
     name = "Top Level Address Map";
     desc = "Example SystemRDL address map";
-    
+
     reg block_ctrl {
         name = "Block Control Register";
         desc = "Control register for the block";
-        
+
         field {
             name = "Enable";
             desc = "Block enable bit";
             sw = rw;
             hw = r;
         } enable[1:0];
-        
+
         field {
             name = "Status";
             desc = "Block status";
@@ -31,7 +31,7 @@ reg status_reg {
         sw = rw;
         hw = w;
         reset = 0x0;
-        
+
         enum error_types {
             NO_ERROR = 0;
             TIMEOUT = 1;
@@ -64,19 +64,19 @@ enum interrupt_type {
 reg complex_reg {
     name = "Complex Register";
     desc = "Register with multiple fields";
-    
+
     field {
         name = "Control";
         sw = rw;
         hw = r;
     } ctrl[7:0];
-    
+
     field {
         name = "Status";
         sw = r;
         hw = w;
     } status[15:8];
-    
+
     field {
         name = "Flags";
         sw = rw1c;

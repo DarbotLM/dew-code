@@ -1,4 +1,4 @@
-name: Preview roocode.com
+name: Preview dewcode.com
 
 on:
     push:
@@ -74,7 +74,7 @@ jobs:
                         return;
                       }
 
-                      const comment = commentIdentifier + '\n🚀 **Preview deployed!**\n\nYour changes have been deployed to Vercel:\n\n**Preview URL:** ' + deploymentUrl + '\n\nThis preview will be updated automatically when you push new commits to this PR.';
+                      const comment = commentIdentifier + '\n **Preview deployed!**\n\nYour changes have been deployed to Vercel:\n\n**Preview URL:** ' + deploymentUrl + '\n\nThis preview will be updated automatically when you push new commits to this PR.';
 
                       await github.rest.issues.createComment({
                         owner: context.repo.owner,

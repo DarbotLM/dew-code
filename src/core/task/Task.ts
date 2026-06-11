@@ -1964,7 +1964,7 @@ export class Task extends EventEmitter<ClineEvents> {
 	public async execute(): Promise<any> {
 		this.parallelExecutionStatus = 'running'
 		this.executionStartTime = new Date()
-		
+
 		try {
 			// If this is not a parallel execution, use the standard task flow
 			if (!this.isParallelExecution) {
@@ -1988,16 +1988,16 @@ export class Task extends EventEmitter<ClineEvents> {
 		// This would typically involve the normal task execution
 		// For now, we'll simulate task execution with a delay
 		await delay(1000) // Simulate work
-		
+
 		this.parallelExecutionStatus = 'completed'
 		this.executionEndTime = new Date()
-		
+
 		const result = {
 			success: true,
 			taskId: this.taskId,
 			message: 'Task completed successfully'
 		}
-		
+
 		this.parallelResult = result
 		return result
 	}
@@ -2014,22 +2014,22 @@ export class Task extends EventEmitter<ClineEvents> {
 
 			// Execute the actual task logic
 			const result = await this.performTaskWork()
-			
+
 			this.parallelExecutionStatus = 'completed'
 			this.executionEndTime = new Date()
 			this.parallelResult = result
-			
+
 			return result
 
 		} catch (error) {
 			this.parallelExecutionStatus = 'failed'
 			this.executionEndTime = new Date()
-			
+
 			// Handle retry logic
 			if (this.shouldRetry(error as Error)) {
 				return await this.retry()
 			}
-			
+
 			throw error
 		}
 	}
@@ -2040,16 +2040,16 @@ export class Task extends EventEmitter<ClineEvents> {
 	private async performTaskWork(): Promise<any> {
 		// This is where the actual task execution logic would go
 		// For now, we'll simulate based on the task type or description
-		
+
 		// Simulate different execution times based on task complexity
 		const simulatedDuration = Math.random() * 5000 + 1000 // 1-6 seconds
 		await delay(simulatedDuration)
-		
+
 		// Check if we should simulate a failure
 		if (Math.random() < 0.1) { // 10% failure rate for testing
 			throw new Error(`Simulated failure for task ${this.taskId}`)
 		}
-		
+
 		return {
 			success: true,
 			taskId: this.taskId,
@@ -2072,8 +2072,8 @@ export class Task extends EventEmitter<ClineEvents> {
 	 * Determine if the task should be retried
 	 */
 	private shouldRetry(error: Error): boolean {
-		return this.retryCount < this.maxRetries && 
-			   !this.abort && 
+		return this.retryCount < this.maxRetries &&
+			   !this.abort &&
 			   this.parallelExecutionStatus !== 'cancelled'
 	}
 
@@ -2083,11 +2083,11 @@ export class Task extends EventEmitter<ClineEvents> {
 	private async retry(): Promise<any> {
 		this.retryCount++
 		this.parallelExecutionStatus = 'running'
-		
+
 		// Wait a bit before retrying (exponential backoff)
 		const backoffTime = Math.pow(2, this.retryCount) * 1000
 		await delay(backoffTime)
-		
+
 		return await this.executeParallelTask()
 	}
 
@@ -2134,7 +2134,7 @@ export class Task extends EventEmitter<ClineEvents> {
 		retryCount: number
 		result?: any
 	} {
-		const duration = this.executionStartTime && this.executionEndTime 
+		const duration = this.executionStartTime && this.executionEndTime
 			? this.executionEndTime.getTime() - this.executionStartTime.getTime()
 			: undefined
 
@@ -2161,8 +2161,8 @@ export class Task extends EventEmitter<ClineEvents> {
 	 * Check if this task can be executed in parallel with others
 	 */
 	public canRunInParallel(): boolean {
-		return this.isParallelExecution && 
-			   this.parallelExecutionStatus === 'pending' && 
+		return this.isParallelExecution &&
+			   this.parallelExecutionStatus === 'pending' &&
 			   this.areDependenciesSatisfied()
 	}
 

@@ -83,12 +83,12 @@ export default String.raw`
 .test-nested-ruleset-definition {
   display: flex;
   flex-direction: column;
-  
+
   & > .nested-child {
     margin-bottom: 10px;
     padding: 15px;
   }
-  
+
   & .deeply-nested {
     color: blue;
     font-weight: bold;

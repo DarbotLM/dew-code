@@ -179,7 +179,7 @@ function main() {
 		const missingKeys = findMissingI18nKeys()
 
 		if (missingKeys.length === 0) {
-			console.log("\n✅ All i18n keys are present!")
+			console.log("\nPASS All i18n keys are present!")
 			return
 		}
 

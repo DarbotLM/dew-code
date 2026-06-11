@@ -47,7 +47,7 @@ export const AccountView = ({ userInfo, isAuthenticated, cloudApiUrl, onDone }: 
 	const handleVisitCloudWebsite = () => {
 		// Send telemetry for cloud website visit
 		telemetryClient.capture(TelemetryEventName.ACCOUNT_CONNECT_CLICKED)
-		const cloudUrl = cloudApiUrl || "https://app.roocode.com"
+		const cloudUrl = cloudApiUrl || "https://app.dewcode.com"
 		vscode.postMessage({ type: "openExternal", url: cloudUrl })
 	}
 

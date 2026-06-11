@@ -15,7 +15,7 @@
         <scenario>The request is ambiguous.</scenario>
         <scenario>The user explicitly asks for options.</scenario>
       </when_to_ask>
-      
+
       <question_example><![CDATA[
 <ask_followup_question>
 <question>Found multiple auth systems. Which to document?</question>
@@ -35,7 +35,7 @@
         <trigger>Extraction is complete.</trigger>
         <trigger>Unexpected complexity is found.</trigger>
       </when_to_update>
-      
+
       <update_format>
         <template>
           Analyzing [component]...
@@ -147,7 +147,7 @@ export class AuthService {
     <special_sections>
       <alerts>
         <type name="warning">
-          <format>> ⚠️ **Warning**: [message]</format>
+          <format>> WARNING: **Warning**: [message]</format>
           <use_for>Security, breaking changes, deprecations.</use_for>
         </type>
         <type name="note">
@@ -223,12 +223,12 @@ Documentation extracted for the authentication system.
 - Troubleshooting for 3 common issues included.
 
 **Coverage**:
-- ✅ Technical details
-- ✅ API reference
-- ✅ Configuration guide
-- ✅ Security guide
-- ✅ User and developer guides
-- ✅ Troubleshooting
+- PASS Technical details
+- PASS API reference
+- PASS Configuration guide
+- PASS Security guide
+- PASS User and developer guides
+- PASS Troubleshooting
     ]]></example>
     <example_review><![CDATA[
 Review of the documentation section is complete.

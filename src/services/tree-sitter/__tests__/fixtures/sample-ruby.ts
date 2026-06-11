@@ -508,7 +508,7 @@ class ErrorHandlingImplementation
   class BusinessLogicError < StandardError; end
   class ValidationError < StandardError; end
   class ProcessingError < StandardError; end
-  
+
   def process_with_error_handling(data)
     begin
       validate_input_data(data)

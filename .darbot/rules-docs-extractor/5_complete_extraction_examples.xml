@@ -135,7 +135,7 @@ The authentication system provides secure user authentication using JWT (JSON We
 ### Version Information
 - **Current Version**: 2.1.0
 - **Minimum Node.js**: 14.0.0
-- **Dependencies**: 
+- **Dependencies**:
   - jsonwebtoken: ^9.0.0
   - bcrypt: ^5.1.0
   - passport: ^0.6.0
@@ -443,12 +443,12 @@ export class CustomAuthService extends AuthService {
   async validateUser(email: string, password: string): Promise<User> {
     // Add custom validation logic
     const user = await super.validateUser(email, password);
-    
+
     // Additional checks
     if (user.suspended) {
       throw new UnauthorizedException('Account suspended');
     }
-    
+
     return user;
   }
 }
@@ -465,7 +465,7 @@ describe('AuthController', () => {
         password: 'TestPass123!'
       })
       .expect(200);
-    
+
     expect(response.body).toHaveProperty('tokens.accessToken');
   });
 });
@@ -858,7 +858,7 @@ This feedback can be copied and pasted for your documentation team.
       </step>
     </workflow>
   </example>
- 
+
    <best_practices>
      <practice name="comprehensive_coverage">
        <description>Ensure all aspects are documented</description>

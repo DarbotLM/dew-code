@@ -250,7 +250,7 @@ export const MarketplaceInstallModal: React.FC<MarketplaceInstallModalProps> = (
 					// Post-installation options
 					<div className="space-y-4 py-2">
 						<div className="text-center space-y-4">
-							<div className="text-green-500 text-lg">✓ {t("marketplace:install.installed")}</div>
+							<div className="text-green-500 text-lg">OK {t("marketplace:install.installed")}</div>
 							<p className="text-sm text-muted-foreground">
 								{item.type === "mcp"
 									? t("marketplace:install.whatNextMcp")

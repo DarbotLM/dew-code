@@ -98,9 +98,9 @@
 
 # 9. TRANSLATOR'S CHECKLIST
 
-- ✓ Used informal tone consistently ("du" not "Sie")
-- ✓ Preserved all placeholders exactly as in the English source
-- ✓ Maintained consistent terminology with existing translations
-- ✓ Kept technical terms and brand names unchanged where appropriate
-- ✓ Preserved the original perspective (user→system vs system→user)
-- ✓ Adapted the text appropriately for UI context (buttons vs tooltips)
+- OK Used informal tone consistently ("du" not "Sie")
+- OK Preserved all placeholders exactly as in the English source
+- OK Maintained consistent terminology with existing translations
+- OK Kept technical terms and brand names unchanged where appropriate
+- OK Preserved the original perspective (user→system vs system→user)
+- OK Adapted the text appropriately for UI context (buttons vs tooltips)

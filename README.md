@@ -16,7 +16,7 @@
   <p align="center">
   <img src="https://media.githubusercontent.com/media/darbotlm/dew-code/main/src/assets/docs/demo.gif" width="100%" />
   </p>
-  <p><strong>Dew-Coder</strong> is a research fork of <a href="https://github.com/RooCodeInc/Roo-Code">Roo Code</a>, an AI-powered autonomous coding agent.</p>
+  <p><strong>Dew-Coder</strong> is a research fork of <a href="https://github.com/darbotlm/dew-code">Dew-Coder</a>, an AI-powered autonomous coding agent.</p>
 </div>
 <br>
 
@@ -93,7 +93,7 @@ Make Dew-Coder work your way with:
 - [CHANGELOG.md](CHANGELOG.md) for release notes and fixes
 - [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidance
 - [LICENSE](LICENSE) for licensing details
-- Upstream Roo Code documentation and community resources may help with inherited behavior, but they are maintained by Roo Code and should be treated as upstream references rather than Dew-Coder-owned resources.
+- Upstream Dew-Coder documentation and community resources may help with inherited behavior, but they are maintained by Dew-Coder and should be treated as upstream references rather than Dew-Coder-owned resources.
 
 ---
 

@@ -7,7 +7,7 @@
     5. Verify fix works
     6. Check for side effects
   </bug_fix_pattern>
-  
+
   <feature_implementation_pattern>
     1. Understand all requirements
     2. Design the solution

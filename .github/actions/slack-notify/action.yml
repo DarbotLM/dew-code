@@ -26,11 +26,11 @@ runs:
 
         echo '${{ inputs.failed-jobs }}' | jq -r 'to_entries[] | select(.value.result == "failure") | .key' | while read job; do
           case $job in
-            "check-translations") failed_list="${failed_list}❌ Translation check\n" ;;
-            "knip") failed_list="${failed_list}❌ Knip analysis\n" ;;
-            "compile") failed_list="${failed_list}❌ Compile & lint\n" ;;
-            "unit-test") failed_list="${failed_list}❌ Unit tests\n" ;;
-            "integration-test") failed_list="${failed_list}❌ Integration tests\n" ;;
+            "check-translations") failed_list="${failed_list}FAIL Translation check\n" ;;
+            "knip") failed_list="${failed_list}FAIL Knip analysis\n" ;;
+            "compile") failed_list="${failed_list}FAIL Compile & lint\n" ;;
+            "unit-test") failed_list="${failed_list}FAIL Unit tests\n" ;;
+            "integration-test") failed_list="${failed_list}FAIL Integration tests\n" ;;
           esac
         done
 

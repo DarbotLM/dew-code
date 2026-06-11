@@ -11,9 +11,9 @@
 </sub>
 </div>
 
-# Roo Code में योगदान करें
+# Dew-Coder में योगदान करें
 
-Roo Code एक समुदाय-आधारित प्रोजेक्ट है और हम हर योगदान को बहुत महत्व देते हैं। सहयोग को सरल बनाने के लिए, हम [Issue-First](#issue-first-एप्रोच) पद्धति अपनाते हैं, जिसका अर्थ है कि सभी [Pull Requests (PRs)](#pull-request-सबमिट-करना) को पहले GitHub Issue से जोड़ना आवश्यक है। कृपया इस गाइड को ध्यान से पढ़ें।
+Dew-Coder एक समुदाय-आधारित प्रोजेक्ट है और हम हर योगदान को बहुत महत्व देते हैं। सहयोग को सरल बनाने के लिए, हम [Issue-First](#issue-first-एप्रोच) पद्धति अपनाते हैं, जिसका अर्थ है कि सभी [Pull Requests (PRs)](#pull-request-सबमिट-करना) को पहले GitHub Issue से जोड़ना आवश्यक है। कृपया इस गाइड को ध्यान से पढ़ें।
 
 ## विषय सूची
 
@@ -52,10 +52,10 @@ Roo Code एक समुदाय-आधारित प्रोजेक्�
 
 अपने PR में इन क्षेत्रों से संबंधित कार्य का उल्लेख करें।
 
-### 3. Roo Code कम्युनिटी से जुड़ें
+### 3. Dew-Coder कम्युनिटी से जुड़ें
 
-- **मुख्य तरीका:** हमारे [Discord](https://discord.gg/roocode) से जुड़ें और **Hannes Rudolph (`hrudolph`)** को DM भेजें।
-- **विकल्प:** अनुभवी योगदानकर्ता [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1) के माध्यम से सीधे भाग ले सकते हैं।
+- **मुख्य तरीका:** हमारे [Discord](https://github.com/darbotlm/dew-code/issues) से जुड़ें और **Hannes Rudolph (`hrudolph`)** को DM भेजें।
+- **विकल्प:** अनुभवी योगदानकर्ता [GitHub Projects](https://github.com/orgs/darbotlm/projects) के माध्यम से सीधे भाग ले सकते हैं।
 
 ## अपना योगदान ढूंढना और योजना बनाना
 
@@ -69,7 +69,7 @@ Roo Code एक समुदाय-आधारित प्रोजेक्�
 
 हर योगदान GitHub Issue से शुरू होना चाहिए।
 
-- **मौजूदा Issues देखें:** [GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues) में खोजें।
+- **मौजूदा Issues देखें:** [GitHub Issues](https://github.com/darbotlm/dew-code/issues) में खोजें।
 - **Issue बनाएं:** उपयुक्त टेम्पलेट का उपयोग करें:
     - **बग:** "Bug Report" टेम्पलेट।
     - **फीचर्स:** "Detailed Feature Proposal" टेम्पलेट। शुरू करने से पहले अनुमोदन आवश्यक है।
@@ -79,14 +79,14 @@ Roo Code एक समुदाय-आधारित प्रोजेक्�
 
 ### क्या काम करें चुनना
 
-- [GitHub प्रोजेक्ट](https://github.com/orgs/RooCodeInc/projects/1) में असाइन न किए गए "Good First Issues" देखें।
-- डॉक्युमेंटेशन के लिए, [Roo Code Docs](https://github.com/RooCodeInc/Roo-Code-Docs) देखें।
+- [GitHub प्रोजेक्ट](https://github.com/orgs/darbotlm/projects) में असाइन न किए गए "Good First Issues" देखें।
+- डॉक्युमेंटेशन के लिए, [Dew-Coder Docs](https://github.com/darbotlm/dew-code) देखें।
 
 ### बग या समस्या रिपोर्ट करना
 
 - पहले मौजूदा रिपोर्ट देखें।
-- ["Bug Report" टेम्पलेट](https://github.com/RooCodeInc/Roo-Code/issues/new/choose) का उपयोग करके नए बग रिपोर्ट बनाएं।
-- **सुरक्षा कमजोरियां:** [security advisories](https://github.com/RooCodeInc/Roo-Code/security/advisories/new) के माध्यम से निजी तौर पर रिपोर्ट करें।
+- ["Bug Report" टेम्पलेट](https://github.com/darbotlm/dew-code/issues) का उपयोग करके नए बग रिपोर्ट बनाएं।
+- **सुरक्षा कमजोरियां:** [security advisories](https://github.com/darbotlm/dew-code/security/advisories/new) के माध्यम से निजी तौर पर रिपोर्ट करें।
 
 ## विकास और सबमिशन प्रक्रिया
 
@@ -95,7 +95,7 @@ Roo Code एक समुदाय-आधारित प्रोजेक्�
 1. **Fork & Clone:**
 
 ```
-git clone https://github.com/आपका_यूज़रनेम/Roo-Code.git
+git clone https://github.com/आपका_यूज़रनेम/dew-code.git
 ```
 
 2. **डिपेंडेंसी इंस्टॉल करें:**
@@ -135,4 +135,4 @@ npm run install:all
 
 ## कानूनी
 
-Pull Request सबमिट करके, आप सहमत होते हैं कि आपके योगदान Roo Code के लाइसेंसिंग के अनुरूप Apache 2.0 लाइसेंस के तहत लाइसेंस किए जाएंगे।
+Pull Request सबमिट करके, आप सहमत होते हैं कि आपके योगदान Dew-Coder के लाइसेंसिंग के अनुरूप Apache 2.0 लाइसेंस के तहत लाइसेंस किए जाएंगे।
