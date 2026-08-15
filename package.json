@@ -29,7 +29,7 @@
 		"@changesets/cli": "^2.31.0",
 		"@dotenvx/dotenvx": "^1.73.1",
 		"@vscode/vsce": "3.9.2",
-		"esbuild": "^0.28.0",
+		"esbuild": "^0.28.1",
 		"eslint": "^10.4.1",
 		"husky": "^9.1.7",
 		"knip": "^6.16.1",
